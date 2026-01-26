@@ -378,6 +378,7 @@ static int	st_facecount = 0;
 
 // current face index, used by w_faces
 static int	st_faceindex = 0;
+static int      st_external_face = 0;
 
 // holds key-type for each key box on bar
 static int	keyboxes[3]; 
@@ -895,7 +896,31 @@ void ST_updateWidgets(void)
     }
 
     // refresh everything if this is him coming back to life
-    ST_updateFaceWidget();
+    {
+        int base = ST_calcPainOffset();
+        switch (st_external_face)
+        {
+            case 0: // forward
+                st_faceindex = base + 1;
+                break;
+            case 1: // left
+                st_faceindex = base + ST_TURNOFFSET + 1;
+                break;
+            case 2: // right
+                st_faceindex = base + ST_TURNOFFSET;
+                break;
+            case 3: // grin
+                st_faceindex = base + ST_EVILGRINOFFSET;
+                break;
+            case 4: // mouth open
+                st_faceindex = base + ST_OUCHOFFSET;
+                break;
+            default:
+                st_faceindex = base + 1;
+                break;
+        }
+        st_facecount = 1;
+    }
 
     // used by the w_armsbg widget
     st_notdeathmatch = !deathmatch;
@@ -919,6 +944,11 @@ void ST_updateWidgets(void)
     if (!--st_msgcounter)
 	st_chat = st_oldchat;
 
+}
+
+void DG_SetFaceExpression(int expression)
+{
+    st_external_face = expression;
 }
 
 void ST_Ticker (void)
@@ -1413,4 +1443,3 @@ void ST_Init (void)
     ST_loadData();
     st_backing_screen = (byte *) Z_Malloc(ST_WIDTH * ST_HEIGHT, PU_STATIC, 0);
 }
-
