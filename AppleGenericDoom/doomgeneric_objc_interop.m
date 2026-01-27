@@ -16,6 +16,15 @@
 DoomGenericSwift *dgs;
 CFAbsoluteTime timeInSeconds;
 
+#if TARGET_OS_OSX
+#include <pthread.h>
+#define KEY_QUEUE_SIZE 256
+static int key_queue[KEY_QUEUE_SIZE];
+static int key_read = 0;
+static int key_write = 0;
+static pthread_mutex_t key_mutex = PTHREAD_MUTEX_INITIALIZER;
+#endif
+
 void DG_Init()
 {
     dgs = [DoomGenericSwift shared];
@@ -52,10 +61,43 @@ int DG_GetKey(int* pressed, unsigned char* doomKey)
     }
     #endif
 
+    #if TARGET_OS_OSX
+    pthread_mutex_lock(&key_mutex);
+    if (key_read == key_write) {
+        pthread_mutex_unlock(&key_mutex);
+        return 0;
+    }
+
+    int key = key_queue[key_read];
+    key_read = (key_read + 1) % KEY_QUEUE_SIZE;
+    pthread_mutex_unlock(&key_mutex);
+
+    *pressed = key >> 8;
+    *doomKey = key & 0xFF;
+    return 1;
+    #endif
+
     return 0;
 }
 
 void DG_SetWindowTitle(const char * title)
 {
     printf("DG_SetWindowTitle called\n");
+}
+
+void DG_PushKey(int pressed, unsigned char doomKey)
+{
+    #if TARGET_OS_OSX
+    int key = (pressed << 8) | (doomKey & 0xFF);
+    pthread_mutex_lock(&key_mutex);
+    int next = (key_write + 1) % KEY_QUEUE_SIZE;
+    if (next != key_read) {
+        key_queue[key_write] = key;
+        key_write = next;
+    }
+    pthread_mutex_unlock(&key_mutex);
+    #else
+    (void)pressed;
+    (void)doomKey;
+    #endif
 }
