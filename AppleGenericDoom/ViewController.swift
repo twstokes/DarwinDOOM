@@ -18,8 +18,31 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let skview = DoomSKView(frame: .init(origin: .zero, size: viewSize))
+        
+        let skview = DoomSKView(frame: .init(origin: .zero, size: .zero))
+        skview.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(skview)
+
+        /// Add anchors
+        NSLayoutConstraint.activate([
+            skview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            skview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            skview.topAnchor.constraint(equalTo: view.topAnchor),
+            skview.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+
+        /// Maintain the aspect ratio
+        let aspect = view.widthAnchor.constraint(
+            equalTo: view.heightAnchor,
+            multiplier: viewSize.width / viewSize.height
+        )
+
+        NSLayoutConstraint.activate([
+            aspect,
+            skview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            skview.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+
         scene = DoomScene(size: view.bounds.size)
         skview.presentScene(scene)
         startDoom()
@@ -27,7 +50,7 @@ class ViewController: NSViewController {
 
     override func viewWillAppear() {
         super.viewWillAppear()
-        preferredContentSize = viewSize
+
     }
 
     override func viewDidAppear() {
