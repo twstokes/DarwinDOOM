@@ -18,6 +18,7 @@ class ViewController: NSViewController {
 
     private var scene: DoomScene!
     private let webcamCapture = WebcamCapture()
+    private var isFaceControlEnabled = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,14 @@ class ViewController: NSViewController {
 
         scene = DoomScene(size: view.bounds.size)
         skview.presentScene(scene)
-        webcamCapture.start()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleFaceControlToggleRequested(_:)),
+            name: .faceControlToggleRequested,
+            object: nil
+        )
+        let shouldEnable = UserDefaults.standard.bool(forKey: FaceControlSettings.defaultsKey)
+        setFaceControlEnabled(shouldEnable, userInitiated: false)
         startDoom()
     }
 
@@ -85,6 +93,83 @@ class ViewController: NSViewController {
         webcamCapture.stop()
     }
 
+}
+
+private extension ViewController {
+    @objc func handleFaceControlToggleRequested(_ notification: Notification) {
+        guard let enabled = notification.userInfo?["enabled"] as? Bool else { return }
+        setFaceControlEnabled(enabled, userInitiated: true)
+    }
+
+    func setFaceControlEnabled(_ enabled: Bool, userInitiated: Bool) {
+        if enabled == isFaceControlEnabled { return }
+
+        if enabled {
+            requestCameraAccessIfNeeded(userInitiated: userInitiated)
+        } else {
+            stopFaceControl()
+        }
+    }
+
+    func requestCameraAccessIfNeeded(userInitiated: Bool) {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            startFaceControl()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+                DispatchQueue.main.async {
+                    guard let self else { return }
+                    if granted {
+                        self.startFaceControl()
+                    } else {
+                        self.disableFaceControlDueToAuthorization(userInitiated: userInitiated)
+                    }
+                }
+            }
+        case .denied, .restricted:
+            disableFaceControlDueToAuthorization(userInitiated: userInitiated)
+        @unknown default:
+            disableFaceControlDueToAuthorization(userInitiated: userInitiated)
+        }
+    }
+
+    func startFaceControl() {
+        isFaceControlEnabled = true
+        UserDefaults.standard.set(true, forKey: FaceControlSettings.defaultsKey)
+        NotificationCenter.default.post(
+            name: .faceControlStateDidChange,
+            object: nil,
+            userInfo: ["enabled": true]
+        )
+        webcamCapture.start()
+    }
+
+    func stopFaceControl() {
+        isFaceControlEnabled = false
+        UserDefaults.standard.set(false, forKey: FaceControlSettings.defaultsKey)
+        NotificationCenter.default.post(
+            name: .faceControlStateDidChange,
+            object: nil,
+            userInfo: ["enabled": false]
+        )
+        DG_SetFaceExpression(Int32(-1))
+        webcamCapture.stop()
+    }
+
+    func disableFaceControlDueToAuthorization(userInitiated: Bool) {
+        stopFaceControl()
+        if userInitiated {
+            showCameraAccessAlert()
+        }
+    }
+
+    func showCameraAccessAlert() {
+        let alert = NSAlert()
+        alert.messageText = "Camera Access Required"
+        alert.informativeText = "Enable camera access in System Settings to use face tracking."
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
+    }
 }
 
 private final class DoomSKView: SKView {
@@ -144,24 +229,29 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
     private let output = AVCaptureVideoDataOutput()
     private let captureQueue = DispatchQueue(label: "WebcamCaptureQueue")
     private let detectionQueue = DispatchQueue(label: "WebcamCaptureDetectionQueue")
+    private let stateQueue = DispatchQueue(label: "WebcamCaptureStateQueue")
     private var frameCounter = 0
     private let detectionInterval = 3
     private var lastExpression = 0
     private var lastExpressionTime = CFAbsoluteTimeGetCurrent()
+    private var isEnabled = false
 
     func start() {
         captureQueue.async { [weak self] in
+            self?.setEnabled(true)
             self?.configureAndStart()
         }
     }
 
     func stop() {
         captureQueue.async { [weak self] in
+            self?.setEnabled(false)
             self?.session.stopRunning()
         }
     }
 
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard isCaptureEnabled() else { return }
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         frameCounter = (frameCounter + 1) % detectionInterval
         if frameCounter == 0 {
@@ -204,6 +294,7 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
     }
 
     private func detectExpression(in pixelBuffer: CVPixelBuffer) {
+        guard isCaptureEnabled() else { return }
         let faceRequest = VNDetectFaceLandmarksRequest { request, _ in
             guard let face = (request.results as? [VNFaceObservation])?.first else {
                 return
@@ -278,6 +369,7 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
     }
 
     private func setExpression(_ value: Int) {
+        guard isCaptureEnabled() else { return }
         let now = CFAbsoluteTimeGetCurrent()
         if value == lastExpression {
             lastExpressionTime = now
@@ -294,5 +386,17 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
         lastExpression = value
         lastExpressionTime = now
         DG_SetFaceExpression(Int32(value))
+    }
+
+    private func setEnabled(_ enabled: Bool) {
+        stateQueue.sync {
+            isEnabled = enabled
+        }
+    }
+
+    private func isCaptureEnabled() -> Bool {
+        stateQueue.sync {
+            isEnabled
+        }
     }
 }

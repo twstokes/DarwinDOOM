@@ -378,7 +378,7 @@ static int	st_facecount = 0;
 
 // current face index, used by w_faces
 static int	st_faceindex = 0;
-static int      st_external_face = 0;
+static int      st_external_face = -1;
 
 // holds key-type for each key box on bar
 static int	keyboxes[3]; 
@@ -896,6 +896,7 @@ void ST_updateWidgets(void)
     }
 
     // refresh everything if this is him coming back to life
+    if (st_external_face >= 0)
     {
         int base = ST_calcPainOffset();
         switch (st_external_face)
@@ -920,6 +921,10 @@ void ST_updateWidgets(void)
                 break;
         }
         st_facecount = 1;
+    }
+    else
+    {
+        ST_updateFaceWidget();
     }
 
     // used by the w_armsbg widget

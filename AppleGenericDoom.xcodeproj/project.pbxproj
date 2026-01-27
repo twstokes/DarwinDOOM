@@ -104,6 +104,7 @@
 		C34071F42A5B5358001FAD58 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C34071F52A5B5567001FAD58 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		C3493FE42A5A547300E5855C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3493FE32A5A547300E5855C /* AppDelegate.swift */; };
+		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
 		C3493FE62A5A547300E5855C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3493FE52A5A547300E5855C /* ViewController.swift */; };
 		C3493FE82A5A547400E5855C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3493FE72A5A547400E5855C /* Assets.xcassets */; };
 		C3493FEB2A5A547400E5855C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3493FE92A5A547400E5855C /* Main.storyboard */; };
@@ -252,6 +253,7 @@
 		C34071972A5B5178001FAD58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C3493FE02A5A547300E5855C /* AppleGenericDoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleGenericDoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3493FE32A5A547300E5855C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
 		C3493FE52A5A547300E5855C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3493FE72A5A547400E5855C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3493FEA2A5A547400E5855C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				C3493FE32A5A547300E5855C /* AppDelegate.swift */,
+				CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */,
 				C3493FE52A5A547300E5855C /* ViewController.swift */,
 				C34071822A5B4039001FAD58 /* DoomScene.swift */,
 				C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */,
@@ -1025,6 +1028,7 @@
 				C34940FE2A5A555400E5855C /* p_floor.c in Sources */,
 				C34940F22A5A555400E5855C /* st_stuff.c in Sources */,
 				C3493FE42A5A547300E5855C /* AppDelegate.swift in Sources */,
+				B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */,
 				C34940E12A5A555400E5855C /* d_loop.c in Sources */,
 				C34940DD2A5A555400E5855C /* r_main.c in Sources */,
 				C38BFFBD2A5BB628005A5D83 /* i_sdlmusic.c in Sources */,
