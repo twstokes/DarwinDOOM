@@ -916,6 +916,12 @@ void ST_updateWidgets(void)
             case 4: // mouth open
                 st_faceindex = base + ST_OUCHOFFSET;
                 break;
+            case 5: // eyebrow left
+                st_faceindex = base + 0;
+                break;
+            case 6: // eyebrow right
+                st_faceindex = base + 2;
+                break;
             default:
                 st_faceindex = base + 1;
                 break;

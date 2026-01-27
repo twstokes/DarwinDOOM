@@ -310,6 +310,11 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
                 return
             }
 
+            if let eyebrowExpression = Self.eyebrowRaiseExpression(face) {
+                self.setExpression(eyebrowExpression)
+                return
+            }
+
             if Self.isGrinning(face) {
                 self.setExpression(3)
                 return
@@ -366,6 +371,38 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
 
         let ratio = width / max(height, 0.001)
         return width > 0.36 && ratio > 3.8
+    }
+
+    private static func eyebrowRaiseExpression(_ face: VNFaceObservation) -> Int? {
+        guard
+            let leftBrow = face.landmarks?.leftEyebrow?.normalizedPoints,
+            let rightBrow = face.landmarks?.rightEyebrow?.normalizedPoints,
+            let leftEye = face.landmarks?.leftEye?.normalizedPoints,
+            let rightEye = face.landmarks?.rightEye?.normalizedPoints,
+            !leftBrow.isEmpty,
+            !rightBrow.isEmpty,
+            !leftEye.isEmpty,
+            !rightEye.isEmpty
+        else {
+            return nil
+        }
+
+        let leftBrowY = leftBrow.map(\.y).reduce(0, +) / CGFloat(leftBrow.count)
+        let rightBrowY = rightBrow.map(\.y).reduce(0, +) / CGFloat(rightBrow.count)
+        let leftEyeY = leftEye.map(\.y).reduce(0, +) / CGFloat(leftEye.count)
+        let rightEyeY = rightEye.map(\.y).reduce(0, +) / CGFloat(rightEye.count)
+
+        let leftGap = leftBrowY - leftEyeY
+        let rightGap = rightBrowY - rightEyeY
+        let delta = leftGap - rightGap
+
+        if delta > 0.04 {
+            return 5
+        }
+        if delta < -0.04 {
+            return 6
+        }
+        return nil
     }
 
     private func setExpression(_ value: Int) {
