@@ -179,9 +179,12 @@ char *M_TempFile(char *s)
         tempdir = ".";
     }
 #else
-    // In Unix, just use /tmp.
-
-    tempdir = "/tmp";
+    // Prefer TMPDIR (macOS sandbox-safe), fall back to /tmp.
+    tempdir = getenv("TMPDIR");
+    if (tempdir == NULL || tempdir[0] == '\0')
+    {
+        tempdir = "/tmp";
+    }
 #endif
 
     return M_StringJoin(tempdir, DIR_SEPARATOR_S, s, NULL);
@@ -533,4 +536,3 @@ char *M_OEMToUTF8(const char *oem)
 }
 
 #endif
-
