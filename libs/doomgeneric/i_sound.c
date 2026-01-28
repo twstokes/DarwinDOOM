@@ -18,6 +18,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __APPLE__
+#include <TargetConditionals.h>
+#endif
+
 #ifdef FEATURE_SOUND_SDL
 #include <SDL2/SDL_mixer.h>
 #endif
@@ -59,7 +63,7 @@ static music_module_t *music_module = NULL;
 
 int snd_musicdevice = SNDDEVICE_SB;
 
-#ifdef FEATURE_SOUND_SDL
+#if defined(FEATURE_SOUND_SDL) && defined(__APPLE__) && TARGET_OS_OSX
 extern const char *DG_CopyBundledSoundFontPath(void);
 #endif
 int snd_sfxdevice = SNDDEVICE_SB;
@@ -208,6 +212,7 @@ void I_InitSound(boolean use_sfx_prefix)
 
         if (!nomusic && getenv("SDL_SOUNDFONTS") == NULL)
         {
+#if defined(__APPLE__) && TARGET_OS_OSX
             const char *soundfont_path = DG_CopyBundledSoundFontPath();
             if (soundfont_path != NULL)
             {
@@ -218,6 +223,7 @@ void I_InitSound(boolean use_sfx_prefix)
             {
                 fprintf(stderr, "Warning: SDL_SOUNDFONTS not set; MIDI music will be disabled.\n");
             }
+#endif
         }
 
         if (!nosfx)
