@@ -872,6 +872,24 @@ static boolean SDLIsInitialized(void)
     return Mix_QuerySpec(&freq, &format, &channels) != 0;
 }
 
+// Calculate buffer size based on snd_maxslicetime_ms.
+// Result must be a power of two.
+static int GetMusicBufferSize(void)
+{
+    int limit;
+    int n;
+
+    limit = (snd_samplerate * snd_maxslicetime_ms) / 1000;
+
+    for (n = 0;; ++n)
+    {
+        if ((1 << (n + 1)) > limit)
+        {
+            return (1 << n);
+        }
+    }
+}
+
 static void PrintMusicDecoders(void)
 {
     int i, count;
@@ -946,7 +964,8 @@ static boolean I_SDL_InitMusic(void)
         {
             fprintf(stderr, "Unable to set up sound.\n");
         }
-        else if (Mix_OpenAudio(snd_samplerate, AUDIO_S16SYS, 2, 1024) < 0)
+        else if (Mix_OpenAudio(snd_samplerate, AUDIO_S16SYS, 2,
+                               GetMusicBufferSize()) < 0)
         {
             fprintf(stderr, "Error initializing SDL_mixer: %s\n",
                     Mix_GetError());

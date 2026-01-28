@@ -49,8 +49,14 @@ int snd_cachesize = 64 * 1024 * 1024;
 
 // Config variable that controls the sound buffer size.
 // We default to 28ms (1000 / 35fps = 1 buffer per tic).
+// On macOS, use a slightly larger buffer to reduce MIDI underruns.
 
-int snd_maxslicetime_ms = 28;
+int snd_maxslicetime_ms =
+#if defined(__APPLE__) && TARGET_OS_OSX
+    50;
+#else
+    28;
+#endif
 
 // External command to invoke to play back music.
 
