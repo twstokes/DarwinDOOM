@@ -19,7 +19,7 @@
 #include <stdlib.h>
 
 #ifdef FEATURE_SOUND_SDL
-#include <SDL2_mixer/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #endif
 
 #include "config.h"
@@ -58,6 +58,10 @@ static sound_module_t *sound_module = NULL;
 static music_module_t *music_module = NULL;
 
 int snd_musicdevice = SNDDEVICE_SB;
+
+#ifdef FEATURE_SOUND_SDL
+extern const char *DG_CopyBundledSoundFontPath(void);
+#endif
 int snd_sfxdevice = SNDDEVICE_SB;
 
 // Sound modules
@@ -200,6 +204,20 @@ void I_InitSound(boolean use_sfx_prefix)
           || snd_musicdevice == SNDDEVICE_GUS))
         {
             //I_InitTimidityConfig();
+        }
+
+        if (!nomusic && getenv("SDL_SOUNDFONTS") == NULL)
+        {
+            const char *soundfont_path = DG_CopyBundledSoundFontPath();
+            if (soundfont_path != NULL)
+            {
+                setenv("SDL_SOUNDFONTS", soundfont_path, 1);
+                free((void *) soundfont_path);
+            }
+            else
+            {
+                fprintf(stderr, "Warning: SDL_SOUNDFONTS not set; MIDI music will be disabled.\n");
+            }
         }
 
         if (!nosfx)
@@ -435,4 +453,3 @@ void I_BindSoundVariables(void)
     // to crash when it looped.  If this is an old SDL_mixer version,
     // disable MIDI.
 }
-

@@ -16,6 +16,21 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 - macOS includes an optional Face Control mode (menu bar toggle) that uses the camera to drive the Doom Guy’s face.
   Supported expressions: forward, look left, look right, grin, mouth open, eyebrow raise (left), eyebrow raise (right).
 
+## Setup (macOS)
+
+1) Install dependencies via Homebrew:
+
+```
+brew install sdl2 sdl2_mixer
+```
+
+2) Add a WAD file to `AppleGenericDoom/WADs` (for example, `DOOM.WAD`).
+
+3) (Optional) Download a SoundFont (e.g. search for `FluidR3_GM.sf2`) and extract it to `AppleGenericDoom/SoundFont/`. The build will copy it into the app bundle automatically if present; the game runs without it (no MIDI music).
+
+4) Bundle a WAD file and build/run.
+
+
 ## Controls
 
 The Watch app has touch controls.

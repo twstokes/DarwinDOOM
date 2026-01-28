@@ -22,7 +22,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <SDL2/SDL.h>
-#include <SDL2_mixer/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 
 #include "config.h"
 #include "doomtype.h"
@@ -872,6 +872,20 @@ static boolean SDLIsInitialized(void)
     return Mix_QuerySpec(&freq, &format, &channels) != 0;
 }
 
+static void PrintMusicDecoders(void)
+{
+    int i, count;
+
+    count = Mix_GetNumMusicDecoders();
+    fprintf(stderr, "SDL_mixer music decoders (%d):", count);
+    for (i = 0; i < count; ++i)
+    {
+        const char *name = Mix_GetMusicDecoder(i);
+        fprintf(stderr, " %s", name != NULL ? name : "(null)");
+    }
+    fprintf(stderr, "\n");
+}
+
 // Callback function that is invoked to track current track position.
 void TrackPositionCallback(int chan, void *stream, int len, void *udata)
 {
@@ -967,6 +981,11 @@ static boolean I_SDL_InitMusic(void)
     if (snd_musicdevice == SNDDEVICE_GENMIDI)
     {
         LoadSubstituteConfigs();
+    }
+
+    if (music_initialized)
+    {
+        PrintMusicDecoders();
     }
 
     return music_initialized;
@@ -1313,4 +1332,3 @@ music_module_t DG_music_module =
     I_SDL_MusicIsPlaying,
     I_SDL_PollMusic,
 };
-

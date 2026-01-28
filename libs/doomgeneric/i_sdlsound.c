@@ -25,7 +25,7 @@
 #include <assert.h>
 #include <ctype.h>
 #include <SDL2/SDL.h>
-#include <SDL2_Mixer/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 
 #ifdef HAVE_LIBSAMPLERATE
 #include <samplerate.h>
@@ -1073,4 +1073,3 @@ sound_module_t DG_sound_module =
     I_SDL_SoundIsPlaying,
     I_SDL_PrecacheSounds,
 };
-

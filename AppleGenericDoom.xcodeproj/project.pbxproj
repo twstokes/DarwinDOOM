@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
 		C31D8E5E2A5B0C3B0062F401 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C31D8E602A5B0DB30062F401 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		C333C1122A5F12AD00A780DE /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
@@ -104,7 +105,6 @@
 		C34071F42A5B5358001FAD58 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C34071F52A5B5567001FAD58 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		C3493FE42A5A547300E5855C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3493FE32A5A547300E5855C /* AppDelegate.swift */; };
-		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
 		C3493FE62A5A547300E5855C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3493FE52A5A547300E5855C /* ViewController.swift */; };
 		C3493FE82A5A547400E5855C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3493FE72A5A547400E5855C /* Assets.xcassets */; };
 		C3493FEB2A5A547400E5855C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3493FE92A5A547400E5855C /* Main.storyboard */; };
@@ -191,10 +191,6 @@
 		C34940FC2A5A555400E5855C /* mus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A42A5A555200E5855C /* mus2mid.c */; };
 		C34940FD2A5A555400E5855C /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
 		C34940FE2A5A555400E5855C /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
-		C38BFFB72A5BB52B005A5D83 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9FBDE2A5BAB2C0059DCEC /* SDL2.framework */; };
-		C38BFFB82A5BB52B005A5D83 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3A9FBDE2A5BAB2C0059DCEC /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C38BFFBA2A5BB535005A5D83 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BFFB12A5BB03D005A5D83 /* SDL2_mixer.framework */; };
-		C38BFFBB2A5BB535005A5D83 /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C38BFFB12A5BB03D005A5D83 /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C38BFFBD2A5BB628005A5D83 /* i_sdlmusic.c in Sources */ = {isa = PBXBuildFile; fileRef = C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */; };
 		C3A9FBDB2A5BA68A0059DCEC /* i_sdlsound.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */; };
 		F38A9EB62CA5E7720017B02F /* SpriteViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */; };
@@ -226,18 +222,6 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C38BFFB92A5BB52B005A5D83 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C38BFFB82A5BB52B005A5D83 /* SDL2.framework in Embed Frameworks */,
-				C38BFFBB2A5BB535005A5D83 /* SDL2_mixer.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -253,7 +237,6 @@
 		C34071972A5B5178001FAD58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C3493FE02A5A547300E5855C /* AppleGenericDoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleGenericDoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3493FE32A5A547300E5855C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
 		C3493FE52A5A547300E5855C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3493FE72A5A547400E5855C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3493FEA2A5A547400E5855C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -438,10 +421,9 @@
 		C34940A72A5A555300E5855C /* p_floor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_floor.c; sourceTree = "<group>"; };
 		C34940A82A5A555300E5855C /* r_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_data.h; sourceTree = "<group>"; };
 		C34940A92A5A555300E5855C /* w_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = w_main.h; sourceTree = "<group>"; };
-		C38BFFB12A5BB03D005A5D83 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = AppleGenericDoom/SDL2_mixer.framework; sourceTree = "<group>"; };
 		C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sdlmusic.c; sourceTree = "<group>"; };
 		C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sdlsound.c; sourceTree = "<group>"; };
-		C3A9FBDE2A5BAB2C0059DCEC /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = AppleGenericDoom/SDL2.framework; sourceTree = "<group>"; };
+		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
 		F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteViewContainer.swift; sourceTree = "<group>"; };
 		F3AFA09E2D00000100000001 /* i_avfsound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfsound.mm; sourceTree = "<group>"; };
 		F3AFA09F2D00000100000001 /* i_nomusic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = i_nomusic.c; sourceTree = "<group>"; };
@@ -462,8 +444,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C38BFFB72A5BB52B005A5D83 /* SDL2.framework in Frameworks */,
-				C38BFFBA2A5BB535005A5D83 /* SDL2_mixer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,8 +712,6 @@
 		C3A9FBDD2A5BAB2B0059DCEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C38BFFB12A5BB03D005A5D83 /* SDL2_mixer.framework */,
-				C3A9FBDE2A5BAB2C0059DCEC /* SDL2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -790,7 +768,7 @@
 				C3493FDC2A5A547300E5855C /* Sources */,
 				C3493FDD2A5A547300E5855C /* Frameworks */,
 				C3493FDE2A5A547300E5855C /* Resources */,
-				C38BFFB92A5BB52B005A5D83 /* Embed Frameworks */,
+				3CD80B1A3C124953B98CD954 /* Copy SoundFont */,
 			);
 			buildRules = (
 			);
@@ -872,6 +850,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CD80B1A3C124953B98CD954 /* Copy SoundFont */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy SoundFont";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -d \"${SRCROOT}/AppleGenericDoom/SoundFont\" ]; then\n  mkdir -p \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont\"\n  /bin/cp -R \"${SRCROOT}/AppleGenericDoom/SoundFont/.\" \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont/\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C34071872A5B5177001FAD58 /* Sources */ = {
@@ -1340,20 +1339,34 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/AppleGenericDoom";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/include,
+					/usr/local/include,
+				);
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Doom to use the webcam for the status bar face.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/lib,
+					/usr/local/lib,
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = (
 					"-DFEATURE_SOUND",
 					"-DFEATURE_SOUND_SDL",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lSDL2",
+					"-lSDL2_mixer",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1377,20 +1390,34 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/AppleGenericDoom";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/include,
+					/usr/local/include,
+				);
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Doom to use the webcam for the status bar face.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/lib,
+					/usr/local/lib,
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = (
 					"-DFEATURE_SOUND",
 					"-DFEATURE_SOUND_SDL",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lSDL2",
+					"-lSDL2_mixer",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";

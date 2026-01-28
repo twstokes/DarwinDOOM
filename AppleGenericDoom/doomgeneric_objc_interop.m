@@ -101,3 +101,43 @@ void DG_PushKey(int pressed, unsigned char doomKey)
     (void)doomKey;
     #endif
 }
+
+const char *DG_CopyBundledSoundFontPath(void)
+{
+#if TARGET_OS_OSX
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *path = [bundle pathForResource:@"SoundFont" ofType:@"sf2"];
+    if (path == nil)
+    {
+        path = [bundle pathForResource:@"FluidR3_GM" ofType:@"sf2"];
+    }
+    if (path == nil)
+    {
+        path = [bundle pathForResource:@"SoundFont" ofType:@"sf2" inDirectory:@"SoundFont"];
+    }
+    if (path == nil)
+    {
+        path = [bundle pathForResource:@"FluidR3_GM" ofType:@"sf2" inDirectory:@"SoundFont"];
+    }
+    if (path == nil)
+    {
+        NSString *dir = [[bundle resourcePath] stringByAppendingPathComponent:@"SoundFont"];
+        NSArray<NSString *> *entries = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dir error:nil];
+        for (NSString *entry in entries)
+        {
+            if ([[entry.pathExtension lowercaseString] isEqualToString:@"sf2"])
+            {
+                path = [dir stringByAppendingPathComponent:entry];
+                break;
+            }
+        }
+    }
+    if (path == nil)
+    {
+        return NULL;
+    }
+    return strdup([path fileSystemRepresentation]);
+#else
+    return NULL;
+#endif
+}
