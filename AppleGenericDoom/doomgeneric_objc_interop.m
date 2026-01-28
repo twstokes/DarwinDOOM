@@ -102,6 +102,17 @@ void DG_PushKey(int pressed, unsigned char doomKey)
     #endif
 }
 
+int DG_IsTextInputActive(void)
+{
+    #if TARGET_OS_OSX
+    extern int saveStringEnter;
+    extern int chat_on;
+    return (saveStringEnter != 0) || (chat_on != 0);
+    #else
+    return 0;
+    #endif
+}
+
 const char *DG_CopyBundledSoundFontPath(void)
 {
 #if TARGET_OS_OSX

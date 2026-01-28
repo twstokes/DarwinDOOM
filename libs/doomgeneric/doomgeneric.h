@@ -24,5 +24,6 @@ void DG_SetWindowTitle(const char * title);
 void DG_PushKey(int pressed, unsigned char key);
 void DG_SetFaceExpression(int expression);
 void DG_PushKey(int pressed, unsigned char key);
+int DG_IsTextInputActive(void);
 
 #endif //DOOM_GENERIC

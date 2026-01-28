@@ -1597,7 +1597,11 @@ boolean M_Responder (event_t* ev)
 
             if (vanilla_keyboard_mapping)
             {
-                ch = key;
+                // Prefer the typed character when available (allows shifted symbols).
+                if (ch < 32 || ch > 127)
+                {
+                    ch = key;
+                }
             }
 
             ch = toupper(ch);
@@ -2122,4 +2126,3 @@ void M_Init (void)
 
     //opldev = M_CheckParm("-opldev") > 0;
 }
-

@@ -198,15 +198,23 @@ private final class DoomSKView: SKView {
     }
 
     private static func doomKey(from event: NSEvent) -> UInt8? {
+        let textInputActive = DG_IsTextInputActive() != 0
+
         switch event.keyCode {
         case 36, 76: return UInt8(KEY_ENTER)
         case 48: return UInt8(KEY_TAB)
-        case 14: return UInt8(KEY_USE) // E = use
+        case 14:
+            if !textInputActive {
+                return UInt8(KEY_USE) // E = use
+            }
         case 123: return UInt8(KEY_LEFTARROW)
         case 124: return UInt8(KEY_RIGHTARROW)
         case 125: return UInt8(KEY_DOWNARROW)
         case 126: return UInt8(KEY_UPARROW)
-        case 49: return UInt8(KEY_FIRE) // spacebar = fire
+        case 49:
+            if !textInputActive {
+                return UInt8(KEY_FIRE) // spacebar = fire
+            }
         case 53: return UInt8(KEY_ESCAPE)
         case 18: return UInt8(ascii: "1")
         case 19: return UInt8(ascii: "2")
@@ -219,8 +227,18 @@ private final class DoomSKView: SKView {
         case 25: return UInt8(ascii: "9")
         case 29: return UInt8(ascii: "0")
         default:
-            return nil
+            break
         }
+
+        if let characters = event.characters, characters.count == 1,
+           let scalar = characters.unicodeScalars.first, scalar.isASCII {
+            let value = scalar.value
+            if value >= 32 && value <= 126 {
+                return UInt8(value)
+            }
+        }
+
+        return nil
     }
 }
 
