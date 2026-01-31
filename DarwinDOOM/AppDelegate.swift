@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AppleGenericDoom
+//  DarwinDOOM
 //
 //  Created by Tanner W. Stokes on 7/8/23.
 //

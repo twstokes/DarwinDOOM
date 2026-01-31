@@ -1,6 +1,6 @@
 //
 //  TouchToKeyManager.swift
-//  AppleGenericDoomWatch Watch App
+//  DarwinDOOMWatch Watch App
 //
 //  Created by Daniel Colman on 9/26/24.
 //

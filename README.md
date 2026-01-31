@@ -6,7 +6,7 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 | macOS | Apple Watch |
 | - | - |
-| <img alt="DOOM on macOS" src="https://github.com/twstokes/AppleGenericDoom/assets/2092798/40b54b8c-ac1b-49a7-bbc7-c0674d4b82fe"> | <img alt="DOOM on watchOS" src="https://github.com/twstokes/AppleGenericDoom/assets/2092798/cf3ae161-735a-422a-9ad8-1fd11f6f83f6"> |
+| <img alt="DOOM on macOS" src="https://github.com/twstokes/DarwinDOOM/assets/2092798/40b54b8c-ac1b-49a7-bbc7-c0674d4b82fe"> | <img alt="DOOM on watchOS" src="https://github.com/twstokes/DarwinDOOM/assets/2092798/cf3ae161-735a-422a-9ad8-1fd11f6f83f6"> |
 
 
 
@@ -24,9 +24,9 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 brew install sdl2 sdl2_mixer
 ```
 
-2) Add a WAD file to `AppleGenericDoom/WADs` (for example, `DOOM.WAD`).
+2) Add a WAD file to `DarwinDOOM/WADs` (for example, `DOOM.WAD`).
 
-3) (Optional) Download a SoundFont (e.g. search for `FluidR3_GM.sf2`) and extract it to `AppleGenericDoom/SoundFont/`. The build will copy it into the app bundle automatically if present; the game runs without it (no MIDI music).
+3) (Optional) Download a SoundFont (e.g. search for `FluidR3_GM.sf2`) and extract it to `DarwinDOOM/SoundFont/`. The build will copy it into the app bundle automatically if present; the game runs without it (no MIDI music).
 
 4) Bundle a WAD file and build/run.
 

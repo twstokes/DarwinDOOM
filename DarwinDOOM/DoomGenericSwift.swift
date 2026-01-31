@@ -1,6 +1,6 @@
 //
 //  DoomGeneric_Swift.swift
-//  AppleGenericDoom
+//  DarwinDOOM
 //
 //  Created by Tanner W. Stokes on 7/9/23.
 //

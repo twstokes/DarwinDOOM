@@ -1,6 +1,6 @@
 //
 //  doomgeneric_objc.m
-//  AppleGenericDoom
+//  DarwinDOOM
 //
 //  Created by Tanner W. Stokes on 7/9/23.
 //
@@ -8,9 +8,9 @@
 #import <Foundation/Foundation.h>
 
 #if TARGET_OS_WATCH
-#import <AppleGenericDoomWatch_Watch_App-Swift.h>
+#import <DarwinDOOMWatch_Watch_App-Swift.h>
 #elif TARGET_OS_OSX
-#import <AppleGenericDoom-Swift.h>
+#import <DarwinDOOM-Swift.h>
 #endif
 
 DoomGenericSwift *dgs;

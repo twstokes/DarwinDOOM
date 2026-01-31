@@ -13,8 +13,8 @@
 		C333C1122A5F12AD00A780DE /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
 		C333C1132A5F13E300A780DE /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
 		C34071832A5B4039001FAD58 /* DoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071822A5B4039001FAD58 /* DoomScene.swift */; };
-		C340718C2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C340718B2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C34071912A5B5177001FAD58 /* AppleGenericDoomWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071902A5B5177001FAD58 /* AppleGenericDoomWatchApp.swift */; };
+		C340718C2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C340718B2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C34071912A5B5177001FAD58 /* DarwinDOOMWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071902A5B5177001FAD58 /* DarwinDOOMWatchApp.swift */; };
 		C34071932A5B5177001FAD58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071922A5B5177001FAD58 /* ContentView.swift */; };
 		C34071952A5B5178001FAD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C34071942A5B5178001FAD58 /* Assets.xcassets */; };
 		C34071982A5B5178001FAD58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C34071972A5B5178001FAD58 /* Preview Assets.xcassets */; };
@@ -206,7 +206,7 @@
 			containerPortal = C3493FD82A5A547300E5855C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C340718A2A5B5177001FAD58;
-			remoteInfo = "AppleGenericDoomWatch Watch App";
+			remoteInfo = "DarwinDOOMWatch Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -217,7 +217,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				C340718C2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App.app in Embed Watch Content */,
+				C340718C2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,21 +227,21 @@
 /* Begin PBXFileReference section */
 		C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = doomgeneric_objc_interop.m; sourceTree = "<group>"; };
 		C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomGenericSwift.swift; sourceTree = "<group>"; };
-		C333C1112A5F12AD00A780DE /* WADs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WADs; path = AppleGenericDoom/WADs; sourceTree = "<group>"; };
+		C333C1112A5F12AD00A780DE /* WADs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WADs; path = DarwinDOOM/WADs; sourceTree = "<group>"; };
 		C34071822A5B4039001FAD58 /* DoomScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomScene.swift; sourceTree = "<group>"; };
-		C34071862A5B5177001FAD58 /* AppleGenericDoomWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleGenericDoomWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C340718B2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppleGenericDoomWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C34071902A5B5177001FAD58 /* AppleGenericDoomWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleGenericDoomWatchApp.swift; sourceTree = "<group>"; };
+		C34071862A5B5177001FAD58 /* DarwinDOOMWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarwinDOOMWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C340718B2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DarwinDOOMWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34071902A5B5177001FAD58 /* DarwinDOOMWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarwinDOOMWatchApp.swift; sourceTree = "<group>"; };
 		C34071922A5B5177001FAD58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C34071942A5B5178001FAD58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C34071972A5B5178001FAD58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C3493FE02A5A547300E5855C /* AppleGenericDoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleGenericDoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3493FE02A5A547300E5855C /* DarwinDOOM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarwinDOOM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3493FE32A5A547300E5855C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3493FE52A5A547300E5855C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3493FE72A5A547400E5855C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3493FEA2A5A547400E5855C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C3493FEC2A5A547400E5855C /* AppleGenericDoom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleGenericDoom.entitlements; sourceTree = "<group>"; };
-		C3493FF32A5A552A00E5855C /* AppleGenericDoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppleGenericDoom-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3493FEC2A5A547400E5855C /* DarwinDOOM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DarwinDOOM.entitlements; sourceTree = "<group>"; };
+		C3493FF32A5A552A00E5855C /* DarwinDOOM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DarwinDOOM-Bridging-Header.h"; sourceTree = "<group>"; };
 		C3493FF42A5A552B00E5855C /* m_controls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = m_controls.c; sourceTree = "<group>"; };
 		C3493FF52A5A552B00E5855C /* p_inter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_inter.c; sourceTree = "<group>"; };
 		C3493FF62A5A552B00E5855C /* w_checksum.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = w_checksum.c; sourceTree = "<group>"; };
@@ -450,17 +450,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C340718F2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App */ = {
+		C340718F2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				C34071902A5B5177001FAD58 /* AppleGenericDoomWatchApp.swift */,
+				C34071902A5B5177001FAD58 /* DarwinDOOMWatchApp.swift */,
 				C34071922A5B5177001FAD58 /* ContentView.swift */,
 				F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */,
 				F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */,
 				C34071942A5B5178001FAD58 /* Assets.xcassets */,
 				C34071962A5B5178001FAD58 /* Preview Content */,
 			);
-			path = "AppleGenericDoomWatch Watch App";
+			path = "DarwinDOOMWatch Watch App";
 			sourceTree = "<group>";
 		};
 		C34071962A5B5178001FAD58 /* Preview Content */ = {
@@ -474,8 +474,8 @@
 		C3493FD72A5A547300E5855C = {
 			isa = PBXGroup;
 			children = (
-				C3493FE22A5A547300E5855C /* AppleGenericDoom */,
-				C340718F2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App */,
+				C3493FE22A5A547300E5855C /* DarwinDOOM */,
+				C340718F2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */,
 				C34F27B12A6053ED008DC128 /* libs */,
 				C333C1112A5F12AD00A780DE /* WADs */,
 				C3493FE12A5A547300E5855C /* Products */,
@@ -487,14 +487,14 @@
 		C3493FE12A5A547300E5855C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C3493FE02A5A547300E5855C /* AppleGenericDoom.app */,
-				C34071862A5B5177001FAD58 /* AppleGenericDoomWatch.app */,
-				C340718B2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App.app */,
+				C3493FE02A5A547300E5855C /* DarwinDOOM.app */,
+				C34071862A5B5177001FAD58 /* DarwinDOOMWatch.app */,
+				C340718B2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C3493FE22A5A547300E5855C /* AppleGenericDoom */ = {
+		C3493FE22A5A547300E5855C /* DarwinDOOM */ = {
 			isa = PBXGroup;
 			children = (
 				C3493FE32A5A547300E5855C /* AppDelegate.swift */,
@@ -503,12 +503,12 @@
 				C34071822A5B4039001FAD58 /* DoomScene.swift */,
 				C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */,
 				C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */,
-				C3493FF32A5A552A00E5855C /* AppleGenericDoom-Bridging-Header.h */,
+				C3493FF32A5A552A00E5855C /* DarwinDOOM-Bridging-Header.h */,
 				C3493FE72A5A547400E5855C /* Assets.xcassets */,
 				C3493FE92A5A547400E5855C /* Main.storyboard */,
-				C3493FEC2A5A547400E5855C /* AppleGenericDoom.entitlements */,
+				C3493FEC2A5A547400E5855C /* DarwinDOOM.entitlements */,
 			);
-			path = AppleGenericDoom;
+			path = DarwinDOOM;
 			sourceTree = "<group>";
 		};
 		C3493FF22A5A54BB00E5855C /* doomgeneric */ = {
@@ -727,9 +727,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C34071852A5B5177001FAD58 /* AppleGenericDoomWatch */ = {
+		C34071852A5B5177001FAD58 /* DarwinDOOMWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C340719D2A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "AppleGenericDoomWatch" */;
+			buildConfigurationList = C340719D2A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "DarwinDOOMWatch" */;
 			buildPhases = (
 				C34071842A5B5177001FAD58 /* Resources */,
 				C340719C2A5B5178001FAD58 /* Embed Watch Content */,
@@ -739,14 +739,14 @@
 			dependencies = (
 				C340718E2A5B5177001FAD58 /* PBXTargetDependency */,
 			);
-			name = AppleGenericDoomWatch;
-			productName = AppleGenericDoomWatch;
-			productReference = C34071862A5B5177001FAD58 /* AppleGenericDoomWatch.app */;
+			name = DarwinDOOMWatch;
+			productName = DarwinDOOMWatch;
+			productReference = C34071862A5B5177001FAD58 /* DarwinDOOMWatch.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		C340718A2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App */ = {
+		C340718A2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C34071992A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "AppleGenericDoomWatch Watch App" */;
+			buildConfigurationList = C34071992A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "DarwinDOOMWatch Watch App" */;
 			buildPhases = (
 				C34071872A5B5177001FAD58 /* Sources */,
 				C34071882A5B5177001FAD58 /* Frameworks */,
@@ -756,14 +756,14 @@
 			);
 			dependencies = (
 			);
-			name = "AppleGenericDoomWatch Watch App";
-			productName = "AppleGenericDoomWatch Watch App";
-			productReference = C340718B2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App.app */;
+			name = "DarwinDOOMWatch Watch App";
+			productName = "DarwinDOOMWatch Watch App";
+			productReference = C340718B2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C3493FDF2A5A547300E5855C /* AppleGenericDoom */ = {
+		C3493FDF2A5A547300E5855C /* DarwinDOOM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3493FEF2A5A547400E5855C /* Build configuration list for PBXNativeTarget "AppleGenericDoom" */;
+			buildConfigurationList = C3493FEF2A5A547400E5855C /* Build configuration list for PBXNativeTarget "DarwinDOOM" */;
 			buildPhases = (
 				C3493FDC2A5A547300E5855C /* Sources */,
 				C3493FDD2A5A547300E5855C /* Frameworks */,
@@ -774,9 +774,9 @@
 			);
 			dependencies = (
 			);
-			name = AppleGenericDoom;
-			productName = AppleGenericDoom;
-			productReference = C3493FE02A5A547300E5855C /* AppleGenericDoom.app */;
+			name = DarwinDOOM;
+			productName = DarwinDOOM;
+			productReference = C3493FE02A5A547300E5855C /* DarwinDOOM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -801,7 +801,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C3493FDB2A5A547300E5855C /* Build configuration list for PBXProject "AppleGenericDoom" */;
+			buildConfigurationList = C3493FDB2A5A547300E5855C /* Build configuration list for PBXProject "DarwinDOOM" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -814,9 +814,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C3493FDF2A5A547300E5855C /* AppleGenericDoom */,
-				C34071852A5B5177001FAD58 /* AppleGenericDoomWatch */,
-				C340718A2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App */,
+				C3493FDF2A5A547300E5855C /* DarwinDOOM */,
+				C34071852A5B5177001FAD58 /* DarwinDOOMWatch */,
+				C340718A2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -868,7 +868,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -d \"${SRCROOT}/AppleGenericDoom/SoundFont\" ]; then\n  mkdir -p \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont\"\n  /bin/cp -R \"${SRCROOT}/AppleGenericDoom/SoundFont/.\" \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont/\"\nfi\n";
+			shellScript = "if [ -d \"${SRCROOT}/DarwinDOOM/SoundFont\" ]; then\n  mkdir -p \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont\"\n  /bin/cp -R \"${SRCROOT}/DarwinDOOM/SoundFont/.\" \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont/\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -925,7 +925,7 @@
 				C34071BC2A5B5349001FAD58 /* memio.c in Sources */,
 				C34071E82A5B5349001FAD58 /* p_lights.c in Sources */,
 				C34071B52A5B5349001FAD58 /* i_sound.c in Sources */,
-				C34071912A5B5177001FAD58 /* AppleGenericDoomWatchApp.swift in Sources */,
+				C34071912A5B5177001FAD58 /* DarwinDOOMWatchApp.swift in Sources */,
 				C34071D02A5B5349001FAD58 /* r_main.c in Sources */,
 				C34071A62A5B5349001FAD58 /* r_bsp.c in Sources */,
 				C34071EA2A5B5349001FAD58 /* statdump.c in Sources */,
@@ -1075,7 +1075,7 @@
 /* Begin PBXTargetDependency section */
 		C340718E2A5B5177001FAD58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C340718A2A5B5177001FAD58 /* AppleGenericDoomWatch Watch App */;
+			target = C340718A2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */;
 			targetProxy = C340718D2A5B5177001FAD58 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1101,12 +1101,12 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AppleGenericDoomWatch Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DarwinDOOMWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = AE76EV48ND;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = AppleGenericDoomWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = DarwinDOOMWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1115,14 +1115,14 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "-DFEATURE_SOUND";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoomWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOMWatch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Main Provisioning Profile";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AppleGenericDoom/AppleGenericDoom-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DarwinDOOM/DarwinDOOM-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WARNING_CFLAGS = "-Wno-strict-prototypes";
@@ -1139,12 +1139,12 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AppleGenericDoomWatch Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DarwinDOOMWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = AE76EV48ND;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = AppleGenericDoomWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = DarwinDOOMWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1153,14 +1153,14 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "-DFEATURE_SOUND";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoomWatch.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOMWatch.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "Main Provisioning Profile";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AppleGenericDoom/AppleGenericDoom-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DarwinDOOM/DarwinDOOM-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
@@ -1179,9 +1179,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AE76EV48ND;
-				INFOPLIST_KEY_CFBundleDisplayName = AppleGenericDoomWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = DarwinDOOMWatch;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoomWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOMWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Main Provisioning Profile";
@@ -1200,9 +1200,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AE76EV48ND;
-				INFOPLIST_KEY_CFBundleDisplayName = AppleGenericDoomWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = DarwinDOOMWatch;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoomWatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOMWatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Main Provisioning Profile";
@@ -1333,7 +1333,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AppleGenericDoom/AppleGenericDoom.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DarwinDOOM/DarwinDOOM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1368,10 +1368,10 @@
 					"-lSDL2",
 					"-lSDL2_mixer",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AppleGenericDoom/AppleGenericDoom-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DarwinDOOM/DarwinDOOM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				WARNING_CFLAGS = "-Wno-strict-prototypes";
@@ -1384,7 +1384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AppleGenericDoom/AppleGenericDoom.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DarwinDOOM/DarwinDOOM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1419,10 +1419,10 @@
 					"-lSDL2",
 					"-lSDL2_mixer",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.AppleGenericDoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AppleGenericDoom/AppleGenericDoom-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DarwinDOOM/DarwinDOOM-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				WARNING_CFLAGS = "-Wno-strict-prototypes";
 			};
@@ -1431,7 +1431,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C34071992A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "AppleGenericDoomWatch Watch App" */ = {
+		C34071992A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "DarwinDOOMWatch Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C340719A2A5B5178001FAD58 /* Debug */,
@@ -1440,7 +1440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C340719D2A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "AppleGenericDoomWatch" */ = {
+		C340719D2A5B5178001FAD58 /* Build configuration list for PBXNativeTarget "DarwinDOOMWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C340719E2A5B5178001FAD58 /* Debug */,
@@ -1449,7 +1449,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3493FDB2A5A547300E5855C /* Build configuration list for PBXProject "AppleGenericDoom" */ = {
+		C3493FDB2A5A547300E5855C /* Build configuration list for PBXProject "DarwinDOOM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C3493FED2A5A547400E5855C /* Debug */,
@@ -1458,7 +1458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3493FEF2A5A547400E5855C /* Build configuration list for PBXNativeTarget "AppleGenericDoom" */ = {
+		C3493FEF2A5A547400E5855C /* Build configuration list for PBXNativeTarget "DarwinDOOM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C3493FF02A5A547400E5855C /* Debug */,

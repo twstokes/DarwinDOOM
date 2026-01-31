@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AppleGenericDoomWatch Watch App
+//  DarwinDOOMWatch Watch App
 //
 //  Created by Tanner W. Stokes on 7/9/23.
 //
