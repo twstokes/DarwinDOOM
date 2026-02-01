@@ -2,7 +2,7 @@
 //  i_avfmusic.mm
 //  DarwinDOOM
 //
-//  AVFoundation-backed music module for iOS/watchOS.
+//  AVFoundation-backed music module for iOS/watchOS/macOS.
 //
 
 extern "C" {
@@ -18,7 +18,7 @@ extern "C" {
 #import <TargetConditionals.h>
 #endif
 
-#if TARGET_OS_IOS
+#if TARGET_OS_IOS || TARGET_OS_OSX
 #import <AVFoundation/AVFoundation.h>
 
 static boolean music_initialized = false;
@@ -28,6 +28,7 @@ static int music_volume = 127;
 @interface DGMusicHandle : NSObject
 @property(nonatomic, strong) AVMIDIPlayer *player;
 @property(nonatomic, copy) NSString *tempPath;
+@property(nonatomic, assign) double duration;
 @end
 
 @implementation DGMusicHandle
@@ -37,26 +38,30 @@ static DGMusicHandle *current_handle = nil;
 
 extern "C" const char *DG_CopyBundledSoundFontPath(void);
 
-static NSURL *DG_SoundFontURL(void)
+static NSURL *DG_BundledSoundFontURL(void)
 {
+#if TARGET_OS_IOS
     const char *path = DG_CopyBundledSoundFontPath();
     if (path == NULL) {
-        fprintf(stderr, "AVF music: no bundled soundfont found.\n");
         return nil;
     }
     NSString *nsPath = [NSString stringWithUTF8String:path];
     free((void *) path);
-    fprintf(stderr, "AVF music: using soundfont at %s\n", nsPath.UTF8String);
     return [NSURL fileURLWithPath:nsPath];
+#else
+    return nil;
+#endif
 }
 
 static boolean I_AVF_InitMusic(void)
 {
     @autoreleasepool {
+#if TARGET_OS_IOS
         AVAudioSession *session = [AVAudioSession sharedInstance];
         NSError *error = nil;
         [session setCategory:AVAudioSessionCategoryPlayback error:&error];
         [session setActive:YES error:&error];
+#endif
     }
     music_initialized = true;
     return true;
@@ -65,8 +70,10 @@ static boolean I_AVF_InitMusic(void)
 static void I_AVF_ShutdownMusic(void)
 {
     @autoreleasepool {
+#if TARGET_OS_IOS
         NSError *error = nil;
         [[AVAudioSession sharedInstance] setActive:NO error:&error];
+#endif
     }
     music_initialized = false;
 }
@@ -87,11 +94,7 @@ static void I_AVF_ResumeMusic(void)
 {
     DGMusicHandle *h = current_handle;
     if (h && h.player) {
-        [h.player play:^{
-            if (music_looping && current_handle == h) {
-                I_AVF_ResumeMusic();
-            }
-        }];
+        [h.player play:^{}];
     }
 }
 
@@ -141,7 +144,11 @@ static void *I_AVF_RegisterSong(void *data, int len)
     }
 
     NSURL *midiURL = [NSURL fileURLWithPath:tempPath];
-    NSURL *soundFontURL = DG_SoundFontURL();
+#if TARGET_OS_IOS
+    NSURL *soundFontURL = DG_BundledSoundFontURL();
+#else
+    NSURL *soundFontURL = nil;
+#endif
 
     NSError *error = nil;
     AVMIDIPlayer *player = [[AVMIDIPlayer alloc] initWithContentsOfURL:midiURL soundBankURL:soundFontURL error:&error];
@@ -165,6 +172,7 @@ static void *I_AVF_RegisterSong(void *data, int len)
     DGMusicHandle *handle = [DGMusicHandle new];
     handle.player = player;
     handle.tempPath = tempPath;
+    handle.duration = player.duration;
     return (__bridge_retained void *)handle;
 }
 
@@ -184,11 +192,8 @@ static void I_AVF_PlaySong(void *handle, boolean looping)
     current_handle = h;
     music_looping = looping;
     h.player.currentPosition = 0;
-    [h.player play:^{
-        if (music_looping && current_handle == h) {
-            I_AVF_PlaySong(handle, looping);
-        }
-    }];
+    [h.player prepareToPlay];
+    [h.player play:^{}];
 }
 
 static void I_AVF_StopSong(void)
@@ -208,7 +213,25 @@ static boolean I_AVF_MusicIsPlaying(void)
 
 static void I_AVF_MusicPoll(void)
 {
-    // no-op
+    if (!music_looping || current_handle == nil || current_handle.player == nil) {
+        return;
+    }
+
+    AVMIDIPlayer *player = current_handle.player;
+    if (player.isPlaying) {
+        return;
+    }
+
+    double duration = current_handle.duration;
+    if (duration <= 0.0) {
+        duration = player.duration;
+    }
+
+    if (duration > 0.0 && player.currentPosition >= (duration - 0.05)) {
+        player.currentPosition = 0;
+        [player prepareToPlay];
+        [player play:^{}];
+    }
 }
 
 static snddevice_t music_avf_devices[] = {

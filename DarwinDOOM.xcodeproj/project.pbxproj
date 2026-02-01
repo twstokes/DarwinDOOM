@@ -10,7 +10,10 @@
 		0C8DD71A2C5D4C38B3D3FFBF /* i_joystick_stub.c in Sources */ = {isa = PBXBuildFile; fileRef = 7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */; };
 		314BC9266F3040D0B11F8718 /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */; };
 		69F380B09088439E9A31113A /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
+		4318F10DD4DA90961E1B41BB /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
+		ADDC3085D042458A7AF58818 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		80F25D5F3CDA4F858AE17BBA /* DarwinDOOM iOS/ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */; };
+		F7F0222B6348A57FD52FDE21 /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
 		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
 		C31D8E5E2A5B0C3B0062F401 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C31D8E602A5B0DB30062F401 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
@@ -22,6 +25,7 @@
 		C34071932A5B5177001FAD58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071922A5B5177001FAD58 /* ContentView.swift */; };
 		C34071952A5B5178001FAD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C34071942A5B5178001FAD58 /* Assets.xcassets */; };
 		C34071982A5B5178001FAD58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C34071972A5B5178001FAD58 /* Preview Assets.xcassets */; };
+		17DAF053058D8D92B38BE5D7 /* SoundFont/gzdoom.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = A4F21AF7CA78FA00C6F625A5 /* SoundFont/gzdoom.sf2 */; };
 		C34071A02A5B5224001FAD58 /* DoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071822A5B4039001FAD58 /* DoomScene.swift */; };
 		C34071A12A5B5349001FAD58 /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
 		C34071A22A5B5349001FAD58 /* icon.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940252A5A553500E5855C /* icon.c */; };
@@ -194,7 +198,6 @@
 		C34940FC2A5A555400E5855C /* mus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A42A5A555200E5855C /* mus2mid.c */; };
 		C34940FD2A5A555400E5855C /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
 		C34940FE2A5A555400E5855C /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
-		C38BFFBD2A5BB628005A5D83 /* i_sdlmusic.c in Sources */ = {isa = PBXBuildFile; fileRef = C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */; };
 		C396462F2F2EEFAC003FD929 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
 		C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
 		C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
@@ -369,12 +372,9 @@
 		C39646DA2F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
 		C39646DB2F2EEFAC003FD929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		C39646DC2F2EEFAC003FD929 /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
-		C3A9FBDB2A5BA68A0059DCEC /* i_sdlsound.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */; };
 		F0A1B2C3D4E5F60789ABCD11 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
 		F0A1B2C3D4E5F60789ABCD13 /* DoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071822A5B4039001FAD58 /* DoomScene.swift */; };
 		F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
-		F0A1B2C3D4E5F60789ABCD16 /* SoundFont/gzdoom.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD15 /* SoundFont/gzdoom.sf2 */; };
-		F0A1B2C3D4E5F60789ABCD17 /* SoundFont/gzdoom.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD15 /* SoundFont/gzdoom.sf2 */; };
 		F0A1B2C3D4E5F60789ABCD18 /* KeyboardInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD19 /* KeyboardInputManager.swift */; };
 		F0A1B2C3D4E5F60789ABCD1A /* TouchToKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD1B /* TouchToKeyManager.swift */; };
 		F38A9EB62CA5E7720017B02F /* SpriteViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */; };
@@ -607,18 +607,16 @@
 		C34940A72A5A555300E5855C /* p_floor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_floor.c; sourceTree = "<group>"; };
 		C34940A82A5A555300E5855C /* r_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_data.h; sourceTree = "<group>"; };
 		C34940A92A5A555300E5855C /* w_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = w_main.h; sourceTree = "<group>"; };
-		C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sdlmusic.c; sourceTree = "<group>"; };
-		C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sdlsound.c; sourceTree = "<group>"; };
 		C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DarwinDOOM iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
 		D705970A5D8847D094CE68A8 /* i_avfmusic.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfmusic.mm; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomRenderCoordinator.swift; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD19 /* DarwinDOOM iOS/KeyboardInputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/KeyboardInputManager.swift"; sourceTree = "<group>"; };
-		F0A1B2C3D4E5F60789ABCD15 /* SoundFont/gzdoom.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont/gzdoom.sf2; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD1B /* DarwinDOOM iOS/TouchToKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/TouchToKeyManager.swift"; sourceTree = "<group>"; };
 		F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteViewContainer.swift; sourceTree = "<group>"; };
 		F3AFA09E2D00000100000001 /* i_avfsound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfsound.mm; sourceTree = "<group>"; };
 		F3AFA09F2D00000100000001 /* i_nomusic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = i_nomusic.c; sourceTree = "<group>"; };
+		A4F21AF7CA78FA00C6F625A5 /* SoundFont/gzdoom.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont/gzdoom.sf2; sourceTree = "<group>"; };
 		F3AFA0A32D00000100000001 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchToKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -640,6 +638,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADDC3085D042458A7AF58818 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,8 +712,8 @@
 				C3493FF32A5A552A00E5855C /* DarwinDOOM-Bridging-Header.h */,
 				C3493FE72A5A547400E5855C /* Assets.xcassets */,
 				C3493FE92A5A547400E5855C /* Main.storyboard */,
+				A4F21AF7CA78FA00C6F625A5 /* SoundFont/gzdoom.sf2 */,
 				C3493FEC2A5A547400E5855C /* DarwinDOOM.entitlements */,
-				F0A1B2C3D4E5F60789ABCD15 /* SoundFont/gzdoom.sf2 */,
 			);
 			path = DarwinDOOM;
 			sourceTree = "<group>";
@@ -723,8 +722,6 @@
 			isa = PBXGroup;
 			children = (
 				C34940612A5A554200E5855C /* am_map.c */,
-				C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */,
-				C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */,
 				C34940862A5A554A00E5855C /* am_map.h */,
 				C349406C2A5A554400E5855C /* config.h */,
 				C34940062A5A552E00E5855C /* d_englsh.h */,
@@ -1083,7 +1080,6 @@
 				C3493FE82A5A547400E5855C /* Assets.xcassets in Resources */,
 				C3493FEB2A5A547400E5855C /* Main.storyboard in Resources */,
 				C333C1132A5F13E300A780DE /* WADs in Resources */,
-				F0A1B2C3D4E5F60789ABCD17 /* SoundFont/gzdoom.sf2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,7 +1088,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39646DC2F2EEFAC003FD929 /* WADs in Resources */,
-				F0A1B2C3D4E5F60789ABCD16 /* SoundFont/gzdoom.sf2 in Resources */,
+				17DAF053058D8D92B38BE5D7 /* SoundFont/gzdoom.sf2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,7 +1201,9 @@
 				F0A1B2C3D4E5F60789ABCD11 /* DoomRenderCoordinator.swift in Sources */,
 				C34940E82A5A555400E5855C /* info.c in Sources */,
 				C34940D32A5A555400E5855C /* i_system.c in Sources */,
-				C3A9FBDB2A5BA68A0059DCEC /* i_sdlsound.c in Sources */,
+				4318F10DD4DA90961E1B41BB /* i_avfsound.mm in Sources */,
+				F7F0222B6348A57FD52FDE21 /* i_avfmusic.mm in Sources */,
+				C34940E72A5A555400E5855C /* i_joystick.c in Sources */,
 				C34940FA2A5A555400E5855C /* w_file_stdc.c in Sources */,
 				C34940BC2A5A555400E5855C /* w_wad.c in Sources */,
 				C34940B82A5A555400E5855C /* doomdef.c in Sources */,
@@ -1231,7 +1229,6 @@
 				C34940C62A5A555400E5855C /* doomgeneric.c in Sources */,
 				C34940D62A5A555400E5855C /* memio.c in Sources */,
 				C34940FC2A5A555400E5855C /* mus2mid.c in Sources */,
-				C34940E72A5A555400E5855C /* i_joystick.c in Sources */,
 				C34940BF2A5A555400E5855C /* m_random.c in Sources */,
 				C34940E22A5A555400E5855C /* p_pspr.c in Sources */,
 				C34940CD2A5A555400E5855C /* i_sound.c in Sources */,
@@ -1257,10 +1254,10 @@
 				B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */,
 				C34940E12A5A555400E5855C /* d_loop.c in Sources */,
 				C34940DD2A5A555400E5855C /* r_main.c in Sources */,
-				C38BFFBD2A5BB628005A5D83 /* i_sdlmusic.c in Sources */,
 				C34940B12A5A555400E5855C /* p_tick.c in Sources */,
 				C34940B32A5A555400E5855C /* m_fixed.c in Sources */,
 				C34940F72A5A555400E5855C /* i_timer.c in Sources */,
+				C34940F32A5A555400E5855C /* i_cdmus.c in Sources */,
 				C34940C22A5A555400E5855C /* hu_lib.c in Sources */,
 				C34940BE2A5A555400E5855C /* i_scale.c in Sources */,
 				C34940C32A5A555400E5855C /* icon.c in Sources */,
@@ -1285,7 +1282,6 @@
 				C34940AE2A5A555400E5855C /* z_zone.c in Sources */,
 				C34940DF2A5A555400E5855C /* am_map.c in Sources */,
 				C34940F82A5A555400E5855C /* r_segs.c in Sources */,
-				C34940F32A5A555400E5855C /* i_cdmus.c in Sources */,
 				C34940AB2A5A555400E5855C /* p_inter.c in Sources */,
 				C34940F12A5A555400E5855C /* st_lib.c in Sources */,
 				C34940DE2A5A555400E5855C /* i_video.c in Sources */,
@@ -1310,7 +1306,6 @@
 				F0A1B2C3D4E5F60789ABCD1A /* TouchToKeyManager.swift in Sources */,
 				C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */,
 				C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */,
-				C39646322F2EEFAC003FD929 /* i_joystick_stub.c in Sources */,
 				C39646332F2EEFAC003FD929 /* doomgeneric_objc_interop.m in Sources */,
 				C39646342F2EEFAC003FD929 /* p_floor.c in Sources */,
 				C39646352F2EEFAC003FD929 /* icon.c in Sources */,
@@ -1773,12 +1768,9 @@
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = (
 					"-DFEATURE_SOUND",
-					"-DFEATURE_SOUND_SDL",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-lSDL2",
-					"-lSDL2_mixer",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1824,12 +1816,9 @@
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = (
 					"-DFEATURE_SOUND",
-					"-DFEATURE_SOUND_SDL",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-lSDL2",
-					"-lSDL2_mixer",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tannr.DarwinDOOM;
 				PRODUCT_NAME = "$(TARGET_NAME)";

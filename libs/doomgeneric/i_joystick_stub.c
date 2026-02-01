@@ -2,7 +2,7 @@
 //  i_joystick_stub.c
 //  DarwinDOOM
 //
-//  iOS does not use SDL joystick input; provide stubs.
+//  Apple platforms do not use joystick input; provide stubs.
 //
 
 #include "i_joystick.h"

@@ -22,9 +22,6 @@
 #include <TargetConditionals.h>
 #endif
 
-#ifdef FEATURE_SOUND_SDL
-#include <SDL2/SDL_mixer.h>
-#endif
 
 #include "config.h"
 #include "doomfeatures.h"
@@ -69,9 +66,6 @@ static music_module_t *music_module = NULL;
 
 int snd_musicdevice = SNDDEVICE_SB;
 
-#if defined(__APPLE__)
-extern const char *DG_CopyBundledSoundFontPath(void);
-#endif
 int snd_sfxdevice = SNDDEVICE_SB;
 
 // Sound modules
@@ -205,31 +199,11 @@ void I_InitSound(boolean use_sfx_prefix)
 
     if (!nosound && !screensaver_mode)
     {
-        // This is kind of a hack. If native MIDI is enabled, set up
-        // the TIMIDITY_CFG environment variable here before SDL_mixer
-        // is opened.
-
         if (!nomusic
          && (snd_musicdevice == SNDDEVICE_GENMIDI
           || snd_musicdevice == SNDDEVICE_GUS))
         {
             //I_InitTimidityConfig();
-        }
-
-        if (!nomusic && getenv("SDL_SOUNDFONTS") == NULL)
-        {
-#if defined(__APPLE__) && (TARGET_OS_OSX || TARGET_OS_IOS || TARGET_OS_WATCH)
-            const char *soundfont_path = DG_CopyBundledSoundFontPath();
-            if (soundfont_path != NULL)
-            {
-                setenv("SDL_SOUNDFONTS", soundfont_path, 1);
-                free((void *) soundfont_path);
-            }
-            else
-            {
-                fprintf(stderr, "Warning: SDL_SOUNDFONTS not set; MIDI music will be disabled.\n");
-            }
-#endif
         }
 
         if (!nosfx)
@@ -442,9 +416,6 @@ boolean I_MusicIsPlaying(void)
 
 void I_BindSoundVariables(void)
 {
-    extern int use_libsamplerate;
-    extern float libsamplerate_scale;
-
     M_BindVariable("snd_musicdevice",   &snd_musicdevice);
     M_BindVariable("snd_sfxdevice",     &snd_sfxdevice);
     M_BindVariable("snd_sbport",        &snd_sbport);
@@ -456,12 +427,4 @@ void I_BindSoundVariables(void)
     M_BindVariable("snd_samplerate",    &snd_samplerate);
     M_BindVariable("snd_cachesize",     &snd_cachesize);
 
-#ifdef FEATURE_SOUND_SDL
-    M_BindVariable("use_libsamplerate",   &use_libsamplerate);
-    M_BindVariable("libsamplerate_scale", &libsamplerate_scale);
-#endif
-
-    // Before SDL_mixer version 1.2.11, MIDI music caused the game
-    // to crash when it looped.  If this is an old SDL_mixer version,
-    // disable MIDI.
 }

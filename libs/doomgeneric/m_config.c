@@ -805,7 +805,7 @@ static default_t extra_defaults_list[] =
 
     //!
     // External command to invoke to perform MIDI playback. If set to
-    // the empty string, SDL_mixer's internal MIDI playback is used.
+    // the empty string, internal MIDI playback is used.
     // This only has any effect when snd_musicdevice is set to General
     // MIDI output.
 
@@ -864,8 +864,8 @@ static default_t extra_defaults_list[] =
     CONFIG_VARIABLE_INT(vanilla_keyboard_mapping),
 
     //!
-    // Name of the SDL video driver to use.  If this is an empty string,
-    // the default video driver is used.
+    // Name of the video driver to use. If this is an empty string,
+    // the default driver is used.
     //
 
     CONFIG_VARIABLE_STRING(video_driver),
@@ -2125,4 +2125,3 @@ char *M_GetSaveGameDir(char *iwadname)
 
     return savegamedir;
 }
-

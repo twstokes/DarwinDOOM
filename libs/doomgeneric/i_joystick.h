@@ -26,7 +26,7 @@
 
 // If this bit is set in a configuration file axis value, the axis is
 // not actually a joystick axis, but instead is a "button axis". This
-// means that instead of reading an SDL joystick axis, we read the
+// means that instead of reading a joystick axis, we read the
 // state of two buttons to get the axis value. This is needed for eg.
 // the PS3 SIXAXIS controller, where the D-pad buttons register as
 // buttons, not as two axes.
@@ -67,4 +67,3 @@ void I_UpdateJoystick(void);
 void I_BindJoystickVariables(void);
 
 #endif /* #ifndef __I_JOYSTICK__ */
-
