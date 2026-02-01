@@ -1,5 +1,5 @@
 # DarwinDOOM
-<img alt="DarwinDOOM icon" src="media/DarwinDOOM.png" style="border-radius: 22px" width="300">
+<img alt="DarwinDOOM icon" src="media/DarwinDOOM.png" width="300">
 
 ## What is this?
 
