@@ -9,13 +9,9 @@
 /* Begin PBXBuildFile section */
 		0C8DD71A2C5D4C38B3D3FFBF /* i_joystick_stub.c in Sources */ = {isa = PBXBuildFile; fileRef = 7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */; };
 		17DAF053058D8D92B38BE5D7 /* SoundFont/gzdoom.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = A4F21AF7CA78FA00C6F625A5 /* SoundFont/gzdoom.sf2 */; };
-		314BC9266F3040D0B11F8718 /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */; };
 		4318F10DD4DA90961E1B41BB /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
 		69F380B09088439E9A31113A /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
-		80F25D5F3CDA4F858AE17BBA /* DarwinDOOM iOS/ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */; };
-		ADDC3085D042458A7AF58818 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
-		F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */; };
 		C31D8E5E2A5B0C3B0062F401 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C31D8E602A5B0DB30062F401 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		C333C1122A5F12AD00A780DE /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
@@ -198,6 +194,8 @@
 		C34940FC2A5A555400E5855C /* mus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A42A5A555200E5855C /* mus2mid.c */; };
 		C34940FD2A5A555400E5855C /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
 		C34940FE2A5A555400E5855C /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
+		C38BFFA52F301E8600B41808 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BFFA42F301E8600B41808 /* AVFoundation.framework */; };
+		C38BFFA72F301E9B00B41808 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BFFA62F301E9B00B41808 /* AVFoundation.framework */; };
 		C396462F2F2EEFAC003FD929 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
 		C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
 		C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
@@ -369,16 +367,13 @@
 		C39646D82F2EEFAC003FD929 /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
 		C39646D92F2EEFAC003FD929 /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
 		C39646DA2F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
-		C39646DB2F2EEFAC003FD929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		C39646DC2F2EEFAC003FD929 /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
 		F0A1B2C3D4E5F60789ABCD11 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
 		F0A1B2C3D4E5F60789ABCD13 /* DoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071822A5B4039001FAD58 /* DoomScene.swift */; };
 		F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
-		F0A1B2C3D4E5F60789ABCD18 /* DarwinDOOM iOS/KeyboardInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD19 /* DarwinDOOM iOS/KeyboardInputManager.swift */; };
-		F0A1B2C3D4E5F60789ABCD1A /* DarwinDOOM iOS/TouchToKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD1B /* DarwinDOOM iOS/TouchToKeyManager.swift */; };
+		F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */; };
 		F38A9EB62CA5E7720017B02F /* SpriteViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */; };
 		F3AFA0A02D00000100000001 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
-		F3AFA0A22D00000100000001 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		F3CFC72E2CA5938D001DF678 /* TouchToKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */; };
 		F7F0222B6348A57FD52FDE21 /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
 /* End PBXBuildFile section */
@@ -409,9 +404,7 @@
 
 /* Begin PBXFileReference section */
 		2613B4A8B415444CAC79A4AD /* Versions.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Versions.xcconfig; sourceTree = "<group>"; };
-		0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/ContentView.swift"; sourceTree = "<group>"; };
 		7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_joystick_stub.c; sourceTree = "<group>"; };
-		8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/DarwinDOOM_iOSApp.swift"; sourceTree = "<group>"; };
 		A4F21AF7CA78FA00C6F625A5 /* SoundFont/gzdoom.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont/gzdoom.sf2; sourceTree = "<group>"; };
 		C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = doomgeneric_objc_interop.m; sourceTree = "<group>"; };
 		C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomGenericSwift.swift; sourceTree = "<group>"; };
@@ -609,17 +602,16 @@
 		C34940A72A5A555300E5855C /* p_floor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = p_floor.c; sourceTree = "<group>"; };
 		C34940A82A5A555300E5855C /* r_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_data.h; sourceTree = "<group>"; };
 		C34940A92A5A555300E5855C /* w_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = w_main.h; sourceTree = "<group>"; };
+		C38BFFA42F301E8600B41808 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		C38BFFA62F301E9B00B41808 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DarwinDOOM iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
-		F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCamera.swift; sourceTree = "<group>"; };
 		D705970A5D8847D094CE68A8 /* i_avfmusic.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfmusic.mm; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomRenderCoordinator.swift; sourceTree = "<group>"; };
-		F0A1B2C3D4E5F60789ABCD19 /* DarwinDOOM iOS/KeyboardInputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/KeyboardInputManager.swift"; sourceTree = "<group>"; };
-		F0A1B2C3D4E5F60789ABCD1B /* DarwinDOOM iOS/TouchToKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/TouchToKeyManager.swift"; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCamera.swift; sourceTree = "<group>"; };
 		F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteViewContainer.swift; sourceTree = "<group>"; };
 		F3AFA09E2D00000100000001 /* i_avfsound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfsound.mm; sourceTree = "<group>"; };
 		F3AFA09F2D00000100000001 /* i_nomusic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = i_nomusic.c; sourceTree = "<group>"; };
-		F3AFA0A32D00000100000001 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchToKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -632,7 +624,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3AFA0A22D00000100000001 /* AVFoundation.framework in Frameworks */,
+				C38BFFA72F301E9B00B41808 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,7 +632,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADDC3085D042458A7AF58818 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +639,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C39646DB2F2EEFAC003FD929 /* AVFoundation.framework in Frameworks */,
+				C38BFFA52F301E8600B41808 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +686,6 @@
 				C3BACA392F2ED6D800BF04EC /* DarwinDOOM iOS */,
 				C3493FE12A5A547300E5855C /* Products */,
 				C3A9FBDD2A5BAB2B0059DCEC /* Frameworks */,
-				C3C7CE142E6CFAE3008AE728 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -931,20 +921,10 @@
 		C3A9FBDD2A5BAB2B0059DCEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C38BFFA62F301E9B00B41808 /* AVFoundation.framework */,
+				C38BFFA42F301E8600B41808 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C3C7CE142E6CFAE3008AE728 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				F3AFA0A32D00000100000001 /* AVFoundation.framework */,
-				8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */,
-				0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */,
-				F0A1B2C3D4E5F60789ABCD19 /* DarwinDOOM iOS/KeyboardInputManager.swift */,
-				F0A1B2C3D4E5F60789ABCD1B /* DarwinDOOM iOS/TouchToKeyManager.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1315,10 +1295,6 @@
 				C396462F2F2EEFAC003FD929 /* DoomRenderCoordinator.swift in Sources */,
 				F0A1B2C3D4E5F60789ABCD13 /* DoomScene.swift in Sources */,
 				F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */,
-				314BC9266F3040D0B11F8718 /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift in Sources */,
-				80F25D5F3CDA4F858AE17BBA /* DarwinDOOM iOS/ContentView.swift in Sources */,
-				F0A1B2C3D4E5F60789ABCD18 /* DarwinDOOM iOS/KeyboardInputManager.swift in Sources */,
-				F0A1B2C3D4E5F60789ABCD1A /* DarwinDOOM iOS/TouchToKeyManager.swift in Sources */,
 				C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */,
 				C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */,
 				C39646332F2EEFAC003FD929 /* doomgeneric_objc_interop.m in Sources */,
