@@ -68,6 +68,10 @@ class ViewController: NSViewController {
             let autosaveName = NSWindow.FrameAutosaveName("DarwinDOOM.MainWindow")
             let restored = window.setFrameUsingName(autosaveName)
             if !restored {
+                if let contentSize = window.contentView?.frame.size {
+                    window.setContentSize(NSSize(width: contentSize.width * 1.5,
+                                                 height: contentSize.height * 1.5))
+                }
                 window.center()
             }
             window.setFrameAutosaveName(autosaveName)
