@@ -84,5 +84,3 @@ fastlane/test_output
 
 .DS_Store
 
-# SoundFonts (optional, large binaries)
-DarwinDOOM/SoundFont/*.sf2

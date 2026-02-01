@@ -26,7 +26,7 @@ brew install sdl2 sdl2_mixer
 
 2) Add a WAD file to `DarwinDOOM/WADs` (for example, `DOOM.WAD`).
 
-3) (Optional) Download a SoundFont (e.g. search for `FluidR3_GM.sf2`) and extract it to `DarwinDOOM/SoundFont/`. The build will copy it into the app bundle automatically if present; the game runs without it (no MIDI music).
+3) (Optional) We bundle the GZDoom SoundFont (from the [GZDoom](https://github.com/ZDoom/gzdoom) project). If you replace that file, the Xcode build step will pick up any SoundFont you place in `DarwinDOOM/SoundFont/` and copy it into the app bundle automatically; the game runs without it (no MIDI music).
 
 4) Bundle a WAD file and build/run.
 
