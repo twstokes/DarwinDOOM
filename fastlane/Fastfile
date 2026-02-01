@@ -1,0 +1,71 @@
+require "fileutils"
+
+default_platform(:mac)
+
+platform :mac do
+  desc "Build, sign, and create a GitHub release for macOS (local build)."
+  lane :release_macos do |options|
+    version = options[:version]
+    repo = options[:repo] || "twstokes/DarwinDOOM"
+    identity = options[:identity] || "DarwinDOOM"
+    allow_dirty = options.key?(:allow_dirty) ? options[:allow_dirty] : false
+    project_root = Dir.pwd.end_with?("fastlane") ? File.expand_path("..", Dir.pwd) : Dir.pwd
+    build_dir = options[:build_dir] || File.join(project_root, "build")
+    notes = options[:notes]
+    push_tag = options.key?(:push_tag) ? options[:push_tag] : true
+    dry_run = options.key?(:dry_run) ? options[:dry_run] : false
+
+    UI.user_error!("Pass version: `fastlane mac release_macos version:1.2.3`") if version.to_s.strip.empty?
+
+    ensure_git_status_clean unless allow_dirty
+
+    tag = "v#{version}"
+    unless dry_run
+      begin
+        sh("git", "rev-parse", "-q", "--verify", tag)
+      rescue
+        sh("git", "tag", tag)
+        sh("git", "push", "origin", tag) if push_tag
+      end
+    end
+
+    output_name = "DarwinDOOM"
+    output_path = nil
+    zip_name = "DarwinDOOM-#{version}-macOS.zip"
+    zip_path = File.join(build_dir, zip_name)
+
+    FileUtils.mkdir_p(build_dir)
+
+    build_app(
+      scheme: "DarwinDOOM",
+      configuration: "Release",
+      destination: "generic/platform=macOS",
+      output_directory: build_dir,
+      output_name: output_name,
+      export_method: "developer-id",
+      export_options: {
+        signingStyle: "manual",
+        teamID: "AE76EV48ND",
+        signingCertificate: identity
+      }
+    )
+
+    expanded_build_dir = File.expand_path(build_dir)
+    output_path = File.join(expanded_build_dir, "#{output_name}.app")
+    output_path = Dir.glob(File.join(expanded_build_dir, "*.app")).first unless File.exist?(output_path)
+    UI.user_error!("Built app not found in #{expanded_build_dir}") if output_path.nil?
+
+    sh("rm", "-f", zip_path)
+    sh("ditto", "-c", "-k", "--sequesterRsrc", "--keepParent", output_path, zip_path)
+
+    unless dry_run
+      args = ["gh", "release", "create", tag, zip_path, "--repo", repo, "--title", tag]
+      if notes && !notes.to_s.strip.empty?
+        args += ["--notes", notes]
+      else
+        args += ["--notes", "Release #{tag}"]
+      end
+      sh(*args)
+    end
+  end
+end
