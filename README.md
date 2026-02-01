@@ -12,7 +12,7 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 
 - macOS has sound via AVFoundation (SFX + MIDI music).
-- iOS has sound via AVFoundation (SFX + MIDI music; uses bundled soundfont).
+- iOS has sound via AVFoundation (SFX + MIDI music; uses bundled soundfont). Note: the iOS Simulator's MIDI instruments can sound rough; on-device playback is fine.
 - watchOS: experimental SFX sound scaffolding (AVFoundation). Music is disabled for now.
 - macOS includes an optional Face Control mode (menu bar toggle) that uses the camera to drive the Doom Guy’s face.
   Supported expressions: forward, look left, look right, grin, mouth open, eyebrow raise (left), eyebrow raise (right).
