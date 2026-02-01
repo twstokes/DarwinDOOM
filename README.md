@@ -19,14 +19,14 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 ## Setup (macOS)
 
-1) The DOOM shareware WAD is already included. You can optionally replace it by dropping a different WAD into `DarwinDOOM/WADs`.
+1) Build and run.
 
-2) Bundle a WAD file and build/run.
+2) (Optional) Replace the bundled shareware WAD by dropping another WAD into `DarwinDOOM/WADs`.
 
 
 ## Controls
 
-The Watch app has touch controls.
+iOS and Watch apps have touch controls.
 
 The full screen is divided into a 3x3 grid:
 
@@ -43,4 +43,15 @@ action | down | fire
 
 **Fire** also changes based on game state: ESCAPE (Menu) or FIRE (In-Game)
 
-Controls can be adjusted in `TouchToKeyManager.swift`. 
+Keyboard controls (macOS + iOS with a hardware keyboard):
+- Arrow keys: move/turn
+- Control: fire
+- Space: fire (or space when typing)
+- E: use (or "e" when typing)
+- Enter: menu/select
+- Escape: back
+- Tab: automap
+- Shift: run
+- Backspace: backspace when typing
+
+Controls can be adjusted in `TouchToKeyManager.swift`.
