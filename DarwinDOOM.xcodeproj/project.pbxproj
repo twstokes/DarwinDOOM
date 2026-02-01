@@ -15,6 +15,7 @@
 		80F25D5F3CDA4F858AE17BBA /* DarwinDOOM iOS/ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */; };
 		ADDC3085D042458A7AF58818 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
+		F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */; };
 		C31D8E5E2A5B0C3B0062F401 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C31D8E602A5B0DB30062F401 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		C333C1122A5F12AD00A780DE /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
@@ -610,6 +611,7 @@
 		C34940A92A5A555300E5855C /* w_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = w_main.h; sourceTree = "<group>"; };
 		C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DarwinDOOM iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCamera.swift; sourceTree = "<group>"; };
 		D705970A5D8847D094CE68A8 /* i_avfmusic.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfmusic.mm; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomRenderCoordinator.swift; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD19 /* DarwinDOOM iOS/KeyboardInputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/KeyboardInputManager.swift"; sourceTree = "<group>"; };
@@ -714,6 +716,7 @@
 				F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */,
 				C3493FE32A5A547300E5855C /* AppDelegate.swift */,
 				CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */,
+				F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */,
 				C3493FE52A5A547300E5855C /* ViewController.swift */,
 				C34071822A5B4039001FAD58 /* DoomScene.swift */,
 				C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */,
@@ -1263,6 +1266,7 @@
 				C34940F22A5A555400E5855C /* st_stuff.c in Sources */,
 				C3493FE42A5A547300E5855C /* AppDelegate.swift in Sources */,
 				B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */,
+				F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */,
 				C34940E12A5A555400E5855C /* d_loop.c in Sources */,
 				C34940DD2A5A555400E5855C /* r_main.c in Sources */,
 				C34940B12A5A555400E5855C /* p_tick.c in Sources */,

@@ -51,6 +51,14 @@ class ViewController: NSViewController {
             name: .faceControlToggleRequested,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleFaceControlCameraChanged(_:)),
+            name: .faceControlCameraDidChange,
+            object: nil
+        )
+        let preferredCamera = UserDefaults.standard.string(forKey: FaceControlSettings.cameraDefaultsKey)
+        webcamCapture.setPreferredCamera(uniqueID: preferredCamera)
         let shouldEnable = UserDefaults.standard.bool(forKey: FaceControlSettings.defaultsKey)
         setFaceControlEnabled(shouldEnable, userInitiated: false)
     }
@@ -99,6 +107,11 @@ private extension ViewController {
     @objc func handleFaceControlToggleRequested(_ notification: Notification) {
         guard let enabled = notification.userInfo?["enabled"] as? Bool else { return }
         setFaceControlEnabled(enabled, userInitiated: true)
+    }
+
+    @objc func handleFaceControlCameraChanged(_ notification: Notification) {
+        let uniqueID = notification.userInfo?["uniqueID"] as? String
+        webcamCapture.setPreferredCamera(uniqueID: uniqueID)
     }
 
     func setFaceControlEnabled(_ enabled: Bool, userInitiated: Bool) {
@@ -253,6 +266,7 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
     private var lastExpression = 0
     private var lastExpressionTime = CFAbsoluteTimeGetCurrent()
     private var isEnabled = false
+    private var preferredDeviceUniqueID: String?
 
     func start() {
         captureQueue.async { [weak self] in
@@ -265,6 +279,17 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
         captureQueue.async { [weak self] in
             self?.setEnabled(false)
             self?.session.stopRunning()
+        }
+    }
+
+    func setPreferredCamera(uniqueID: String?) {
+        captureQueue.async { [weak self] in
+            guard let self else { return }
+            self.preferredDeviceUniqueID = uniqueID
+            if self.session.isRunning {
+                self.session.stopRunning()
+                self.configureAndStart()
+            }
         }
     }
 
@@ -283,7 +308,10 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
         session.beginConfiguration()
         session.sessionPreset = .low
 
-        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),
+        resetSessionConfiguration()
+
+        let devices = FaceControlCamera.availableDevices()
+        guard let device = FaceControlCamera.resolvedDevice(for: preferredDeviceUniqueID, in: devices),
               let input = try? AVCaptureDeviceInput(device: device),
               session.canAddInput(input) else {
             session.commitConfiguration()
@@ -309,6 +337,15 @@ private final class WebcamCapture: NSObject, AVCaptureVideoDataOutputSampleBuffe
 
         session.commitConfiguration()
         session.startRunning()
+    }
+
+    private func resetSessionConfiguration() {
+        for input in session.inputs {
+            session.removeInput(input)
+        }
+        for output in session.outputs {
+            session.removeOutput(output)
+        }
     }
 
     private func detectExpression(in pixelBuffer: CVPixelBuffer) {
