@@ -10,10 +10,20 @@ import SpriteKit
 
 struct ContentView: View {
     @State private var renderCoordinator = DoomRenderCoordinator()
+    @State private var keyboardManager = KeyboardInputManager()
 
     var body: some View {
-        SpriteView(scene: renderCoordinator.scene)
-            .ignoresSafeArea()
+        ZStack {
+            SpriteView(scene: renderCoordinator.scene)
+                .ignoresSafeArea()
+            TouchControlOverlay()
+        }
+        .onAppear {
+            keyboardManager.start()
+        }
+        .onDisappear {
+            keyboardManager.stop()
+        }
     }
 }
 

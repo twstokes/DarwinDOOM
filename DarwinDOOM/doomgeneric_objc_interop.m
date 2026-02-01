@@ -18,7 +18,7 @@
 DoomGenericSwift *dgs;
 CFAbsoluteTime timeInSeconds;
 
-#if TARGET_OS_OSX
+#if TARGET_OS_OSX || TARGET_OS_IOS
 #include <pthread.h>
 #define KEY_QUEUE_SIZE 256
 static int key_queue[KEY_QUEUE_SIZE];
@@ -63,7 +63,7 @@ int DG_GetKey(int* pressed, unsigned char* doomKey)
     }
     #endif
 
-    #if TARGET_OS_OSX
+    #if TARGET_OS_OSX || TARGET_OS_IOS
     pthread_mutex_lock(&key_mutex);
     if (key_read == key_write) {
         pthread_mutex_unlock(&key_mutex);
@@ -89,7 +89,7 @@ void DG_SetWindowTitle(const char * title)
 
 void DG_PushKey(int pressed, unsigned char doomKey)
 {
-    #if TARGET_OS_OSX
+    #if TARGET_OS_OSX || TARGET_OS_IOS
     int key = (pressed << 8) | (doomKey & 0xFF);
     pthread_mutex_lock(&key_mutex);
     int next = (key_write + 1) % KEY_QUEUE_SIZE;
