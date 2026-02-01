@@ -24,7 +24,7 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 brew install sdl2 sdl2_mixer
 ```
 
-2) Add a WAD file to `DarwinDOOM/WADs` (for example, `DOOM.WAD`).
+2) The DOOM shareware WAD is already included. You can optionally replace it by dropping a different WAD into `DarwinDOOM/WADs`.
 
 3) (Optional) We bundle the GZDoom SoundFont (from the [GZDoom](https://github.com/ZDoom/gzdoom) project). If you replace that file, the Xcode build step will pick up any SoundFont you place in `DarwinDOOM/SoundFont/` and copy it into the app bundle automatically; the game runs without it (no MIDI music).
 
