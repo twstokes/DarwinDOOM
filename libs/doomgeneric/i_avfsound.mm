@@ -123,21 +123,32 @@ static void I_AVF_ShutdownSound(void)
     if (!avf_initialized) {
         return;
     }
+    avf_initialized = false;
     @autoreleasepool {
 #if TARGET_OS_IOS || TARGET_OS_WATCH
         NSError *error = nil;
         [[AVAudioSession sharedInstance] setActive:NO error:&error];
 #endif
         if (g_audio) {
-            for (AVAudioPlayerNode *n in g_audio.players) {
-                [n stop];
-                [g_audio.engine detachNode:n];
+            DGAudio *audio = g_audio;
+            if (audio.queue != nil) {
+                dispatch_sync(audio.queue, ^{
+                    for (AVAudioPlayerNode *n in audio.players) {
+                        [n stop];
+                        [audio.engine detachNode:n];
+                    }
+                    [audio.engine stop];
+                });
+            } else {
+                for (AVAudioPlayerNode *n in audio.players) {
+                    [n stop];
+                    [audio.engine detachNode:n];
+                }
+                [audio.engine stop];
             }
-            [g_audio.engine stop];
             g_audio = nil;
         }
     }
-    avf_initialized = false;
 }
 
 static int I_AVF_GetSfxLumpNum(sfxinfo_t *sfx)
@@ -167,6 +178,7 @@ static int I_AVF_StartSound(sfxinfo_t *sfxinfo, int channel, int vol, int sep)
 {
     if (!avf_initialized) { return -1; }
     if (channel < 0 || channel >= AVF_NUM_CHANNELS) { return -1; }
+    if (g_audio == nil || g_audio.queue == nil) { return -1; }
 
     __block DGSFXEntry *entryToUse = nil;
     // Check cache first
@@ -284,26 +296,29 @@ static int I_AVF_StartSound(sfxinfo_t *sfxinfo, int channel, int vol, int sep)
         W_ReleaseLumpNum(lumpnum);
     }
 
-    AVAudioPlayerNode *node = g_audio.players[channel];
+    DGAudio *audio = g_audio;
+    AVAudioPlayerNode *node = audio.players[channel];
     // Apply initial params
     I_AVF_UpdateSoundParams(channel, vol, sep);
 
     // Schedule and play on queue to avoid threading issues
-    dispatch_async(g_audio.queue, ^{
+    dispatch_async(audio.queue, ^{
+        if (!avf_initialized || audio == nil) { return; }
         if (node.isPlaying) {
             [node stop];
         }
         entryToUse.useCount += 1;
         [node scheduleBuffer:entryToUse.buffer atTime:nil options:0 completionHandler:^{
             if (entryToUse.useCount > 0) entryToUse.useCount -= 1;
-            g_audio.channelActive[channel] = @(NO);
-            g_audio.channelEntry[channel] = [NSNull null];
+            if (!avf_initialized || audio == nil) { return; }
+            audio.channelActive[channel] = @(NO);
+            audio.channelEntry[channel] = [NSNull null];
         }];
         if (!node.isPlaying) {
             [node play];
         }
-        g_audio.channelActive[channel] = @(YES);
-        g_audio.channelEntry[channel] = entryToUse;
+        audio.channelActive[channel] = @(YES);
+        audio.channelEntry[channel] = entryToUse;
     });
 
     return channel;
@@ -313,16 +328,19 @@ static void I_AVF_StopSound(int channel)
 {
     if (!avf_initialized) { return; }
     if (channel < 0 || channel >= AVF_NUM_CHANNELS) { return; }
-    AVAudioPlayerNode *node = g_audio.players[channel];
-    dispatch_async(g_audio.queue, ^{
-        id ent = g_audio.channelEntry[channel];
+    if (g_audio == nil || g_audio.queue == nil) { return; }
+    DGAudio *audio = g_audio;
+    AVAudioPlayerNode *node = audio.players[channel];
+    dispatch_async(audio.queue, ^{
+        if (!avf_initialized || audio == nil) { return; }
+        id ent = audio.channelEntry[channel];
         if (ent != (id)[NSNull null]) {
             DGSFXEntry *e = (DGSFXEntry *)ent;
             if (e.useCount > 0) e.useCount -= 1;
-            g_audio.channelEntry[channel] = [NSNull null];
+            audio.channelEntry[channel] = [NSNull null];
         }
         [node stop];
-        g_audio.channelActive[channel] = @(NO);
+        audio.channelActive[channel] = @(NO);
     });
 }
 
@@ -330,6 +348,7 @@ static boolean I_AVF_SoundIsPlaying(int channel)
 {
     if (!avf_initialized) { return false; }
     if (channel < 0 || channel >= AVF_NUM_CHANNELS) { return false; }
+    if (g_audio == nil) { return false; }
     return [g_audio.channelActive[channel] boolValue];
 }
 

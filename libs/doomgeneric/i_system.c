@@ -246,6 +246,10 @@ void I_Quit (void)
         entry = entry->next;
     }
 
+#if defined(__APPLE__) && TARGET_OS_OSX
+    exit(0);
+#endif
+
 }
 
 //
