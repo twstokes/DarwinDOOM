@@ -16,20 +16,12 @@ platform :mac do
     notes = options[:notes]
     push_tag = options.key?(:push_tag) ? options[:push_tag] : true
     dry_run = options.key?(:dry_run) ? options[:dry_run] : false
+    notarize = options.key?(:notarize) ? options[:notarize] : false
+    notary_profile = options[:notary_profile] || "DarwinDOOM-notary"
 
     UI.user_error!("Pass version: `fastlane mac release_macos version:1.2.3`") if version.to_s.strip.empty?
 
     ensure_git_status_clean unless allow_dirty
-
-    tag = "v#{version}"
-    unless dry_run
-      begin
-        sh("git", "rev-parse", "-q", "--verify", tag)
-      rescue
-        sh("git", "tag", tag)
-        sh("git", "push", "origin", tag) if push_tag
-      end
-    end
 
     output_name = "DarwinDOOM"
     output_path = nil
@@ -68,8 +60,28 @@ platform :mac do
     sh("rm", "-f", zip_path)
     sh("ditto", "-c", "-k", "--sequesterRsrc", "--keepParent", output_path, zip_path)
 
-    unless dry_run
-      args = ["gh", "release", "create", tag, zip_path, "--repo", repo, "--title", tag]
+    if dry_run
+      UI.message("Dry run enabled; skipping notarization and release prompts.")
+      next
+    end
+
+    do_notarize = notarize || UI.confirm("Notarize the build now?")
+    if do_notarize
+      UI.user_error!("Pass notary_profile: `notary_profile:MyProfile`") if notary_profile.to_s.strip.empty?
+      sh("xcrun", "notarytool", "submit", zip_path, "--keychain-profile", notary_profile, "--wait")
+      sh("xcrun", "stapler", "staple", output_path)
+    end
+
+    if UI.confirm("Create a GitHub tag and draft release?")
+      tag = "v#{version}"
+      begin
+        sh("git", "rev-parse", "-q", "--verify", tag)
+      rescue
+        sh("git", "tag", tag)
+        sh("git", "push", "origin", tag) if push_tag
+      end
+
+      args = ["gh", "release", "create", tag, zip_path, "--repo", repo, "--title", tag, "--draft"]
       if notes && !notes.to_s.strip.empty?
         args += ["--notes", notes]
       else
