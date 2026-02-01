@@ -11,7 +11,8 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 
 
-- macOS has sound via SDL2
+- macOS has sound via SDL2 (SFX + MIDI music).
+- iOS has sound via AVFoundation (SFX + MIDI music).
 - watchOS: experimental SFX sound scaffolding (AVFoundation). Music is disabled for now.
 - macOS includes an optional Face Control mode (menu bar toggle) that uses the camera to drive the Doom Guy’s face.
   Supported expressions: forward, look left, look right, grin, mouth open, eyebrow raise (left), eyebrow raise (right).
@@ -26,7 +27,7 @@ brew install sdl2 sdl2_mixer
 
 2) The DOOM shareware WAD is already included. You can optionally replace it by dropping a different WAD into `DarwinDOOM/WADs`.
 
-3) (Optional) We bundle the GZDoom SoundFont (from the [GZDoom](https://github.com/ZDoom/gzdoom) project). If you replace that file, the Xcode build step will pick up any SoundFont you place in `DarwinDOOM/SoundFont/` and copy it into the app bundle automatically; the game runs without it (no MIDI music).
+3) (Optional) We bundle the GZDoom SoundFont (from the [GZDoom](https://github.com/ZDoom/gzdoom) project). If you replace that file, update the bundled `SoundFont/gzdoom.sf2` (or add another `.sf2` there) and make sure it’s included in the app target resources; the game runs without it (no MIDI music).
 
 4) Bundle a WAD file and build/run.
 
