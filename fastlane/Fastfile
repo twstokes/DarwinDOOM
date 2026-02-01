@@ -8,6 +8,8 @@ platform :mac do
     version = options[:version]
     repo = options[:repo] || "twstokes/DarwinDOOM"
     identity = options[:identity] || "DarwinDOOM"
+    bundle_id = options[:bundle_id] || "com.tannr.DarwinDOOM"
+    provisioning_profile = options[:provisioning_profile]
     allow_dirty = options.key?(:allow_dirty) ? options[:allow_dirty] : false
     project_root = Dir.pwd.end_with?("fastlane") ? File.expand_path("..", Dir.pwd) : Dir.pwd
     build_dir = options[:build_dir] || File.join(project_root, "build")
@@ -36,6 +38,17 @@ platform :mac do
 
     FileUtils.mkdir_p(build_dir)
 
+    export_options = {
+      teamID: "AE76EV48ND"
+    }
+    if provisioning_profile && !provisioning_profile.to_s.strip.empty?
+      export_options[:signingStyle] = "manual"
+      export_options[:signingCertificate] = identity
+      export_options[:provisioningProfiles] = { bundle_id => provisioning_profile }
+    else
+      export_options[:signingStyle] = "automatic"
+    end
+
     build_app(
       scheme: "DarwinDOOM",
       configuration: "Release",
@@ -43,11 +56,8 @@ platform :mac do
       output_directory: build_dir,
       output_name: output_name,
       export_method: "developer-id",
-      export_options: {
-        signingStyle: "manual",
-        teamID: "AE76EV48ND",
-        signingCertificate: identity
-      }
+      codesigning_identity: identity,
+      export_options: export_options
     )
 
     expanded_build_dir = File.expand_path(build_dir)
