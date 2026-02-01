@@ -20,8 +20,25 @@ platform :mac do
     notary_profile = options[:notary_profile] || "DarwinDOOM-notary"
 
     UI.user_error!("Pass version: `fastlane mac release_macos version:1.2.3`") if version.to_s.strip.empty?
+    UI.user_error!("Release canceled.") unless UI.confirm("Proceed with version #{version}?")
 
     ensure_git_status_clean unless allow_dirty
+
+    versions_path = File.join(project_root, "Config", "Versions.xcconfig")
+    UI.user_error!("Missing Versions.xcconfig at #{versions_path}") unless File.exist?(versions_path)
+    xcconfig = File.read(versions_path)
+    xcconfig = xcconfig.gsub(/^\s*MARKETING_VERSION\s*=.*$/, "MARKETING_VERSION = #{version}")
+    File.write(versions_path, xcconfig)
+    status = sh("git", "status", "--porcelain", versions_path).to_s.strip
+    if !status.empty?
+      if UI.confirm("Commit version bump to #{version}?")
+        sh("git", "add", versions_path)
+        sh("git", "commit", "-m", "Bump version to #{version}")
+        sh("git", "push", "origin", "HEAD")
+      else
+        UI.user_error!("Release canceled (version bump not committed).")
+      end
+    end
 
     output_name = "DarwinDOOM"
     output_path = nil
