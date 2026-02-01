@@ -14,6 +14,7 @@ class ViewController: NSViewController {
     private let renderCoordinator = DoomRenderCoordinator()
     private let webcamCapture = WebcamCapture()
     private var isFaceControlEnabled = false
+    private var didConfigureWindowAutosave = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,15 @@ class ViewController: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         view.window?.makeFirstResponder(view.subviews.first)
+        if let window = view.window, !didConfigureWindowAutosave {
+            didConfigureWindowAutosave = true
+            let autosaveName = NSWindow.FrameAutosaveName("DarwinDOOM.MainWindow")
+            let restored = window.setFrameUsingName(autosaveName)
+            if !restored {
+                window.center()
+            }
+            window.setFrameAutosaveName(autosaveName)
+        }
     }
 
     override func viewWillDisappear() {
