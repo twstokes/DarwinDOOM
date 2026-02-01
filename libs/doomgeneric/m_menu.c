@@ -38,6 +38,16 @@
 #include "w_wad.h"
 #include "z_zone.h"
 
+#if defined(__APPLE__)
+#include <TargetConditionals.h>
+#endif
+
+#if defined(__APPLE__) && (TARGET_OS_IOS || TARGET_OS_WATCH)
+#define DG_SHOW_QUIT_MENU 0
+#else
+#define DG_SHOW_QUIT_MENU 1
+#endif
+
 #include "r_local.h"
 
 
@@ -235,7 +245,9 @@ enum
     loadgame,
     savegame,
     readthis,
+#if DG_SHOW_QUIT_MENU
     quitdoom,
+#endif
     main_end
 } main_e;
 
@@ -247,7 +259,9 @@ menuitem_t MainMenu[]=
     {1,"M_SAVEG",M_SaveGame,'s'},
     // Another hickup with Special edition.
     {1,"M_RDTHIS",M_ReadThis,'r'},
+#if DG_SHOW_QUIT_MENU
     {1,"M_QUITG",M_QuitDOOM,'q'}
+#endif
 };
 
 menu_t  MainDef =
@@ -1432,7 +1446,11 @@ boolean M_Responder (event_t* ev)
     {
         if (ev->type == ev_quit
          || (ev->type == ev_keydown
-          && (ev->data1 == key_menu_activate || ev->data1 == key_menu_quit)))
+          && (ev->data1 == key_menu_activate
+#if DG_SHOW_QUIT_MENU
+           || ev->data1 == key_menu_quit
+#endif
+          )))
         {
             I_Quit();
             return true;
@@ -1444,6 +1462,7 @@ boolean M_Responder (event_t* ev)
     // "close" button pressed on window?
     if (ev->type == ev_quit)
     {
+#if DG_SHOW_QUIT_MENU
         // First click on close button = bring up quit confirm message.
         // Second click on close button = confirm quit
 
@@ -1458,6 +1477,9 @@ boolean M_Responder (event_t* ev)
         }
 
         return true;
+#else
+        return false;
+#endif
     }
 
     // key is the key pressed, ch is the actual character typed
@@ -1738,12 +1760,14 @@ boolean M_Responder (event_t* ev)
 	    M_QuickLoad();
 	    return true;
         }
+#if DG_SHOW_QUIT_MENU
         else if (key == key_menu_quit)     // Quit DOOM
         {
 	    S_StartSound(NULL,sfx_swtchn);
 	    M_QuitDOOM(0);
 	    return true;
         }
+#endif
         else if (key == key_menu_gamma)    // gamma toggle
         {
 	    usegamma++;
@@ -2099,7 +2123,9 @@ void M_Init (void)
     {
       case commercial:
         // Commercial has no "read this" entry.
+#if DG_SHOW_QUIT_MENU
 	MainMenu[readthis] = MainMenu[quitdoom];
+#endif
 	MainDef.numitems--;
 	MainDef.y += 8;
 	NewDef.prevMenu = &MainDef;
