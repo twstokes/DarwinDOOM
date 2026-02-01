@@ -18,7 +18,7 @@ extern "C" {
 #import <TargetConditionals.h>
 #endif
 
-#if TARGET_OS_WATCH
+#if TARGET_OS_WATCH || TARGET_OS_IOS
 #import <AVFoundation/AVFoundation.h>
 
 static boolean avf_initialized = false;
@@ -75,7 +75,7 @@ static boolean I_AVF_InitSound(boolean _use_sfx_prefix)
         AVAudioSession *session = [AVAudioSession sharedInstance];
         NSError *error = nil;
 
-        // Use playback to allow game audio output on watchOS
+        // Use playback to allow game audio output on Apple platforms
         if (![session setCategory:AVAudioSessionCategoryPlayback error:&error]) {
             // If this fails we still proceed; module can remain effectively silent
         }

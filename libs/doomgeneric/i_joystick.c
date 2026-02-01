@@ -15,6 +15,14 @@
 //       SDL Joystick code.
 //
 
+#if defined(__APPLE__)
+#include <TargetConditionals.h>
+#endif
+
+#if defined(__APPLE__) && (TARGET_OS_IOS || TARGET_OS_WATCH)
+// Joystick support is stubbed on iOS/watch; keep this translation unit empty.
+#else
+
 #ifdef ORIGCODE
 #include "SDL.h"
 #include "SDL_joystick.h"
@@ -357,3 +365,4 @@ void I_BindJoystickVariables(void)
     }
 }
 
+#endif // !TARGET_OS_IOS && !TARGET_OS_WATCH

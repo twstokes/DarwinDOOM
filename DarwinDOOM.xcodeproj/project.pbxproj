@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8DD71A2C5D4C38B3D3FFBF /* i_joystick_stub.c in Sources */ = {isa = PBXBuildFile; fileRef = 7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */; };
+		314BC9266F3040D0B11F8718 /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */; };
+		69F380B09088439E9A31113A /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
+		80F25D5F3CDA4F858AE17BBA /* DarwinDOOM iOS/ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */; };
 		B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */; };
 		C31D8E5E2A5B0C3B0062F401 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
 		C31D8E602A5B0DB30062F401 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
@@ -67,7 +71,6 @@
 		C34071CE2A5B5349001FAD58 /* z_zone.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF92A5A552C00E5855C /* z_zone.c */; };
 		C34071CF2A5B5349001FAD58 /* doomstat.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940072A5A552E00E5855C /* doomstat.c */; };
 		C34071D02A5B5349001FAD58 /* r_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C349405C2A5A554100E5855C /* r_main.c */; };
-		C34071D12A5B5349001FAD58 /* i_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940732A5A554600E5855C /* i_joystick.c */; };
 		C34071D22A5B5349001FAD58 /* m_bbox.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940962A5A554E00E5855C /* m_bbox.c */; };
 		C34071D32A5B5349001FAD58 /* g_game.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940582A5A554000E5855C /* g_game.c */; };
 		C34071D42A5B5349001FAD58 /* hu_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940232A5A553400E5855C /* hu_lib.c */; };
@@ -192,10 +195,188 @@
 		C34940FD2A5A555400E5855C /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
 		C34940FE2A5A555400E5855C /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
 		C38BFFBD2A5BB628005A5D83 /* i_sdlmusic.c in Sources */ = {isa = PBXBuildFile; fileRef = C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */; };
+		C396462F2F2EEFAC003FD929 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
+		C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
+		C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
+		C39646322F2EEFAC003FD929 /* i_joystick_stub.c in Sources */ = {isa = PBXBuildFile; fileRef = 7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */; };
+		C39646332F2EEFAC003FD929 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
+		C39646342F2EEFAC003FD929 /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
+		C39646352F2EEFAC003FD929 /* icon.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940252A5A553500E5855C /* icon.c */; };
+		C39646362F2EEFAC003FD929 /* m_controls.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF42A5A552B00E5855C /* m_controls.c */; };
+		C39646372F2EEFAC003FD929 /* p_saveg.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940402A5A553B00E5855C /* p_saveg.c */; };
+		C39646382F2EEFAC003FD929 /* p_switch.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940792A5A554700E5855C /* p_switch.c */; };
+		C39646392F2EEFAC003FD929 /* r_bsp.c in Sources */ = {isa = PBXBuildFile; fileRef = C349405B2A5A554100E5855C /* r_bsp.c */; };
+		C396463A2F2EEFAC003FD929 /* mus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A42A5A555200E5855C /* mus2mid.c */; };
+		C396463B2F2EEFAC003FD929 /* v_video.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A12A5A555100E5855C /* v_video.c */; };
+		C396463C2F2EEFAC003FD929 /* r_segs.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940992A5A554F00E5855C /* r_segs.c */; };
+		C396463D2F2EEFAC003FD929 /* i_video.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940602A5A554200E5855C /* i_video.c */; };
+		C396463E2F2EEFAC003FD929 /* d_iwad.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940152A5A553100E5855C /* d_iwad.c */; };
+		C396463F2F2EEFAC003FD929 /* d_net.c in Sources */ = {isa = PBXBuildFile; fileRef = C349407F2A5A554900E5855C /* d_net.c */; };
+		C39646402F2EEFAC003FD929 /* w_file_stdc.c in Sources */ = {isa = PBXBuildFile; fileRef = C349409E2A5A555100E5855C /* w_file_stdc.c */; };
+		C39646412F2EEFAC003FD929 /* i_input.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF82A5A552B00E5855C /* i_input.c */; };
+		C39646422F2EEFAC003FD929 /* i_system.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404A2A5A553D00E5855C /* i_system.c */; };
+		C39646432F2EEFAC003FD929 /* d_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404D2A5A553E00E5855C /* d_main.c */; };
+		C39646442F2EEFAC003FD929 /* r_data.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940692A5A554400E5855C /* r_data.c */; };
+		C39646452F2EEFAC003FD929 /* d_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940642A5A554300E5855C /* d_loop.c */; };
+		C39646462F2EEFAC003FD929 /* d_mode.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940262A5A553500E5855C /* d_mode.c */; };
+		C39646472F2EEFAC003FD929 /* hu_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940202A5A553400E5855C /* hu_stuff.c */; };
+		C39646482F2EEFAC003FD929 /* i_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = C349403B2A5A553A00E5855C /* i_sound.c */; };
+		C39646492F2EEFAC003FD929 /* r_draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940662A5A554300E5855C /* r_draw.c */; };
+		C396464A2F2EEFAC003FD929 /* r_plane.c in Sources */ = {isa = PBXBuildFile; fileRef = C349407A2A5A554700E5855C /* r_plane.c */; };
+		C396464B2F2EEFAC003FD929 /* m_menu.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940452A5A553C00E5855C /* m_menu.c */; };
+		C396464C2F2EEFAC003FD929 /* m_fixed.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940012A5A552D00E5855C /* m_fixed.c */; };
+		C396464D2F2EEFAC003FD929 /* i_timer.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940972A5A554E00E5855C /* i_timer.c */; };
+		C396464E2F2EEFAC003FD929 /* m_misc.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401E2A5A553300E5855C /* m_misc.c */; };
+		C396464F2F2EEFAC003FD929 /* memio.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404F2A5A553E00E5855C /* memio.c */; };
+		C39646502F2EEFAC003FD929 /* w_checksum.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF62A5A552B00E5855C /* w_checksum.c */; };
+		C39646512F2EEFAC003FD929 /* m_config.c in Sources */ = {isa = PBXBuildFile; fileRef = C349408D2A5A554C00E5855C /* m_config.c */; };
+		C39646522F2EEFAC003FD929 /* w_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFB2A5A552C00E5855C /* w_main.c */; };
+		C39646532F2EEFAC003FD929 /* dummy.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940382A5A553900E5855C /* dummy.c */; };
+		C39646542F2EEFAC003FD929 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940392A5A553900E5855C /* sha1.c */; };
+		C39646552F2EEFAC003FD929 /* w_file.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940632A5A554200E5855C /* w_file.c */; };
+		C39646562F2EEFAC003FD929 /* p_plats.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940782A5A554700E5855C /* p_plats.c */; };
+		C39646572F2EEFAC003FD929 /* i_cdmus.c in Sources */ = {isa = PBXBuildFile; fileRef = C349408C2A5A554C00E5855C /* i_cdmus.c */; };
+		C39646582F2EEFAC003FD929 /* p_pspr.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940652A5A554300E5855C /* p_pspr.c */; };
+		C39646592F2EEFAC003FD929 /* st_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940872A5A554B00E5855C /* st_stuff.c */; };
+		C396465A2F2EEFAC003FD929 /* dstrings.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940832A5A554900E5855C /* dstrings.c */; };
+		C396465B2F2EEFAC003FD929 /* m_random.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401D2A5A553300E5855C /* m_random.c */; };
+		C396465C2F2EEFAC003FD929 /* i_endoom.c in Sources */ = {isa = PBXBuildFile; fileRef = C349403E2A5A553A00E5855C /* i_endoom.c */; };
+		C396465D2F2EEFAC003FD929 /* p_spec.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFD2A5A552C00E5855C /* p_spec.c */; };
+		C396465E2F2EEFAC003FD929 /* w_wad.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940172A5A553200E5855C /* w_wad.c */; };
+		C396465F2F2EEFAC003FD929 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940762A5A554700E5855C /* info.c */; };
+		C39646602F2EEFAC003FD929 /* p_tick.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFE2A5A552D00E5855C /* p_tick.c */; };
+		C39646612F2EEFAC003FD929 /* z_zone.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF92A5A552C00E5855C /* z_zone.c */; };
+		C39646622F2EEFAC003FD929 /* doomstat.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940072A5A552E00E5855C /* doomstat.c */; };
+		C39646632F2EEFAC003FD929 /* r_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C349405C2A5A554100E5855C /* r_main.c */; };
+		C39646642F2EEFAC003FD929 /* m_bbox.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940962A5A554E00E5855C /* m_bbox.c */; };
+		C39646652F2EEFAC003FD929 /* g_game.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940582A5A554000E5855C /* g_game.c */; };
+		C39646662F2EEFAC003FD929 /* hu_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940232A5A553400E5855C /* hu_lib.c */; };
+		C39646672F2EEFAC003FD929 /* p_mobj.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940302A5A553700E5855C /* p_mobj.c */; };
+		C39646682F2EEFAC003FD929 /* am_map.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940612A5A554200E5855C /* am_map.c */; };
+		C39646692F2EEFAC003FD929 /* gusconf.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401B2A5A553300E5855C /* gusconf.c */; };
+		C396466A2F2EEFAC003FD929 /* p_ceilng.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940482A5A553D00E5855C /* p_ceilng.c */; };
+		C396466B2F2EEFAC003FD929 /* p_maputl.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940822A5A554900E5855C /* p_maputl.c */; };
+		C396466C2F2EEFAC003FD929 /* sounds.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940472A5A553C00E5855C /* sounds.c */; };
+		C396466D2F2EEFAC003FD929 /* p_setup.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940842A5A554A00E5855C /* p_setup.c */; };
+		C396466E2F2EEFAC003FD929 /* p_doors.c in Sources */ = {isa = PBXBuildFile; fileRef = C349400D2A5A553000E5855C /* p_doors.c */; };
+		C396466F2F2EEFAC003FD929 /* d_event.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940142A5A553100E5855C /* d_event.c */; };
+		C39646702F2EEFAC003FD929 /* doomdef.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940132A5A553100E5855C /* doomdef.c */; };
+		C39646712F2EEFAC003FD929 /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
+		C39646722F2EEFAC003FD929 /* r_things.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940522A5A553F00E5855C /* r_things.c */; };
+		C39646732F2EEFAC003FD929 /* s_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940372A5A553900E5855C /* s_sound.c */; };
+		C39646742F2EEFAC003FD929 /* d_items.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940712A5A554500E5855C /* d_items.c */; };
+		C39646752F2EEFAC003FD929 /* m_cheat.c in Sources */ = {isa = PBXBuildFile; fileRef = C349407B2A5A554800E5855C /* m_cheat.c */; };
+		C39646762F2EEFAC003FD929 /* p_sight.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940562A5A554000E5855C /* p_sight.c */; };
+		C39646772F2EEFAC003FD929 /* r_sky.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404C2A5A553D00E5855C /* r_sky.c */; };
+		C39646782F2EEFAC003FD929 /* st_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940852A5A554A00E5855C /* st_lib.c */; };
+		C39646792F2EEFAC003FD929 /* f_finale.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940532A5A553F00E5855C /* f_finale.c */; };
+		C396467A2F2EEFAC003FD929 /* p_lights.c in Sources */ = {isa = PBXBuildFile; fileRef = C349409C2A5A555000E5855C /* p_lights.c */; };
+		C396467B2F2EEFAC003FD929 /* p_telept.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940512A5A553F00E5855C /* p_telept.c */; };
+		C396467C2F2EEFAC003FD929 /* statdump.c in Sources */ = {isa = PBXBuildFile; fileRef = C349400B2A5A552F00E5855C /* statdump.c */; };
+		C396467D2F2EEFAC003FD929 /* m_argv.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940162A5A553200E5855C /* m_argv.c */; };
+		C396467E2F2EEFAC003FD929 /* p_map.c in Sources */ = {isa = PBXBuildFile; fileRef = C349402A2A5A553600E5855C /* p_map.c */; };
+		C396467F2F2EEFAC003FD929 /* doomgeneric.c in Sources */ = {isa = PBXBuildFile; fileRef = C349402C2A5A553600E5855C /* doomgeneric.c */; };
+		C39646802F2EEFAC003FD929 /* p_user.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940332A5A553800E5855C /* p_user.c */; };
+		C39646812F2EEFAC003FD929 /* i_scale.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401C2A5A553300E5855C /* i_scale.c */; };
+		C39646822F2EEFAC003FD929 /* wi_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFF2A5A552D00E5855C /* wi_stuff.c */; };
+		C39646832F2EEFAC003FD929 /* p_enemy.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940682A5A554300E5855C /* p_enemy.c */; };
+		C39646842F2EEFAC003FD929 /* tables.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940932A5A554D00E5855C /* tables.c */; };
+		C39646852F2EEFAC003FD929 /* p_inter.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF52A5A552B00E5855C /* p_inter.c */; };
+		C39646862F2EEFAC003FD929 /* doomgeneric_objc_interop.m in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */; };
+		C39646872F2EEFAC003FD929 /* m_controls.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF42A5A552B00E5855C /* m_controls.c */; };
+		C39646882F2EEFAC003FD929 /* p_inter.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF52A5A552B00E5855C /* p_inter.c */; };
+		C39646892F2EEFAC003FD929 /* w_checksum.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF62A5A552B00E5855C /* w_checksum.c */; };
+		C396468A2F2EEFAC003FD929 /* i_input.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF82A5A552B00E5855C /* i_input.c */; };
+		C396468B2F2EEFAC003FD929 /* z_zone.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FF92A5A552C00E5855C /* z_zone.c */; };
+		C396468C2F2EEFAC003FD929 /* w_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFB2A5A552C00E5855C /* w_main.c */; };
+		C396468D2F2EEFAC003FD929 /* p_spec.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFD2A5A552C00E5855C /* p_spec.c */; };
+		C396468E2F2EEFAC003FD929 /* p_tick.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFE2A5A552D00E5855C /* p_tick.c */; };
+		C396468F2F2EEFAC003FD929 /* wi_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = C3493FFF2A5A552D00E5855C /* wi_stuff.c */; };
+		C39646902F2EEFAC003FD929 /* m_fixed.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940012A5A552D00E5855C /* m_fixed.c */; };
+		C39646912F2EEFAC003FD929 /* doomstat.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940072A5A552E00E5855C /* doomstat.c */; };
+		C39646922F2EEFAC003FD929 /* statdump.c in Sources */ = {isa = PBXBuildFile; fileRef = C349400B2A5A552F00E5855C /* statdump.c */; };
+		C39646932F2EEFAC003FD929 /* p_doors.c in Sources */ = {isa = PBXBuildFile; fileRef = C349400D2A5A553000E5855C /* p_doors.c */; };
+		C39646942F2EEFAC003FD929 /* doomdef.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940132A5A553100E5855C /* doomdef.c */; };
+		C39646952F2EEFAC003FD929 /* d_event.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940142A5A553100E5855C /* d_event.c */; };
+		C39646962F2EEFAC003FD929 /* d_iwad.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940152A5A553100E5855C /* d_iwad.c */; };
+		C39646972F2EEFAC003FD929 /* m_argv.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940162A5A553200E5855C /* m_argv.c */; };
+		C39646982F2EEFAC003FD929 /* w_wad.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940172A5A553200E5855C /* w_wad.c */; };
+		C39646992F2EEFAC003FD929 /* gusconf.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401B2A5A553300E5855C /* gusconf.c */; };
+		C396469A2F2EEFAC003FD929 /* i_scale.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401C2A5A553300E5855C /* i_scale.c */; };
+		C396469B2F2EEFAC003FD929 /* m_random.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401D2A5A553300E5855C /* m_random.c */; };
+		C396469C2F2EEFAC003FD929 /* m_misc.c in Sources */ = {isa = PBXBuildFile; fileRef = C349401E2A5A553300E5855C /* m_misc.c */; };
+		C396469D2F2EEFAC003FD929 /* hu_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940202A5A553400E5855C /* hu_stuff.c */; };
+		C396469E2F2EEFAC003FD929 /* hu_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940232A5A553400E5855C /* hu_lib.c */; };
+		C396469F2F2EEFAC003FD929 /* icon.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940252A5A553500E5855C /* icon.c */; };
+		C39646A02F2EEFAC003FD929 /* d_mode.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940262A5A553500E5855C /* d_mode.c */; };
+		C39646A12F2EEFAC003FD929 /* p_map.c in Sources */ = {isa = PBXBuildFile; fileRef = C349402A2A5A553600E5855C /* p_map.c */; };
+		C39646A22F2EEFAC003FD929 /* doomgeneric.c in Sources */ = {isa = PBXBuildFile; fileRef = C349402C2A5A553600E5855C /* doomgeneric.c */; };
+		C39646A32F2EEFAC003FD929 /* p_mobj.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940302A5A553700E5855C /* p_mobj.c */; };
+		C39646A42F2EEFAC003FD929 /* p_user.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940332A5A553800E5855C /* p_user.c */; };
+		C39646A52F2EEFAC003FD929 /* s_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940372A5A553900E5855C /* s_sound.c */; };
+		C39646A62F2EEFAC003FD929 /* dummy.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940382A5A553900E5855C /* dummy.c */; };
+		C39646A72F2EEFAC003FD929 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940392A5A553900E5855C /* sha1.c */; };
+		C39646A82F2EEFAC003FD929 /* i_sound.c in Sources */ = {isa = PBXBuildFile; fileRef = C349403B2A5A553A00E5855C /* i_sound.c */; };
+		C39646A92F2EEFAC003FD929 /* i_endoom.c in Sources */ = {isa = PBXBuildFile; fileRef = C349403E2A5A553A00E5855C /* i_endoom.c */; };
+		C39646AA2F2EEFAC003FD929 /* p_saveg.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940402A5A553B00E5855C /* p_saveg.c */; };
+		C39646AB2F2EEFAC003FD929 /* m_menu.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940452A5A553C00E5855C /* m_menu.c */; };
+		C39646AC2F2EEFAC003FD929 /* sounds.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940472A5A553C00E5855C /* sounds.c */; };
+		C39646AD2F2EEFAC003FD929 /* p_ceilng.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940482A5A553D00E5855C /* p_ceilng.c */; };
+		C39646AE2F2EEFAC003FD929 /* i_system.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404A2A5A553D00E5855C /* i_system.c */; };
+		C39646AF2F2EEFAC003FD929 /* r_sky.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404C2A5A553D00E5855C /* r_sky.c */; };
+		C39646B02F2EEFAC003FD929 /* d_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404D2A5A553E00E5855C /* d_main.c */; };
+		C39646B12F2EEFAC003FD929 /* memio.c in Sources */ = {isa = PBXBuildFile; fileRef = C349404F2A5A553E00E5855C /* memio.c */; };
+		C39646B22F2EEFAC003FD929 /* p_telept.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940512A5A553F00E5855C /* p_telept.c */; };
+		C39646B32F2EEFAC003FD929 /* r_things.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940522A5A553F00E5855C /* r_things.c */; };
+		C39646B42F2EEFAC003FD929 /* f_finale.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940532A5A553F00E5855C /* f_finale.c */; };
+		C39646B52F2EEFAC003FD929 /* p_sight.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940562A5A554000E5855C /* p_sight.c */; };
+		C39646B62F2EEFAC003FD929 /* g_game.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940582A5A554000E5855C /* g_game.c */; };
+		C39646B72F2EEFAC003FD929 /* r_bsp.c in Sources */ = {isa = PBXBuildFile; fileRef = C349405B2A5A554100E5855C /* r_bsp.c */; };
+		C39646B82F2EEFAC003FD929 /* r_main.c in Sources */ = {isa = PBXBuildFile; fileRef = C349405C2A5A554100E5855C /* r_main.c */; };
+		C39646B92F2EEFAC003FD929 /* i_video.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940602A5A554200E5855C /* i_video.c */; };
+		C39646BA2F2EEFAC003FD929 /* am_map.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940612A5A554200E5855C /* am_map.c */; };
+		C39646BB2F2EEFAC003FD929 /* w_file.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940632A5A554200E5855C /* w_file.c */; };
+		C39646BC2F2EEFAC003FD929 /* d_loop.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940642A5A554300E5855C /* d_loop.c */; };
+		C39646BD2F2EEFAC003FD929 /* p_pspr.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940652A5A554300E5855C /* p_pspr.c */; };
+		C39646BE2F2EEFAC003FD929 /* r_draw.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940662A5A554300E5855C /* r_draw.c */; };
+		C39646BF2F2EEFAC003FD929 /* p_enemy.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940682A5A554300E5855C /* p_enemy.c */; };
+		C39646C02F2EEFAC003FD929 /* r_data.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940692A5A554400E5855C /* r_data.c */; };
+		C39646C12F2EEFAC003FD929 /* d_items.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940712A5A554500E5855C /* d_items.c */; };
+		C39646C22F2EEFAC003FD929 /* i_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940732A5A554600E5855C /* i_joystick.c */; };
+		C39646C32F2EEFAC003FD929 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940762A5A554700E5855C /* info.c */; };
+		C39646C42F2EEFAC003FD929 /* p_plats.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940782A5A554700E5855C /* p_plats.c */; };
+		C39646C52F2EEFAC003FD929 /* p_switch.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940792A5A554700E5855C /* p_switch.c */; };
+		C39646C62F2EEFAC003FD929 /* r_plane.c in Sources */ = {isa = PBXBuildFile; fileRef = C349407A2A5A554700E5855C /* r_plane.c */; };
+		C39646C72F2EEFAC003FD929 /* m_cheat.c in Sources */ = {isa = PBXBuildFile; fileRef = C349407B2A5A554800E5855C /* m_cheat.c */; };
+		C39646C82F2EEFAC003FD929 /* d_net.c in Sources */ = {isa = PBXBuildFile; fileRef = C349407F2A5A554900E5855C /* d_net.c */; };
+		C39646C92F2EEFAC003FD929 /* p_maputl.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940822A5A554900E5855C /* p_maputl.c */; };
+		C39646CA2F2EEFAC003FD929 /* dstrings.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940832A5A554900E5855C /* dstrings.c */; };
+		C39646CB2F2EEFAC003FD929 /* p_setup.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940842A5A554A00E5855C /* p_setup.c */; };
+		C39646CC2F2EEFAC003FD929 /* st_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940852A5A554A00E5855C /* st_lib.c */; };
+		C39646CD2F2EEFAC003FD929 /* st_stuff.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940872A5A554B00E5855C /* st_stuff.c */; };
+		C39646CE2F2EEFAC003FD929 /* i_cdmus.c in Sources */ = {isa = PBXBuildFile; fileRef = C349408C2A5A554C00E5855C /* i_cdmus.c */; };
+		C39646CF2F2EEFAC003FD929 /* m_config.c in Sources */ = {isa = PBXBuildFile; fileRef = C349408D2A5A554C00E5855C /* m_config.c */; };
+		C39646D02F2EEFAC003FD929 /* tables.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940932A5A554D00E5855C /* tables.c */; };
+		C39646D12F2EEFAC003FD929 /* m_bbox.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940962A5A554E00E5855C /* m_bbox.c */; };
+		C39646D22F2EEFAC003FD929 /* i_timer.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940972A5A554E00E5855C /* i_timer.c */; };
+		C39646D32F2EEFAC003FD929 /* r_segs.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940992A5A554F00E5855C /* r_segs.c */; };
+		C39646D42F2EEFAC003FD929 /* p_lights.c in Sources */ = {isa = PBXBuildFile; fileRef = C349409C2A5A555000E5855C /* p_lights.c */; };
+		C39646D52F2EEFAC003FD929 /* w_file_stdc.c in Sources */ = {isa = PBXBuildFile; fileRef = C349409E2A5A555100E5855C /* w_file_stdc.c */; };
+		C39646D62F2EEFAC003FD929 /* v_video.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A12A5A555100E5855C /* v_video.c */; };
+		C39646D72F2EEFAC003FD929 /* mus2mid.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A42A5A555200E5855C /* mus2mid.c */; };
+		C39646D82F2EEFAC003FD929 /* f_wipe.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A52A5A555200E5855C /* f_wipe.c */; };
+		C39646D92F2EEFAC003FD929 /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
+		C39646DA2F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
+		C39646DB2F2EEFAC003FD929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
+		C39646DC2F2EEFAC003FD929 /* WADs in Resources */ = {isa = PBXBuildFile; fileRef = C333C1112A5F12AD00A780DE /* WADs */; };
 		C3A9FBDB2A5BA68A0059DCEC /* i_sdlsound.c in Sources */ = {isa = PBXBuildFile; fileRef = C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */; };
+		F0A1B2C3D4E5F60789ABCD11 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
+		F0A1B2C3D4E5F60789ABCD13 /* DoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071822A5B4039001FAD58 /* DoomScene.swift */; };
+		F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		F38A9EB62CA5E7720017B02F /* SpriteViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */; };
 		F3AFA0A02D00000100000001 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
-		F3AFA0A12D00000100000001 /* i_nomusic.c in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09F2D00000100000001 /* i_nomusic.c */; };
+		F0A1B2C3D4E5F60789ABCD16 /* gzdoom.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD15 /* gzdoom.sf2 */; };
+		F0A1B2C3D4E5F60789ABCD17 /* gzdoom.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD15 /* gzdoom.sf2 */; };
 		F3AFA0A22D00000100000001 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFA0A32D00000100000001 /* AVFoundation.framework */; };
 		F3CFC72E2CA5938D001DF678 /* TouchToKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */; };
 /* End PBXBuildFile section */
@@ -225,6 +406,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/ContentView.swift"; sourceTree = "<group>"; };
+		7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_joystick_stub.c; sourceTree = "<group>"; };
+		8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarwinDOOM iOS/DarwinDOOM_iOSApp.swift"; sourceTree = "<group>"; };
 		C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = doomgeneric_objc_interop.m; sourceTree = "<group>"; };
 		C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomGenericSwift.swift; sourceTree = "<group>"; };
 		C333C1112A5F12AD00A780DE /* WADs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WADs; path = DarwinDOOM/WADs; sourceTree = "<group>"; };
@@ -423,13 +607,21 @@
 		C34940A92A5A555300E5855C /* w_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = w_main.h; sourceTree = "<group>"; };
 		C38BFFBC2A5BB628005A5D83 /* i_sdlmusic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sdlmusic.c; sourceTree = "<group>"; };
 		C3A9FBDA2A5BA68A0059DCEC /* i_sdlsound.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = i_sdlsound.c; sourceTree = "<group>"; };
+		C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DarwinDOOM iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
+		D705970A5D8847D094CE68A8 /* i_avfmusic.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfmusic.mm; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomRenderCoordinator.swift; sourceTree = "<group>"; };
 		F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteViewContainer.swift; sourceTree = "<group>"; };
 		F3AFA09E2D00000100000001 /* i_avfsound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfsound.mm; sourceTree = "<group>"; };
 		F3AFA09F2D00000100000001 /* i_nomusic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = i_nomusic.c; sourceTree = "<group>"; };
 		F3AFA0A32D00000100000001 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F0A1B2C3D4E5F60789ABCD15 /* gzdoom.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont/gzdoom.sf2; sourceTree = "<group>"; };
 		F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchToKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C3BACA392F2ED6D800BF04EC /* DarwinDOOM iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "DarwinDOOM iOS"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C34071882A5B5177001FAD58 /* Frameworks */ = {
@@ -444,6 +636,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3BACA352F2ED6D800BF04EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39646DB2F2EEFAC003FD929 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +678,7 @@
 				C340718F2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */,
 				C34F27B12A6053ED008DC128 /* libs */,
 				C333C1112A5F12AD00A780DE /* WADs */,
+				C3BACA392F2ED6D800BF04EC /* DarwinDOOM iOS */,
 				C3493FE12A5A547300E5855C /* Products */,
 				C3A9FBDD2A5BAB2B0059DCEC /* Frameworks */,
 				C3C7CE142E6CFAE3008AE728 /* Recovered References */,
@@ -490,6 +691,7 @@
 				C3493FE02A5A547300E5855C /* DarwinDOOM.app */,
 				C34071862A5B5177001FAD58 /* DarwinDOOMWatch.app */,
 				C340718B2A5B5177001FAD58 /* DarwinDOOMWatch Watch App.app */,
+				C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -497,6 +699,7 @@
 		C3493FE22A5A547300E5855C /* DarwinDOOM */ = {
 			isa = PBXGroup;
 			children = (
+				F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */,
 				C3493FE32A5A547300E5855C /* AppDelegate.swift */,
 				CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */,
 				C3493FE52A5A547300E5855C /* ViewController.swift */,
@@ -507,6 +710,7 @@
 				C3493FE72A5A547400E5855C /* Assets.xcassets */,
 				C3493FE92A5A547400E5855C /* Main.storyboard */,
 				C3493FEC2A5A547400E5855C /* DarwinDOOM.entitlements */,
+				F0A1B2C3D4E5F60789ABCD15 /* gzdoom.sf2 */,
 			);
 			path = DarwinDOOM;
 			sourceTree = "<group>";
@@ -697,6 +901,8 @@
 				C34940892A5A554B00E5855C /* z_zone.h */,
 				F3AFA09E2D00000100000001 /* i_avfsound.mm */,
 				F3AFA09F2D00000100000001 /* i_nomusic.c */,
+				7204884E7E8A4875BBB04DEA /* i_joystick_stub.c */,
+				D705970A5D8847D094CE68A8 /* i_avfmusic.mm */,
 			);
 			path = doomgeneric;
 			sourceTree = "<group>";
@@ -720,6 +926,8 @@
 			isa = PBXGroup;
 			children = (
 				F3AFA0A32D00000100000001 /* AVFoundation.framework */,
+				8095AC6827BB467BBCD69B6E /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift */,
+				0E679A43295547D3B2D5EA25 /* DarwinDOOM iOS/ContentView.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -768,7 +976,6 @@
 				C3493FDC2A5A547300E5855C /* Sources */,
 				C3493FDD2A5A547300E5855C /* Frameworks */,
 				C3493FDE2A5A547300E5855C /* Resources */,
-				3CD80B1A3C124953B98CD954 /* Copy SoundFont */,
 			);
 			buildRules = (
 			);
@@ -779,6 +986,28 @@
 			productReference = C3493FE02A5A547300E5855C /* DarwinDOOM.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C3BACA372F2ED6D800BF04EC /* DarwinDOOM iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3BACA422F2ED6D900BF04EC /* Build configuration list for PBXNativeTarget "DarwinDOOM iOS" */;
+			buildPhases = (
+				C3BACA342F2ED6D800BF04EC /* Sources */,
+				C3BACA352F2ED6D800BF04EC /* Frameworks */,
+				C3BACA362F2ED6D800BF04EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C3BACA392F2ED6D800BF04EC /* DarwinDOOM iOS */,
+			);
+			name = "DarwinDOOM iOS";
+			packageProductDependencies = (
+			);
+			productName = "DarwinDOOM iOS";
+			productReference = C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -786,7 +1015,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					C34071852A5B5177001FAD58 = {
@@ -798,6 +1027,9 @@
 					C3493FDF2A5A547300E5855C = {
 						CreatedOnToolsVersion = 14.3.1;
 						LastSwiftMigration = 1430;
+					};
+					C3BACA372F2ED6D800BF04EC = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -817,6 +1049,7 @@
 				C3493FDF2A5A547300E5855C /* DarwinDOOM */,
 				C34071852A5B5177001FAD58 /* DarwinDOOMWatch */,
 				C340718A2A5B5177001FAD58 /* DarwinDOOMWatch Watch App */,
+				C3BACA372F2ED6D800BF04EC /* DarwinDOOM iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -846,31 +1079,20 @@
 				C3493FE82A5A547400E5855C /* Assets.xcassets in Resources */,
 				C3493FEB2A5A547400E5855C /* Main.storyboard in Resources */,
 				C333C1132A5F13E300A780DE /* WADs in Resources */,
+				F0A1B2C3D4E5F60789ABCD17 /* gzdoom.sf2 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3BACA362F2ED6D800BF04EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39646DC2F2EEFAC003FD929 /* WADs in Resources */,
+				F0A1B2C3D4E5F60789ABCD16 /* gzdoom.sf2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3CD80B1A3C124953B98CD954 /* Copy SoundFont */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Copy SoundFont";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -d \"${SRCROOT}/DarwinDOOM/SoundFont\" ]; then\n  mkdir -p \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont\"\n  /bin/cp -R \"${SRCROOT}/DarwinDOOM/SoundFont/.\" \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Resources/SoundFont/\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C34071872A5B5177001FAD58 /* Sources */ = {
@@ -925,6 +1147,7 @@
 				C34071BC2A5B5349001FAD58 /* memio.c in Sources */,
 				C34071E82A5B5349001FAD58 /* p_lights.c in Sources */,
 				C34071B52A5B5349001FAD58 /* i_sound.c in Sources */,
+				0C8DD71A2C5D4C38B3D3FFBF /* i_joystick_stub.c in Sources */,
 				C34071912A5B5177001FAD58 /* DarwinDOOMWatchApp.swift in Sources */,
 				C34071D02A5B5349001FAD58 /* r_main.c in Sources */,
 				C34071A62A5B5349001FAD58 /* r_bsp.c in Sources */,
@@ -961,14 +1184,13 @@
 				C34071D92A5B5349001FAD58 /* p_maputl.c in Sources */,
 				C34071A32A5B5349001FAD58 /* m_controls.c in Sources */,
 				C34071D62A5B5349001FAD58 /* am_map.c in Sources */,
-				C34071D12A5B5349001FAD58 /* i_joystick.c in Sources */,
 				C34071B32A5B5349001FAD58 /* d_mode.c in Sources */,
 				C34071CC2A5B5349001FAD58 /* info.c in Sources */,
 				C34071D72A5B5349001FAD58 /* gusconf.c in Sources */,
 				C34071DD2A5B5349001FAD58 /* d_event.c in Sources */,
 				C34071F12A5B5349001FAD58 /* p_enemy.c in Sources */,
 				F3AFA0A02D00000100000001 /* i_avfsound.mm in Sources */,
-				F3AFA0A12D00000100000001 /* i_nomusic.c in Sources */,
+				69F380B09088439E9A31113A /* i_avfmusic.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,6 +1198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A1B2C3D4E5F60789ABCD11 /* DoomRenderCoordinator.swift in Sources */,
 				C34940E82A5A555400E5855C /* info.c in Sources */,
 				C34940D32A5A555400E5855C /* i_system.c in Sources */,
 				C3A9FBDB2A5BA68A0059DCEC /* i_sdlsound.c in Sources */,
@@ -1067,6 +1290,189 @@
 				C34940FD2A5A555400E5855C /* f_wipe.c in Sources */,
 				C34940FB2A5A555400E5855C /* v_video.c in Sources */,
 				C34940F92A5A555400E5855C /* p_lights.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3BACA342F2ED6D800BF04EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C396462F2F2EEFAC003FD929 /* DoomRenderCoordinator.swift in Sources */,
+				F0A1B2C3D4E5F60789ABCD13 /* DoomScene.swift in Sources */,
+				F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */,
+				314BC9266F3040D0B11F8718 /* DarwinDOOM iOS/DarwinDOOM_iOSApp.swift in Sources */,
+				80F25D5F3CDA4F858AE17BBA /* DarwinDOOM iOS/ContentView.swift in Sources */,
+				C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */,
+				C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */,
+				C39646322F2EEFAC003FD929 /* i_joystick_stub.c in Sources */,
+				C39646332F2EEFAC003FD929 /* doomgeneric_objc_interop.m in Sources */,
+				C39646342F2EEFAC003FD929 /* p_floor.c in Sources */,
+				C39646352F2EEFAC003FD929 /* icon.c in Sources */,
+				C39646362F2EEFAC003FD929 /* m_controls.c in Sources */,
+				C39646372F2EEFAC003FD929 /* p_saveg.c in Sources */,
+				C39646382F2EEFAC003FD929 /* p_switch.c in Sources */,
+				C39646392F2EEFAC003FD929 /* r_bsp.c in Sources */,
+				C396463A2F2EEFAC003FD929 /* mus2mid.c in Sources */,
+				C396463B2F2EEFAC003FD929 /* v_video.c in Sources */,
+				C396463C2F2EEFAC003FD929 /* r_segs.c in Sources */,
+				C396463D2F2EEFAC003FD929 /* i_video.c in Sources */,
+				C396463E2F2EEFAC003FD929 /* d_iwad.c in Sources */,
+				C396463F2F2EEFAC003FD929 /* d_net.c in Sources */,
+				C39646402F2EEFAC003FD929 /* w_file_stdc.c in Sources */,
+				C39646412F2EEFAC003FD929 /* i_input.c in Sources */,
+				C39646422F2EEFAC003FD929 /* i_system.c in Sources */,
+				C39646432F2EEFAC003FD929 /* d_main.c in Sources */,
+				C39646442F2EEFAC003FD929 /* r_data.c in Sources */,
+				C39646452F2EEFAC003FD929 /* d_loop.c in Sources */,
+				C39646462F2EEFAC003FD929 /* d_mode.c in Sources */,
+				C39646472F2EEFAC003FD929 /* hu_stuff.c in Sources */,
+				C39646482F2EEFAC003FD929 /* i_sound.c in Sources */,
+				C39646492F2EEFAC003FD929 /* r_draw.c in Sources */,
+				C396464A2F2EEFAC003FD929 /* r_plane.c in Sources */,
+				C396464B2F2EEFAC003FD929 /* m_menu.c in Sources */,
+				C396464C2F2EEFAC003FD929 /* m_fixed.c in Sources */,
+				C396464D2F2EEFAC003FD929 /* i_timer.c in Sources */,
+				C396464E2F2EEFAC003FD929 /* m_misc.c in Sources */,
+				C396464F2F2EEFAC003FD929 /* memio.c in Sources */,
+				C39646502F2EEFAC003FD929 /* w_checksum.c in Sources */,
+				C39646512F2EEFAC003FD929 /* m_config.c in Sources */,
+				C39646522F2EEFAC003FD929 /* w_main.c in Sources */,
+				C39646532F2EEFAC003FD929 /* dummy.c in Sources */,
+				C39646542F2EEFAC003FD929 /* sha1.c in Sources */,
+				C39646552F2EEFAC003FD929 /* w_file.c in Sources */,
+				C39646562F2EEFAC003FD929 /* p_plats.c in Sources */,
+				C39646572F2EEFAC003FD929 /* i_cdmus.c in Sources */,
+				C39646582F2EEFAC003FD929 /* p_pspr.c in Sources */,
+				C39646592F2EEFAC003FD929 /* st_stuff.c in Sources */,
+				C396465A2F2EEFAC003FD929 /* dstrings.c in Sources */,
+				C396465B2F2EEFAC003FD929 /* m_random.c in Sources */,
+				C396465C2F2EEFAC003FD929 /* i_endoom.c in Sources */,
+				C396465D2F2EEFAC003FD929 /* p_spec.c in Sources */,
+				C396465E2F2EEFAC003FD929 /* w_wad.c in Sources */,
+				C396465F2F2EEFAC003FD929 /* info.c in Sources */,
+				C39646602F2EEFAC003FD929 /* p_tick.c in Sources */,
+				C39646612F2EEFAC003FD929 /* z_zone.c in Sources */,
+				C39646622F2EEFAC003FD929 /* doomstat.c in Sources */,
+				C39646632F2EEFAC003FD929 /* r_main.c in Sources */,
+				C39646642F2EEFAC003FD929 /* m_bbox.c in Sources */,
+				C39646652F2EEFAC003FD929 /* g_game.c in Sources */,
+				C39646662F2EEFAC003FD929 /* hu_lib.c in Sources */,
+				C39646672F2EEFAC003FD929 /* p_mobj.c in Sources */,
+				C39646682F2EEFAC003FD929 /* am_map.c in Sources */,
+				C39646692F2EEFAC003FD929 /* gusconf.c in Sources */,
+				C396466A2F2EEFAC003FD929 /* p_ceilng.c in Sources */,
+				C396466B2F2EEFAC003FD929 /* p_maputl.c in Sources */,
+				C396466C2F2EEFAC003FD929 /* sounds.c in Sources */,
+				C396466D2F2EEFAC003FD929 /* p_setup.c in Sources */,
+				C396466E2F2EEFAC003FD929 /* p_doors.c in Sources */,
+				C396466F2F2EEFAC003FD929 /* d_event.c in Sources */,
+				C39646702F2EEFAC003FD929 /* doomdef.c in Sources */,
+				C39646712F2EEFAC003FD929 /* f_wipe.c in Sources */,
+				C39646722F2EEFAC003FD929 /* r_things.c in Sources */,
+				C39646732F2EEFAC003FD929 /* s_sound.c in Sources */,
+				C39646742F2EEFAC003FD929 /* d_items.c in Sources */,
+				C39646752F2EEFAC003FD929 /* m_cheat.c in Sources */,
+				C39646762F2EEFAC003FD929 /* p_sight.c in Sources */,
+				C39646772F2EEFAC003FD929 /* r_sky.c in Sources */,
+				C39646782F2EEFAC003FD929 /* st_lib.c in Sources */,
+				C39646792F2EEFAC003FD929 /* f_finale.c in Sources */,
+				C396467A2F2EEFAC003FD929 /* p_lights.c in Sources */,
+				C396467B2F2EEFAC003FD929 /* p_telept.c in Sources */,
+				C396467C2F2EEFAC003FD929 /* statdump.c in Sources */,
+				C396467D2F2EEFAC003FD929 /* m_argv.c in Sources */,
+				C396467E2F2EEFAC003FD929 /* p_map.c in Sources */,
+				C396467F2F2EEFAC003FD929 /* doomgeneric.c in Sources */,
+				C39646802F2EEFAC003FD929 /* p_user.c in Sources */,
+				C39646812F2EEFAC003FD929 /* i_scale.c in Sources */,
+				C39646822F2EEFAC003FD929 /* wi_stuff.c in Sources */,
+				C39646832F2EEFAC003FD929 /* p_enemy.c in Sources */,
+				C39646842F2EEFAC003FD929 /* tables.c in Sources */,
+				C39646852F2EEFAC003FD929 /* p_inter.c in Sources */,
+				C39646862F2EEFAC003FD929 /* doomgeneric_objc_interop.m in Sources */,
+				C39646872F2EEFAC003FD929 /* m_controls.c in Sources */,
+				C39646882F2EEFAC003FD929 /* p_inter.c in Sources */,
+				C39646892F2EEFAC003FD929 /* w_checksum.c in Sources */,
+				C396468A2F2EEFAC003FD929 /* i_input.c in Sources */,
+				C396468B2F2EEFAC003FD929 /* z_zone.c in Sources */,
+				C396468C2F2EEFAC003FD929 /* w_main.c in Sources */,
+				C396468D2F2EEFAC003FD929 /* p_spec.c in Sources */,
+				C396468E2F2EEFAC003FD929 /* p_tick.c in Sources */,
+				C396468F2F2EEFAC003FD929 /* wi_stuff.c in Sources */,
+				C39646902F2EEFAC003FD929 /* m_fixed.c in Sources */,
+				C39646912F2EEFAC003FD929 /* doomstat.c in Sources */,
+				C39646922F2EEFAC003FD929 /* statdump.c in Sources */,
+				C39646932F2EEFAC003FD929 /* p_doors.c in Sources */,
+				C39646942F2EEFAC003FD929 /* doomdef.c in Sources */,
+				C39646952F2EEFAC003FD929 /* d_event.c in Sources */,
+				C39646962F2EEFAC003FD929 /* d_iwad.c in Sources */,
+				C39646972F2EEFAC003FD929 /* m_argv.c in Sources */,
+				C39646982F2EEFAC003FD929 /* w_wad.c in Sources */,
+				C39646992F2EEFAC003FD929 /* gusconf.c in Sources */,
+				C396469A2F2EEFAC003FD929 /* i_scale.c in Sources */,
+				C396469B2F2EEFAC003FD929 /* m_random.c in Sources */,
+				C396469C2F2EEFAC003FD929 /* m_misc.c in Sources */,
+				C396469D2F2EEFAC003FD929 /* hu_stuff.c in Sources */,
+				C396469E2F2EEFAC003FD929 /* hu_lib.c in Sources */,
+				C396469F2F2EEFAC003FD929 /* icon.c in Sources */,
+				C39646A02F2EEFAC003FD929 /* d_mode.c in Sources */,
+				C39646A12F2EEFAC003FD929 /* p_map.c in Sources */,
+				C39646A22F2EEFAC003FD929 /* doomgeneric.c in Sources */,
+				C39646A32F2EEFAC003FD929 /* p_mobj.c in Sources */,
+				C39646A42F2EEFAC003FD929 /* p_user.c in Sources */,
+				C39646A52F2EEFAC003FD929 /* s_sound.c in Sources */,
+				C39646A62F2EEFAC003FD929 /* dummy.c in Sources */,
+				C39646A72F2EEFAC003FD929 /* sha1.c in Sources */,
+				C39646A82F2EEFAC003FD929 /* i_sound.c in Sources */,
+				C39646A92F2EEFAC003FD929 /* i_endoom.c in Sources */,
+				C39646AA2F2EEFAC003FD929 /* p_saveg.c in Sources */,
+				C39646AB2F2EEFAC003FD929 /* m_menu.c in Sources */,
+				C39646AC2F2EEFAC003FD929 /* sounds.c in Sources */,
+				C39646AD2F2EEFAC003FD929 /* p_ceilng.c in Sources */,
+				C39646AE2F2EEFAC003FD929 /* i_system.c in Sources */,
+				C39646AF2F2EEFAC003FD929 /* r_sky.c in Sources */,
+				C39646B02F2EEFAC003FD929 /* d_main.c in Sources */,
+				C39646B12F2EEFAC003FD929 /* memio.c in Sources */,
+				C39646B22F2EEFAC003FD929 /* p_telept.c in Sources */,
+				C39646B32F2EEFAC003FD929 /* r_things.c in Sources */,
+				C39646B42F2EEFAC003FD929 /* f_finale.c in Sources */,
+				C39646B52F2EEFAC003FD929 /* p_sight.c in Sources */,
+				C39646B62F2EEFAC003FD929 /* g_game.c in Sources */,
+				C39646B72F2EEFAC003FD929 /* r_bsp.c in Sources */,
+				C39646B82F2EEFAC003FD929 /* r_main.c in Sources */,
+				C39646B92F2EEFAC003FD929 /* i_video.c in Sources */,
+				C39646BA2F2EEFAC003FD929 /* am_map.c in Sources */,
+				C39646BB2F2EEFAC003FD929 /* w_file.c in Sources */,
+				C39646BC2F2EEFAC003FD929 /* d_loop.c in Sources */,
+				C39646BD2F2EEFAC003FD929 /* p_pspr.c in Sources */,
+				C39646BE2F2EEFAC003FD929 /* r_draw.c in Sources */,
+				C39646BF2F2EEFAC003FD929 /* p_enemy.c in Sources */,
+				C39646C02F2EEFAC003FD929 /* r_data.c in Sources */,
+				C39646C12F2EEFAC003FD929 /* d_items.c in Sources */,
+				C39646C22F2EEFAC003FD929 /* i_joystick.c in Sources */,
+				C39646C32F2EEFAC003FD929 /* info.c in Sources */,
+				C39646C42F2EEFAC003FD929 /* p_plats.c in Sources */,
+				C39646C52F2EEFAC003FD929 /* p_switch.c in Sources */,
+				C39646C62F2EEFAC003FD929 /* r_plane.c in Sources */,
+				C39646C72F2EEFAC003FD929 /* m_cheat.c in Sources */,
+				C39646C82F2EEFAC003FD929 /* d_net.c in Sources */,
+				C39646C92F2EEFAC003FD929 /* p_maputl.c in Sources */,
+				C39646CA2F2EEFAC003FD929 /* dstrings.c in Sources */,
+				C39646CB2F2EEFAC003FD929 /* p_setup.c in Sources */,
+				C39646CC2F2EEFAC003FD929 /* st_lib.c in Sources */,
+				C39646CD2F2EEFAC003FD929 /* st_stuff.c in Sources */,
+				C39646CE2F2EEFAC003FD929 /* i_cdmus.c in Sources */,
+				C39646CF2F2EEFAC003FD929 /* m_config.c in Sources */,
+				C39646D02F2EEFAC003FD929 /* tables.c in Sources */,
+				C39646D12F2EEFAC003FD929 /* m_bbox.c in Sources */,
+				C39646D22F2EEFAC003FD929 /* i_timer.c in Sources */,
+				C39646D32F2EEFAC003FD929 /* r_segs.c in Sources */,
+				C39646D42F2EEFAC003FD929 /* p_lights.c in Sources */,
+				C39646D52F2EEFAC003FD929 /* w_file_stdc.c in Sources */,
+				C39646D62F2EEFAC003FD929 /* v_video.c in Sources */,
+				C39646D72F2EEFAC003FD929 /* mus2mid.c in Sources */,
+				C39646D82F2EEFAC003FD929 /* f_wipe.c in Sources */,
+				C39646D92F2EEFAC003FD929 /* p_floor.c in Sources */,
+				C39646DA2F2EEFAC003FD929 /* i_avfsound.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1428,6 +1834,88 @@
 			};
 			name = Release;
 		};
+		C3BACA402F2ED6D900BF04EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AE76EV48ND;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				OTHER_CFLAGS = "-DFEATURE_SOUND";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tannr.DarwinDOOM-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DarwinDOOM/DarwinDOOM-Bridging-Header.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3BACA412F2ED6D900BF04EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AE76EV48ND;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				OTHER_CFLAGS = "-DFEATURE_SOUND";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tannr.DarwinDOOM-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DarwinDOOM/DarwinDOOM-Bridging-Header.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1463,6 +1951,15 @@
 			buildConfigurations = (
 				C3493FF02A5A547400E5855C /* Debug */,
 				C3493FF12A5A547400E5855C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3BACA422F2ED6D900BF04EC /* Build configuration list for PBXNativeTarget "DarwinDOOM iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3BACA402F2ED6D900BF04EC /* Debug */,
+				C3BACA412F2ED6D900BF04EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

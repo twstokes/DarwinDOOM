@@ -11,12 +11,7 @@ import AVFoundation
 import Vision
 
 class ViewController: NSViewController {
-    private let viewSize = NSSize(
-        width: Int(DOOMGENERIC_RESX),
-        height: Int(DOOMGENERIC_RESY)
-    )
-
-    private var scene: DoomScene!
+    private let renderCoordinator = DoomRenderCoordinator()
     private let webcamCapture = WebcamCapture()
     private var isFaceControlEnabled = false
 
@@ -36,6 +31,7 @@ class ViewController: NSViewController {
         ])
 
         /// Maintain the aspect ratio
+        let viewSize = renderCoordinator.viewSize
         let aspect = view.widthAnchor.constraint(
             equalTo: view.heightAnchor,
             multiplier: viewSize.width / viewSize.height
@@ -47,8 +43,7 @@ class ViewController: NSViewController {
             skview.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
 
-        scene = DoomScene(size: view.bounds.size)
-        skview.presentScene(scene)
+        renderCoordinator.attach(to: skview)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleFaceControlToggleRequested(_:)),
@@ -57,7 +52,6 @@ class ViewController: NSViewController {
         )
         let shouldEnable = UserDefaults.standard.bool(forKey: FaceControlSettings.defaultsKey)
         setFaceControlEnabled(shouldEnable, userInitiated: false)
-        startDoom()
     }
 
     override func viewWillAppear() {
@@ -73,14 +67,6 @@ class ViewController: NSViewController {
     override func viewWillDisappear() {
         super.viewWillDisappear()
         webcamCapture.stop()
-    }
-
-    private func startDoom() {
-        DoomGenericSwift.shared().frameDrawCallback = { [weak self] data in
-            guard let self else { return }
-            let newTexture = SKTexture(data: data, size: self.viewSize, flipped: true)
-            scene.doomNode.texture = newTexture
-        }
     }
 
     override var representedObject: Any? {

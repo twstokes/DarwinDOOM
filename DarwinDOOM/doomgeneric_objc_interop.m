@@ -11,6 +11,8 @@
 #import <DarwinDOOMWatch_Watch_App-Swift.h>
 #elif TARGET_OS_OSX
 #import <DarwinDOOM-Swift.h>
+#elif TARGET_OS_IOS
+#import <DarwinDOOM_iOS-Swift.h>
 #endif
 
 DoomGenericSwift *dgs;
@@ -115,7 +117,7 @@ int DG_IsTextInputActive(void)
 
 const char *DG_CopyBundledSoundFontPath(void)
 {
-#if TARGET_OS_OSX
+#if TARGET_OS_OSX || TARGET_OS_IOS || TARGET_OS_WATCH
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"SoundFont" ofType:@"sf2"];
     if (path == nil)
@@ -124,11 +126,19 @@ const char *DG_CopyBundledSoundFontPath(void)
     }
     if (path == nil)
     {
+        path = [bundle pathForResource:@"gzdoom" ofType:@"sf2"];
+    }
+    if (path == nil)
+    {
         path = [bundle pathForResource:@"SoundFont" ofType:@"sf2" inDirectory:@"SoundFont"];
     }
     if (path == nil)
     {
         path = [bundle pathForResource:@"FluidR3_GM" ofType:@"sf2" inDirectory:@"SoundFont"];
+    }
+    if (path == nil)
+    {
+        path = [bundle pathForResource:@"gzdoom" ofType:@"sf2" inDirectory:@"SoundFont"];
     }
     if (path == nil)
     {

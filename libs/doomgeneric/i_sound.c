@@ -69,7 +69,7 @@ static music_module_t *music_module = NULL;
 
 int snd_musicdevice = SNDDEVICE_SB;
 
-#if defined(FEATURE_SOUND_SDL) && defined(__APPLE__) && TARGET_OS_OSX
+#if defined(__APPLE__)
 extern const char *DG_CopyBundledSoundFontPath(void);
 #endif
 int snd_sfxdevice = SNDDEVICE_SB;
@@ -218,7 +218,7 @@ void I_InitSound(boolean use_sfx_prefix)
 
         if (!nomusic && getenv("SDL_SOUNDFONTS") == NULL)
         {
-#if defined(__APPLE__) && TARGET_OS_OSX
+#if defined(__APPLE__) && (TARGET_OS_OSX || TARGET_OS_IOS || TARGET_OS_WATCH)
             const char *soundfont_path = DG_CopyBundledSoundFontPath();
             if (soundfont_path != NULL)
             {
