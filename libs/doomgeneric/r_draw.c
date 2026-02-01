@@ -121,7 +121,7 @@ void R_DrawColumn (void)
 
     // Framebuffer destination address.
     // Use ylookup LUT to avoid multiply with ScreenWidth.
-    // Use columnofs LUT for subwindows? 
+    // Use columnofs LUT for subviews? 
     dest = ylookup[dc_yl] + columnofs[dc_x];  
 
     // Determine scaling,
@@ -781,11 +781,11 @@ R_InitBuffer
     int		i; 
 
     // Handle resize,
-    //  e.g. smaller view windows
+    //  e.g. smaller viewports
     //  with border and/or status bar.
     viewwindowx = (SCREENWIDTH-width) >> 1; 
 
-    // Column offset. For windows.
+    // Column offset. For viewports.
     for (i=0 ; i<width ; i++) 
 	columnofs[i] = viewwindowx + i;
 
@@ -923,7 +923,7 @@ R_VideoErase
   // LFB copy.
   // This might not be a good idea if memcpy
   //  is not optiomal, e.g. byte by byte on
-  //  a 32bit CPU, as GNU GCC/Linux libc did
+  //  a 32bit CPU, as older libc implementations did
   //  at one point.
 
     if (background_buffer != NULL)
@@ -936,7 +936,7 @@ R_VideoErase
 //
 // R_DrawViewBorder
 // Draws the border around the view
-//  for different size windows?
+//  for different size viewports?
 //
 void R_DrawViewBorder (void) 
 { 

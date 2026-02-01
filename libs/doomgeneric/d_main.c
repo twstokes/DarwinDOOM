@@ -1298,24 +1298,6 @@ void D_DoomMain (void)
     
     // find which dir to use for config files
 
-#ifdef _WIN32
-
-    //!
-    // @platform windows
-    // @vanilla
-    //
-    // Save configuration data and savegames in c:\doomdata,
-    // allowing play from CD.
-    //
-
-    if (M_ParmExists("-cdrom"))
-    {
-        printf(D_CDROM);
-
-        M_SetConfigDir("c:\\doomdata\\");
-    }
-    else
-#endif
     {
         // Auto-detect the configuration dir.
 
@@ -1418,7 +1400,7 @@ void D_DoomMain (void)
 
         // BFG Edition changes the names of the secret levels to
         // censor the Wolfenstein references. It also has an extra
-        // secret level (MAP33). In Vanilla Doom (meaning the DOS
+        // secret level (MAP33). In Vanilla Doom (meaning the original
         // version), MAP33 overflows into the Plutonia level names
         // array, so HUSTR_33 is actually PHUSTR_1.
 
@@ -1546,14 +1528,6 @@ void D_DoomMain (void)
     // we've finished loading Dehacked patches.
     D_SetGameDescription();
 
-#ifdef _WIN32
-    // In -cdrom mode, we write savegames to c:\doomdata as well as configs.
-    if (M_ParmExists("-cdrom"))
-    {
-        savegamedir = configdir;
-    }
-    else
-#endif
     {
         savegamedir = M_GetSaveGameDir(D_SaveGameIWADName(gamemission));
     }
@@ -1842,4 +1816,3 @@ void D_DoomMain (void)
 
     D_DoomLoop ();
 }
-

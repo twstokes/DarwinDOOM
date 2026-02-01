@@ -1203,7 +1203,7 @@ static void DonutOverrun(fixed_t *s3_floorheight, short *s3_floorpic,
         // by memory overruns from improperly constructed donuts.
         // In Vanilla Doom this can differ depending on the operating
         // system.  The default (if this option is not specified) is to
-        // emulate the behavior when running under Windows 98.
+        // emulate the behavior of a legacy executable.
 
         p = M_CheckParmWithArgs("-donut", 2);
 
@@ -1214,13 +1214,13 @@ static void DonutOverrun(fixed_t *s3_floorheight, short *s3_floorpic,
             // C:\>debug
             // -d 0:0
             //
-            // DOS 6.22:
+            // Legacy variant A:
             // 0000:0000    (57 92 19 00) F4 06 70 00-(16 00)
-            // DOS 7.1:
+            // Legacy variant B:
             // 0000:0000    (9E 0F C9 00) 65 04 70 00-(16 00)
             // Win98:
             // 0000:0000    (00 00 00 00) 65 04 70 00-(16 00)
-            // DOSBox under XP:
+            // Legacy variant C:
             // 0000:0000    (00 00 00 F1) ?? ?? ?? 00-(07 00)
 
             M_StrToInt(myargv[p + 1], &tmp_s3_floorheight);
@@ -1282,7 +1282,7 @@ int EV_DoDonut(line_t*	line)
         // Vanilla Doom does not check if the linedef is one sided.  The
         // game does not crash, but reads invalid memory and causes the
         // sector floor to move "down" to some unknown height.
-        // DOSbox prints a warning about an invalid memory access.
+        // Some emulators print a warning about an invalid memory access.
         //
         // I'm not sure exactly what invalid memory is being read.  This
         // isn't something that should be done, anyway.

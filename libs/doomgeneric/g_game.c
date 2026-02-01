@@ -1157,7 +1157,7 @@ G_CheckSpot
     //                     , ss->sector->floorheight
     //                     , MT_TFOG);
     //
-    // But 'an' can be a signed value in the DOS version. This means that
+    // But 'an' can be a signed value in the original version. This means that
     // we get a negative index and the lookups into finecosine/finesine
     // end up dereferencing values in finetangent[].
     // A player spawning on a deathmatch start facing directly west spawns
@@ -1740,8 +1740,8 @@ G_InitNew
 
     /*
     // Note: This commented-out block of code was added at some point
-    // between the DOS version(s) and the Doom source release. It isn't
-    // found in disassemblies of the DOS version and causes IDCLEV and
+    // between the original executable(s) and the source release. It isn't
+    // found in disassemblies of the original executable and causes IDCLEV and
     // the -warp command line parameter to behave differently.
     // This is left here for posterity.
 
@@ -1849,7 +1849,7 @@ G_InitNew
     // Because we set the sky here at the start of a game, not at the
     // start of a level, the sky texture never changes unless we
     // restore from a saved game.  This was fixed before the Doom
-    // source release, but this IS the way Vanilla DOS Doom behaves.
+    // source release, but this IS the way the original executable behaves.
 
     if (gamemode == commercial)
     {

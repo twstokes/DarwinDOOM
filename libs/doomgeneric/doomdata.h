@@ -111,7 +111,7 @@ typedef struct
 // of one of the neighbor sectors.
 // Unpegged textures allways have the first row of
 // the texture at the top pixel of the line for both
-// top and bottom textures (use next to windows).
+// top and bottom textures (use next to viewports).
 
 // upper texture unpegged
 #define ML_DONTPEGTOP		8

@@ -86,9 +86,8 @@ extern int opl_io_port;
 
 extern char *timidity_cfg_path;
 
-// DOS-specific options: These are unused but should be maintained
-// so that the config file can be shared between chocolate
-// doom and doom.exe
+// Legacy options: These are unused but should be maintained
+// so that the config file can be shared between ports.
 
 static int snd_sbport = 0;
 static int snd_sbirq = 0;

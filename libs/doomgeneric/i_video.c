@@ -18,7 +18,7 @@
 // $Log:$
 //
 // DESCRIPTION:
-//	DOOM graphics stuff for X11, UNIX.
+//	DOOM graphics stuff.
 //
 //-----------------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ boolean screenvisible;
 
 // Mouse acceleration
 //
-// This emulates some of the behavior of DOS mouse drivers by increasing
+// This emulates some of the behavior of classic mouse drivers by increasing
 // the speed when the mouse is moved fast.
 //
 // The mouse input values are input directly to the game, but when

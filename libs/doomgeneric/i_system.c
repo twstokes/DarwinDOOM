@@ -23,12 +23,7 @@
 
 #include <stdarg.h>
 
-#ifdef _WIN32
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#else
 #include <unistd.h>
-#endif
 
 
 #include "config.h"
@@ -208,14 +203,10 @@ void I_PrintStartupBanner(char *gamedescription)
 
 boolean I_ConsoleStdout(void)
 {
-#ifdef _WIN32
-    return 0;
-#else
 #if ORIGCODE
     return isatty(fileno(stdout));
 #else
 	return 0;
-#endif
 #endif
 }
 
@@ -256,100 +247,6 @@ void I_Quit (void)
     }
 
 }
-
-#if !defined(_WIN32) && !defined(__MACOSX__)
-#define ZENITY_BINARY "/usr/bin/zenity"
-
-// returns non-zero if zenity is available
-
-static int ZenityAvailable(void)
-{
-#ifdef TARGET_OS_WATCH
-    return 0;
-#else
-    return system(ZENITY_BINARY " --help >/dev/null 2>&1") == 0;
-#endif
-}
-
-// Escape special characters in the given string so that they can be
-// safely enclosed in shell quotes.
-
-static char *EscapeShellString(char *string)
-{
-    char *result;
-    char *r, *s;
-
-    // In the worst case, every character might be escaped.
-    result = malloc(strlen(string) * 2 + 3);
-    r = result;
-
-    // Enclosing quotes.
-    *r = '"';
-    ++r;
-
-    for (s = string; *s != '\0'; ++s)
-    {
-        // From the bash manual:
-        //
-        //  "Enclosing characters in double quotes preserves the literal
-        //   value of all characters within the quotes, with the exception
-        //   of $, `, \, and, when history expansion is enabled, !."
-        //
-        // Therefore, escape these characters by prefixing with a backslash.
-
-        if (strchr("$`\\!", *s) != NULL)
-        {
-            *r = '\\';
-            ++r;
-        }
-
-        *r = *s;
-        ++r;
-    }
-
-    // Enclosing quotes.
-    *r = '"';
-    ++r;
-    *r = '\0';
-
-    return result;
-}
-
-// Open a native error box with a message using zenity
-
-static int ZenityErrorBox(char *message)
-{
-#ifdef TARGET_OS_WATCH
-    return 0;
-#else
-    int result;
-    char *escaped_message;
-    char *errorboxpath;
-    static size_t errorboxpath_size;
-
-    if (!ZenityAvailable())
-    {
-        return 0;
-    }
-
-    escaped_message = EscapeShellString(message);
-
-    errorboxpath_size = strlen(ZENITY_BINARY) + strlen(escaped_message) + 19;
-    errorboxpath = malloc(errorboxpath_size);
-    M_snprintf(errorboxpath, errorboxpath_size, "%s --error --text=%s",
-               ZENITY_BINARY, escaped_message);
-
-    result = system(errorboxpath);
-
-    free(errorboxpath);
-    free(escaped_message);
-
-    return result;
-#endif
-}
-
-#endif /* !defined(_WIN32) && !defined(__MACOSX__) */
-
 
 //
 // I_Error
@@ -410,17 +307,7 @@ void I_Error (char *error, ...)
     // game was not run from the console (and the user will
     // therefore be unable to otherwise see the message).
     if (exit_gui_popup && !I_ConsoleStdout())
-#ifdef _WIN32
-    {
-        wchar_t wmsgbuf[512];
-
-        MultiByteToWideChar(CP_ACP, 0,
-                            msgbuf, strlen(msgbuf) + 1,
-                            wmsgbuf, sizeof(wmsgbuf));
-
-        MessageBoxW(NULL, wmsgbuf, L"", MB_OK);
-    }
-#elif defined(__MACOSX__)
+#if defined(__MACOSX__)
     {
         CFStringRef message;
 	int i;
@@ -450,9 +337,7 @@ void I_Error (char *error, ...)
                                         NULL);
     }
 #else
-    {
-        ZenityErrorBox(msgbuf);
-    }
+    fprintf(stderr, "%s\n", msgbuf);
 #endif
 
     // abort();
@@ -462,105 +347,34 @@ void I_Error (char *error, ...)
 }
 
 //
-// Read Access Violation emulation.
+// Read access violation emulation.
 //
-// From PrBoom+, by entryway.
+// This provides a small, fixed memory pattern for null dereference reads.
 //
 
-// C:\>debug
-// -d 0:0
-//
-// DOS 6.22:
-// 0000:0000  (57 92 19 00) F4 06 70 00-(16 00)
-// DOS 7.1:
-// 0000:0000  (9E 0F C9 00) 65 04 70 00-(16 00)
-// Win98:
-// 0000:0000  (9E 0F C9 00) 65 04 70 00-(16 00)
-// DOSBox under XP:
-// 0000:0000  (00 00 00 F1) ?? ?? ?? 00-(07 00)
+#define MEM_DUMP_SIZE 10
 
-#define DOS_MEM_DUMP_SIZE 10
-
-static const unsigned char mem_dump_dos622[DOS_MEM_DUMP_SIZE] = {
+static const unsigned char mem_dump_default[MEM_DUMP_SIZE] = {
   0x57, 0x92, 0x19, 0x00, 0xF4, 0x06, 0x70, 0x00, 0x16, 0x00};
-static const unsigned char mem_dump_win98[DOS_MEM_DUMP_SIZE] = {
-  0x9E, 0x0F, 0xC9, 0x00, 0x65, 0x04, 0x70, 0x00, 0x16, 0x00};
-static const unsigned char mem_dump_dosbox[DOS_MEM_DUMP_SIZE] = {
-  0x00, 0x00, 0x00, 0xF1, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00};
-static unsigned char mem_dump_custom[DOS_MEM_DUMP_SIZE];
 
-static const unsigned char *dos_mem_dump = mem_dump_dos622;
+static const unsigned char *mem_dump = mem_dump_default;
 
 boolean I_GetMemoryValue(unsigned int offset, void *value, int size)
 {
-    static boolean firsttime = true;
-
-    if (firsttime)
-    {
-        int p, i, val;
-
-        firsttime = false;
-        i = 0;
-
-        //!
-        // @category compat
-        // @arg <version>
-        //
-        // Specify DOS version to emulate for NULL pointer dereference
-        // emulation.  Supported versions are: dos622, dos71, dosbox.
-        // The default is to emulate DOS 7.1 (Windows 98).
-        //
-
-        p = M_CheckParmWithArgs("-setmem", 1);
-
-        if (p > 0)
-        {
-            if (!strcasecmp(myargv[p + 1], "dos622"))
-            {
-                dos_mem_dump = mem_dump_dos622;
-            }
-            if (!strcasecmp(myargv[p + 1], "dos71"))
-            {
-                dos_mem_dump = mem_dump_win98;
-            }
-            else if (!strcasecmp(myargv[p + 1], "dosbox"))
-            {
-                dos_mem_dump = mem_dump_dosbox;
-            }
-            else
-            {
-                for (i = 0; i < DOS_MEM_DUMP_SIZE; ++i)
-                {
-                    ++p;
-
-                    if (p >= myargc || myargv[p][0] == '-')
-                    {
-                        break;
-                    }
-
-                    M_StrToInt(myargv[p], &val);
-                    mem_dump_custom[i++] = (unsigned char) val;
-                }
-
-                dos_mem_dump = mem_dump_custom;
-            }
-        }
-    }
-
     switch (size)
     {
     case 1:
-        *((unsigned char *) value) = dos_mem_dump[offset];
+        *((unsigned char *) value) = mem_dump[offset];
         return true;
     case 2:
-        *((unsigned short *) value) = dos_mem_dump[offset]
-                                    | (dos_mem_dump[offset + 1] << 8);
+        *((unsigned short *) value) = mem_dump[offset]
+                                    | (mem_dump[offset + 1] << 8);
         return true;
     case 4:
-        *((unsigned int *) value) = dos_mem_dump[offset]
-                                  | (dos_mem_dump[offset + 1] << 8)
-                                  | (dos_mem_dump[offset + 2] << 16)
-                                  | (dos_mem_dump[offset + 3] << 24);
+        *((unsigned int *) value) = mem_dump[offset]
+                                  | (mem_dump[offset + 1] << 8)
+                                  | (mem_dump[offset + 2] << 16)
+                                  | (mem_dump[offset + 3] << 24);
         return true;
     }
 

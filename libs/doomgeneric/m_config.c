@@ -758,7 +758,7 @@ static default_t extra_defaults_list[] =
 
     //!
     // If non-zero, all vertical mouse movement is ignored.  This
-    // emulates the behavior of the "novert" tool available under DOS
+    // emulates the behavior of the legacy "novert" tool
     // that performs the same function.
     //
 
@@ -1575,13 +1575,13 @@ static default_t *SearchCollection(default_collection_t *collection, char *name)
     return NULL;
 }
 
-// Mapping from DOS keyboard scan code to internal key code (as defined
+// Mapping from keyboard scan code to internal key code (as defined
 // in doomkey.h). I think I (fraggle) reused this from somewhere else
 // but I can't find where. Anyway, notes:
 //  * KEY_PAUSE is wrong - it's in the KEY_NUMLOCK spot. This shouldn't
 //    matter in terms of Vanilla compatibility because neither of
 //    those were valid for key bindings.
-//  * There is no proper scan code for PrintScreen (on DOS machines it
+//  * There is no proper scan code for PrintScreen (on some machines it
 //    sends an interrupt). So I added a fake scan code of 126 for it.
 //    The presence of this is important so we can bind PrintScreen as
 //    a screenshot key.
@@ -1809,7 +1809,7 @@ static void LoadDefaultCollection(default_collection_t *collection)
         }
 
         // Strip off trailing non-printable characters (\r characters
-        // from DOS text files)
+        // from legacy text files)
 
         while (strlen(strparm) > 0 && !isprint(strparm[strlen(strparm)-1]))
         {
@@ -2091,7 +2091,7 @@ char *M_GetSaveGameDir(char *iwadname)
     char *topdir;
 #endif
 
-    // If not "doing" a configuration directory (Windows), don't "do"
+    // If not "doing" a configuration directory (special case), don't "do"
     // a savegame directory, either.
 
     if (!strcmp(configdir, ""))

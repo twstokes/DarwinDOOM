@@ -109,8 +109,8 @@ extern int deathmatch;
 
 // -------------------------
 // Internal parameters for sound rendering.
-// These have been taken from the DOS version,
-//  but are not (yet) supported with Linux
+// These have been taken from the original version,
+//  but are not (yet) supported here.
 //  (e.g. no sound volume adjustment with menu.
 
 // From m_menu.c:
@@ -123,7 +123,7 @@ extern int musicVolume;
 // Current music/sfx card - index useless
 //  w/o a reference LUT in a sound module.
 // Ideally, this would use indices found
-//  in: /usr/include/linux/soundcard.h
+//  in: system sound headers
 extern int snd_MusicDevice;
 extern int snd_SfxDevice;
 // Config file? Same disclaimer as above.

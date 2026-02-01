@@ -30,7 +30,7 @@
 /* Define to 1 if you have the `z' library (-lz). */
 #undef HAVE_LIBZ
 
-/* Define to 1 if you have the <linux/kd.h> header file. */
+/* Define to 1 if you have the <kd.h> header file. */
 #undef HAVE_LINUX_KD_H
 
 /* Define to 1 if you have the <memory.h> header file. */

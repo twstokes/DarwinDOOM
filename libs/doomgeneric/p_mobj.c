@@ -283,7 +283,7 @@ void P_ZMovement (mobj_t* mo)
 	//  somebody left this after the setting momz to 0,
 	//  kinda useless there.
 	//
-	// cph - This was the a bug in the linuxdoom-1.10 source which
+	// cph - This was a bug in a legacy source drop which
 	//  caused it not to sync Doom 2 v1.9 demos. Someone
 	//  added the above comment and moved up the following code. So
 	//  demos would desync in close lost soul fights.
@@ -1046,4 +1046,3 @@ P_SpawnPlayerMissile
 
     P_CheckMissileSpawn (th);
 }
-

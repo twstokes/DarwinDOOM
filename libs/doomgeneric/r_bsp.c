@@ -183,7 +183,7 @@ R_ClipSolidWallSegment
 // R_ClipPassWallSegment
 // Clips the given range of columns,
 //  but does not includes it in the clip list.
-// Does handle windows,
+// Does handle viewports,
 //  e.g. LineDefs with upper and lower texture.
 //
 void
@@ -569,5 +569,4 @@ void R_RenderBSPNode (int bspnum)
     if (R_CheckBBox (bsp->bbox[side^1]))	
 	R_RenderBSPNode (bsp->children[side^1]);
 }
-
 

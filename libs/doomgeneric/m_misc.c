@@ -24,17 +24,8 @@
 #include <ctype.h>
 #include <errno.h>
 
-#ifdef _WIN32
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include <io.h>
-#ifdef _MSC_VER
-#include <direct.h>
-#endif
-#else
 #include <sys/stat.h>
 #include <sys/types.h>
-#endif
 
 #include "doomtype.h"
 
@@ -54,11 +45,7 @@
 
 void M_MakeDirectory(char *path)
 {
-#ifdef _WIN32
-    mkdir(path);
-#else
     mkdir(path, 0755);
-#endif
 }
 
 // Check if a file exists
@@ -168,24 +155,12 @@ char *M_TempFile(char *s)
 {
     char *tempdir;
 
-#ifdef _WIN32
-
-    // Check the TEMP environment variable to find the location.
-
-    tempdir = getenv("TEMP");
-
-    if (tempdir == NULL)
-    {
-        tempdir = ".";
-    }
-#else
     // Prefer TMPDIR (macOS sandbox-safe), fall back to /tmp.
     tempdir = getenv("TMPDIR");
     if (tempdir == NULL || tempdir[0] == '\0')
     {
         tempdir = "/tmp";
     }
-#endif
 
     return M_StringJoin(tempdir, DIR_SEPARATOR_S, s, NULL);
 }
@@ -370,7 +345,7 @@ char *M_StringReplace(const char *haystack, const char *needle,
     return result;
 }
 
-// Safe string copy function that works like OpenBSD's strlcpy().
+// Safe string copy function that works like strlcpy().
 // Returns true if the string was not truncated.
 
 boolean M_StringCopy(char *dest, const char *src, size_t dest_size)
@@ -391,7 +366,7 @@ boolean M_StringCopy(char *dest, const char *src, size_t dest_size)
     return src[len] == '\0';
 }
 
-// Safe string concat function that works like OpenBSD's strlcat().
+// Safe string concat function that works like strlcat().
 // Returns true if string not truncated.
 
 boolean M_StringConcat(char *dest, const char *src, size_t dest_size)
@@ -474,13 +449,6 @@ char *M_StringJoin(const char *s, ...)
     return result;
 }
 
-// On Windows, vsnprintf() is _vsnprintf().
-#ifdef _WIN32
-#if _MSC_VER < 1400 /* not needed for Visual Studio 2008 */
-#define vsnprintf _vsnprintf
-#endif
-#endif
-
 // Safe, portable vsnprintf().
 int M_vsnprintf(char *buf, size_t buf_len, const char *s, va_list args)
 {
@@ -491,13 +459,11 @@ int M_vsnprintf(char *buf, size_t buf_len, const char *s, va_list args)
         return 0;
     }
 
-    // Windows (and other OSes?) has a vsnprintf() that doesn't always
-    // append a trailing \0. So we must do it, and write into a buffer
-    // that is one byte shorter; otherwise this function is unsafe.
+    // Some libc implementations don't always append a trailing \0.
+    // Ensure the buffer is always null-terminated.
     result = vsnprintf(buf, buf_len, s, args);
 
     // If truncated, change the final char in the buffer to a \0.
-    // A negative result indicates a truncated buffer on Windows.
     if (result < 0 || result >= buf_len)
     {
         buf[buf_len - 1] = '\0';
@@ -517,22 +483,3 @@ int M_snprintf(char *buf, size_t buf_len, const char *s, ...)
     va_end(args);
     return result;
 }
-
-#ifdef _WIN32
-
-char *M_OEMToUTF8(const char *oem)
-{
-    unsigned int len = strlen(oem) + 1;
-    wchar_t *tmp;
-    char *result;
-
-    tmp = malloc(len * sizeof(wchar_t));
-    MultiByteToWideChar(CP_OEMCP, 0, oem, len, tmp, len);
-    result = malloc(len * 4);
-    WideCharToMultiByte(CP_UTF8, 0, tmp, len, result, len * 4, NULL, NULL);
-    free(tmp);
-
-    return result;
-}
-
-#endif
