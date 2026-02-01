@@ -1,15 +1,19 @@
+# DarwinDOOM
+<img alt="DarwinDOOM icon" src="media/DarwinDOOM.png" style="border-radius: 22px" width="300">
+
 ## What is this?
 
-The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomgeneric) and port it over to Apple devices. This was mostly a weekend hack and may not progress any further.
+The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomgeneric) and port it over to Apple devices. This started as a weekend hack and then got a boost from LLMs.
 
 [YouTube video of it running on an Apple Watch.](https://youtube.com/shorts/Z2bWLXOEflI)
 
-| macOS | Apple Watch |
-| - | - |
-| <img alt="DOOM on macOS" src="https://github.com/twstokes/DarwinDOOM/assets/2092798/40b54b8c-ac1b-49a7-bbc7-c0674d4b82fe"> | <img alt="DOOM on watchOS" src="https://github.com/twstokes/DarwinDOOM/assets/2092798/cf3ae161-735a-422a-9ad8-1fd11f6f83f6"> |
+| macOS | iOS | watchOS |
+| - | - | - |
+| <img alt="DOOM on macOS" src="media/macos_screenshot.png"> | <img alt="DOOM on iOS" src="media/ios_screenshot.png"> | <img alt="DOOM on watchOS" src="media/watch_screenshot.png"> |
 
 
 
+## Features
 
 - macOS has sound via AVFoundation (SFX + MIDI music).
 - iOS has sound via AVFoundation (SFX + MIDI music; uses bundled soundfont). Note: the iOS Simulator's MIDI instruments can sound rough; on-device playback is fine.
@@ -19,9 +23,9 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 ## Setup (macOS)
 
-1) Build and run.
+1) (Optional) Replace the bundled shareware WAD by dropping another WAD into `DarwinDOOM/WADs`.
 
-2) (Optional) Replace the bundled shareware WAD by dropping another WAD into `DarwinDOOM/WADs`.
+2) Build and run in Xcode.
 
 
 ## Controls
