@@ -27,6 +27,28 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 2) Build and run in Xcode.
 
+## Release (macOS)
+
+The release flow is interactive and prompts you for:
+- Confirming the version you passed in.
+- Whether to notarize the build.
+- Whether to create a GitHub tag + draft release.
+
+Versioning is centralized in `Config/Versions.xcconfig` and will be updated to match the release version.
+If that change produces a git diff, you’ll be prompted to commit it.
+
+Before notarizing, create a keychain profile once:
+
+```
+xcrun notarytool store-credentials "DarwinDOOM-notary" --apple-id "<you@example.com>" --team-id AE76EV48ND --password "<app-specific-password>"
+```
+
+Run a release:
+
+```
+make release VERSION=0.1.0
+```
+
 
 ## Controls
 
