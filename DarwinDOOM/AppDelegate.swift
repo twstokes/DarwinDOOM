@@ -13,13 +13,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var faceControlMenuItem: NSMenuItem?
     private var faceControlCameraMenuItem: NSMenuItem?
     private var faceControlCameraItems: [NSMenuItem] = []
+    private var dockRenderMenuItem: NSMenuItem?
 
     func applicationDidFinishLaunching(_: Notification) {
         UserDefaults.standard.register(defaults: [
             FaceControlSettings.defaultsKey: false,
+            FaceControlSettings.dockRenderDefaultsKey: false,
         ])
         configureFaceControlMenuItem()
         configureFaceControlCameraMenuItem()
+        configureDockRenderMenuItem()
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleFaceControlStateDidChange(_:)),
@@ -128,6 +131,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         faceControlCameraMenuItem = cameraMenuItem
     }
 
+    private func configureDockRenderMenuItem() {
+        guard let appMenu = NSApp.mainMenu?.items.first?.submenu else { return }
+
+        if let existing = appMenu.items.first(where: { $0.title == "Render in Dock" }) {
+            dockRenderMenuItem = existing
+            existing.state = UserDefaults.standard.bool(forKey: FaceControlSettings.dockRenderDefaultsKey) ? .on : .off
+            existing.target = self
+            existing.action = #selector(toggleDockRender(_:))
+            return
+        }
+
+        let toggleItem = NSMenuItem(
+            title: "Render in Dock",
+            action: #selector(toggleDockRender(_:)),
+            keyEquivalent: ""
+        )
+        toggleItem.target = self
+        toggleItem.state = UserDefaults.standard.bool(forKey: FaceControlSettings.dockRenderDefaultsKey) ? .on : .off
+
+        let insertIndex: Int
+        if let cameraIndex = appMenu.items.firstIndex(where: { $0.title == "Face Control Camera" }) {
+            insertIndex = cameraIndex + 1
+        } else if let faceControlIndex = appMenu.items.firstIndex(where: { $0.title == "Face Control" }) {
+            insertIndex = faceControlIndex + 1
+        } else if let prefsIndex = appMenu.items.firstIndex(where: { $0.title == "Preferences…" }) {
+            insertIndex = prefsIndex + 1
+        } else {
+            insertIndex = min(1, appMenu.items.count)
+        }
+
+        appMenu.insertItem(toggleItem, at: min(insertIndex, appMenu.items.count))
+        dockRenderMenuItem = toggleItem
+    }
+
     private func removeFaceControlCameraMenuItem(from appMenu: NSMenu) {
         if let cameraMenuItem = faceControlCameraMenuItem,
            let index = appMenu.items.firstIndex(of: cameraMenuItem)
@@ -142,6 +179,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let shouldEnable = sender.state != .on
         NotificationCenter.default.post(
             name: .faceControlToggleRequested,
+            object: nil,
+            userInfo: ["enabled": shouldEnable]
+        )
+    }
+
+    @objc private func toggleDockRender(_ sender: NSMenuItem) {
+        let shouldEnable = sender.state != .on
+        UserDefaults.standard.set(shouldEnable, forKey: FaceControlSettings.dockRenderDefaultsKey)
+        dockRenderMenuItem?.state = shouldEnable ? .on : .off
+        NotificationCenter.default.post(
+            name: .dockRenderToggleRequested,
             object: nil,
             userInfo: ["enabled": shouldEnable]
         )

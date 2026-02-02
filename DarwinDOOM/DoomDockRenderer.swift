@@ -7,16 +7,34 @@ final class DoomDockRenderer {
     private var pendingFrame: Data?
     private var pendingSize: CGSize = .zero
     private var updateScheduled = false
+    private var isEnabled = false
 
     init?(dockTile: NSDockTile = NSApp.dockTile) {
         self.dockTile = dockTile
         imageView = NSImageView(frame: .zero)
         imageView.imageScaling = .scaleProportionallyUpOrDown
-        dockTile.contentView = imageView
-        dockTile.display()
+    }
+
+    func setEnabled(_ enabled: Bool) {
+        stateQueue.sync {
+            isEnabled = enabled
+        }
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if enabled {
+                if self.dockTile.contentView !== self.imageView {
+                    self.dockTile.contentView = self.imageView
+                }
+            } else {
+                self.dockTile.contentView = nil
+            }
+            self.dockTile.display()
+        }
     }
 
     func update(with data: Data, size: CGSize) {
+        let shouldRender = stateQueue.sync { isEnabled }
+        guard shouldRender else { return }
         stateQueue.sync {
             pendingFrame = data
             pendingSize = size
@@ -68,7 +86,23 @@ final class DoomDockRenderer {
             intent: .defaultIntent
         ) else { return }
 
-        let image = NSImage(cgImage: cgImage, size: dockTile.size)
+        let dockSize = dockTile.size
+        let image = NSImage(size: dockSize)
+        image.lockFocus()
+        NSColor.clear.setFill()
+        NSRect(origin: .zero, size: dockSize).fill()
+        let cornerRadius = min(dockSize.width, dockSize.height) * 0.18
+        let clipPath = NSBezierPath(roundedRect: NSRect(origin: .zero, size: dockSize),
+                                    xRadius: cornerRadius,
+                                    yRadius: cornerRadius)
+        clipPath.addClip()
+        NSGraphicsContext.current?.imageInterpolation = .none
+        let drawRect = NSRect(origin: .zero, size: dockSize)
+        NSImage(cgImage: cgImage, size: dockSize).draw(in: drawRect,
+                                                       from: .zero,
+                                                       operation: .sourceOver,
+                                                       fraction: 1.0)
+        image.unlockFocus()
         imageView.image = image
         dockTile.display()
     }

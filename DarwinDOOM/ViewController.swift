@@ -82,6 +82,22 @@ class ViewController: NSViewController {
             }
             window.setFrameAutosaveName(autosaveName)
         }
+
+        if let window = view.window {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(handleWindowDidMiniaturize(_:)),
+                name: NSWindow.didMiniaturizeNotification,
+                object: window
+            )
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(handleWindowDidDeminiaturize(_:)),
+                name: NSWindow.didDeminiaturizeNotification,
+                object: window
+            )
+            renderCoordinator.setWindowMiniaturized(window.isMiniaturized)
+        }
     }
 
     override func viewWillDisappear() {
@@ -109,6 +125,14 @@ private extension ViewController {
     @objc func handleFaceControlCameraChanged(_ notification: Notification) {
         let uniqueID = notification.userInfo?["uniqueID"] as? String
         webcamCapture.setPreferredCamera(uniqueID: uniqueID)
+    }
+
+    @objc func handleWindowDidMiniaturize(_ notification: Notification) {
+        renderCoordinator.setWindowMiniaturized(true)
+    }
+
+    @objc func handleWindowDidDeminiaturize(_ notification: Notification) {
+        renderCoordinator.setWindowMiniaturized(false)
     }
 
     func setFaceControlEnabled(_ enabled: Bool, userInitiated: Bool) {
