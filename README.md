@@ -11,10 +11,6 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 | - | - | - |
 | <img alt="DOOM on macOS" src="media/macos_screenshot.png"> | <img alt="DOOM on iOS" src="media/ios_screenshot.png"> | <img alt="DOOM on watchOS" src="media/watch_screenshot.png"> |
 
-
-<img alt="DOOM in the macOS Dock" src="media/doom_dock.gif" width="640">
-
-
 ## Features
 
 - macOS has sound via AVFoundation (SFX + MIDI music).
@@ -23,6 +19,8 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 - macOS includes an optional Face Control mode (menu bar toggle) that uses the camera to drive the Doom Guy’s face.
   Supported expressions: forward, look left, look right, grin, mouth open, eyebrow raise (left), eyebrow raise (right).
 - macOS can render DOOM in the Dock when the window is minimized (menu bar toggle: "Render in Dock").
+
+<img alt="DOOM in the macOS Dock" src="media/doom_dock.gif" width="640">
 
 ## Setup (macOS)
 
