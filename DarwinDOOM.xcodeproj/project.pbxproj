@@ -196,6 +196,7 @@
 		C34940FE2A5A555400E5855C /* p_floor.c in Sources */ = {isa = PBXBuildFile; fileRef = C34940A72A5A555300E5855C /* p_floor.c */; };
 		C38BFFA52F301E8600B41808 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BFFA42F301E8600B41808 /* AVFoundation.framework */; };
 		C38BFFA72F301E9B00B41808 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BFFA62F301E9B00B41808 /* AVFoundation.framework */; };
+		C38BFFD22F30221200B41808 /* DoomSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BFFD12F30221200B41808 /* DoomSKView.swift */; };
 		C396462F2F2EEFAC003FD929 /* DoomRenderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */; };
 		C39646302F2EEFAC003FD929 /* i_avfmusic.mm in Sources */ = {isa = PBXBuildFile; fileRef = D705970A5D8847D094CE68A8 /* i_avfmusic.mm */; };
 		C39646312F2EEFAC003FD929 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
@@ -372,6 +373,7 @@
 		F0A1B2C3D4E5F60789ABCD13 /* DoomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34071822A5B4039001FAD58 /* DoomScene.swift */; };
 		F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */; };
+		F0A1B2C3D4E5F60789ABCD23 /* FaceControlCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD22 /* FaceControlCapture.swift */; };
 		F38A9EB62CA5E7720017B02F /* SpriteViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */; };
 		F3AFA0A02D00000100000001 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
 		F3CFC72E2CA5938D001DF678 /* TouchToKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */; };
@@ -604,11 +606,13 @@
 		C34940A92A5A555300E5855C /* w_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = w_main.h; sourceTree = "<group>"; };
 		C38BFFA42F301E8600B41808 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		C38BFFA62F301E9B00B41808 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		C38BFFD12F30221200B41808 /* DoomSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomSKView.swift; sourceTree = "<group>"; };
 		C3BACA382F2ED6D800BF04EC /* DarwinDOOM iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DarwinDOOM iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlSettings.swift; sourceTree = "<group>"; };
 		D705970A5D8847D094CE68A8 /* i_avfmusic.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfmusic.mm; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomRenderCoordinator.swift; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCamera.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60789ABCD22 /* FaceControlCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCapture.swift; sourceTree = "<group>"; };
 		F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteViewContainer.swift; sourceTree = "<group>"; };
 		F3AFA09E2D00000100000001 /* i_avfsound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfsound.mm; sourceTree = "<group>"; };
 		F3AFA09F2D00000100000001 /* i_nomusic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = i_nomusic.c; sourceTree = "<group>"; };
@@ -705,9 +709,9 @@
 			children = (
 				F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */,
 				C3493FE32A5A547300E5855C /* AppDelegate.swift */,
-				CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */,
-				F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */,
+				C38BFFD02F3021FD00B41808 /* FaceControl */,
 				C3493FE52A5A547300E5855C /* ViewController.swift */,
+				C38BFFD12F30221200B41808 /* DoomSKView.swift */,
 				C34071822A5B4039001FAD58 /* DoomScene.swift */,
 				C31D8E5D2A5B0C3B0062F401 /* doomgeneric_objc_interop.m */,
 				C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */,
@@ -916,6 +920,16 @@
 				C3493FF22A5A54BB00E5855C /* doomgeneric */,
 			);
 			path = libs;
+			sourceTree = "<group>";
+		};
+		C38BFFD02F3021FD00B41808 /* FaceControl */ = {
+			isa = PBXGroup;
+			children = (
+				CE2784A3BA144B97A8874163 /* FaceControlSettings.swift */,
+				F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */,
+				F0A1B2C3D4E5F60789ABCD22 /* FaceControlCapture.swift */,
+			);
+			path = FaceControl;
 			sourceTree = "<group>";
 		};
 		C3A9FBDD2A5BAB2B0059DCEC /* Frameworks */ = {
@@ -1221,6 +1235,7 @@
 				C34940D12A5A555400E5855C /* sounds.c in Sources */,
 				C34940EE2A5A555400E5855C /* p_maputl.c in Sources */,
 				C34940C62A5A555400E5855C /* doomgeneric.c in Sources */,
+				C38BFFD22F30221200B41808 /* DoomSKView.swift in Sources */,
 				C34940D62A5A555400E5855C /* memio.c in Sources */,
 				C34940FC2A5A555400E5855C /* mus2mid.c in Sources */,
 				C34940BF2A5A555400E5855C /* m_random.c in Sources */,
@@ -1247,6 +1262,7 @@
 				C3493FE42A5A547300E5855C /* AppDelegate.swift in Sources */,
 				B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */,
 				F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */,
+				F0A1B2C3D4E5F60789ABCD23 /* FaceControlCapture.swift in Sources */,
 				C34940E12A5A555400E5855C /* d_loop.c in Sources */,
 				C34940DD2A5A555400E5855C /* r_main.c in Sources */,
 				C34940B12A5A555400E5855C /* p_tick.c in Sources */,

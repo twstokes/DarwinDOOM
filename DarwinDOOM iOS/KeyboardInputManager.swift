@@ -41,7 +41,7 @@ final class KeyboardInputManager {
         attachKeyboard(kb)
     }
 
-    @objc private func handleKeyboardDidDisconnect(_ notification: Notification) {
+    @objc private func handleKeyboardDidDisconnect(_: Notification) {
         keyboard?.keyboardInput?.keyChangedHandler = nil
         keyboard = nil
     }

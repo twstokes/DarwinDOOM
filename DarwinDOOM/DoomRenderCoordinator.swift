@@ -14,7 +14,7 @@ final class DoomRenderCoordinator {
 
     init(viewSize: CGSize = CGSize(width: Int(DOOMGENERIC_RESX), height: Int(DOOMGENERIC_RESY))) {
         self.viewSize = viewSize
-        self.scene = DoomScene(size: viewSize)
+        scene = DoomScene(size: viewSize)
 
         DoomGenericSwift.shared().frameDrawCallback = { [weak self] data in
             guard let self else { return }

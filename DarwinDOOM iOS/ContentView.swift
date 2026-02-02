@@ -5,8 +5,8 @@
 //  Created by Tanner W. Stokes on 1/31/26.
 //
 
-import SwiftUI
 import SpriteKit
+import SwiftUI
 
 struct ContentView: View {
     @State private var renderCoordinator = DoomRenderCoordinator()

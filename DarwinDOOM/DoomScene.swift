@@ -29,7 +29,9 @@ class DoomScene: SKScene {
         var cargs = args.map { strdup($0) }
         doomgeneric_Create(Int32(args.count), &cargs)
         // free the duplicated strings
-        for ptr in cargs { free(ptr) }
+        for ptr in cargs {
+            free(ptr)
+        }
     }
 
     override func didChangeSize(_ oldSize: CGSize) {
@@ -37,7 +39,8 @@ class DoomScene: SKScene {
         doomNode.size = size
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

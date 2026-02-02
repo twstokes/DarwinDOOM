@@ -1,5 +1,5 @@
 //
-//  DoomGeneric_Swift.swift
+//  DoomGenericSwift.swift
 //  DarwinDOOM
 //
 //  Created by Tanner W. Stokes on 7/9/23.
@@ -8,9 +8,7 @@
 import Foundation
 
 @objc class DoomGenericSwift: NSObject {
-    private static var sharedDoomGenericSwift: DoomGenericSwift = {
-        return DoomGenericSwift()
-    }()
+    private static var sharedDoomGenericSwift: DoomGenericSwift = .init()
 
     var frameDrawCallback: ((Data) -> Void)?
 

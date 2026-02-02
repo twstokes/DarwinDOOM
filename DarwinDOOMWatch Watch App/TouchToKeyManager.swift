@@ -31,15 +31,15 @@ import Foundation
 
 @objcMembers
 class TouchToKeyManager: NSObject, ObservableObject {
-    public  static var keyQueue: [UInt16] = Array(repeating: 0, count: 16)
-    public static var currentReadIndex = 0;
-    public static var currentWriteIndex = 0;
+    static var keyQueue: [UInt16] = Array(repeating: 0, count: 16)
+    static var currentReadIndex = 0
+    static var currentWriteIndex = 0
 
-    public static func getCurrentReadIndex() -> Int {
+    static func getCurrentReadIndex() -> Int {
         TouchToKeyManager.currentReadIndex
     }
 
-    public static func getCurrentWriteIndex() -> Int {
+    static func getCurrentWriteIndex() -> Int {
         TouchToKeyManager.currentWriteIndex
     }
 
@@ -100,7 +100,7 @@ class TouchToKeyManager: NSObject, ObservableObject {
 
     static func addTouchDownToKeyQueue(_ currentGridRegion: ScreenRegion) {
         let key: UInt16 = doomKeyFromRegion(currentGridRegion)
-        let value: UInt16 = (1 << 8) | key;
+        let value: UInt16 = (1 << 8) | key
         TouchToKeyManager.keyQueue[currentWriteIndex] = value
         TouchToKeyManager.currentWriteIndex += 1
         TouchToKeyManager.currentWriteIndex %= 16
@@ -108,7 +108,7 @@ class TouchToKeyManager: NSObject, ObservableObject {
 
     static func addTouchUpToKeyQueue(_ currentGridRegion: ScreenRegion) {
         let key: UInt16 = doomKeyFromRegion(currentGridRegion)
-        let value: UInt16 = (0 << 8) | key;
+        let value: UInt16 = (0 << 8) | key
         TouchToKeyManager.keyQueue[currentWriteIndex] = value
         TouchToKeyManager.currentWriteIndex += 1
         TouchToKeyManager.currentWriteIndex %= 16
@@ -127,13 +127,13 @@ class TouchToKeyManager: NSObject, ObservableObject {
         case .action:
             // Is the user currently playing a game?
             return usergame.rawValue == 1 ?
-                   UInt16(KEY_USE) :
-                   UInt16(KEY_ENTER)
+                UInt16(KEY_USE) :
+                UInt16(KEY_ENTER)
         case .fire:
             // Is the user currently playing a game?
             return usergame.rawValue == 1 ?
-                   UInt16(KEY_FIRE) :
-                   UInt16(KEY_ESCAPE)
+                UInt16(KEY_FIRE) :
+                UInt16(KEY_ESCAPE)
         }
     }
 }

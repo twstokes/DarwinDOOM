@@ -4,7 +4,7 @@ enum FaceControlCamera {
     private static let deviceTypes: [AVCaptureDevice.DeviceType] = {
         var types: [AVCaptureDevice.DeviceType] = [
             .builtInWideAngleCamera,
-            .externalUnknown
+            .externalUnknown,
         ]
         if #available(macOS 14.0, *) {
             types.append(.continuityCamera)
@@ -23,7 +23,8 @@ enum FaceControlCamera {
 
     static func resolvedDevice(for preferredUniqueID: String?, in devices: [AVCaptureDevice]) -> AVCaptureDevice? {
         if let preferredUniqueID,
-           let match = devices.first(where: { $0.uniqueID == preferredUniqueID }) {
+           let match = devices.first(where: { $0.uniqueID == preferredUniqueID })
+        {
             return match
         }
         return defaultDevice(in: devices)

@@ -5,8 +5,8 @@
 //  Created by Tanner W. Stokes on 7/8/23.
 //
 
-import Cocoa
 import AVFoundation
+import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,9 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var faceControlCameraMenuItem: NSMenuItem?
     private var faceControlCameraItems: [NSMenuItem] = []
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         UserDefaults.standard.register(defaults: [
-            FaceControlSettings.defaultsKey: false
+            FaceControlSettings.defaultsKey: false,
         ])
         configureFaceControlMenuItem()
         configureFaceControlCameraMenuItem()
@@ -28,11 +28,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func applicationWillTerminate(_: Notification) {
         // Insert code here to tear down your application
     }
 
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+    func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
         return true
     }
 
@@ -130,7 +130,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func removeFaceControlCameraMenuItem(from appMenu: NSMenu) {
         if let cameraMenuItem = faceControlCameraMenuItem,
-           let index = appMenu.items.firstIndex(of: cameraMenuItem) {
+           let index = appMenu.items.firstIndex(of: cameraMenuItem)
+        {
             appMenu.removeItem(at: index)
         }
         faceControlCameraMenuItem = nil
