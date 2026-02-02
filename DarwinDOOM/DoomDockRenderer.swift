@@ -91,13 +91,30 @@ final class DoomDockRenderer {
         image.lockFocus()
         NSColor.clear.setFill()
         NSRect(origin: .zero, size: dockSize).fill()
-        let cornerRadius = min(dockSize.width, dockSize.height) * 0.18
-        let clipPath = NSBezierPath(roundedRect: NSRect(origin: .zero, size: dockSize),
+        NSGraphicsContext.current?.imageInterpolation = .none
+        let targetAspect = CGFloat(640.0 / 400.0)
+        let dockAspect = dockSize.width / max(dockSize.height, 1.0)
+        let drawRect: NSRect
+        if dockAspect >= targetAspect {
+            let height = dockSize.height
+            let width = height * targetAspect
+            drawRect = NSRect(x: (dockSize.width - width) * 0.5,
+                              y: 0,
+                              width: width,
+                              height: height)
+        } else {
+            let width = dockSize.width
+            let height = width / targetAspect
+            drawRect = NSRect(x: 0,
+                              y: (dockSize.height - height) * 0.5,
+                              width: width,
+                              height: height)
+        }
+        let cornerRadius = min(drawRect.width, drawRect.height) * 0.06
+        let clipPath = NSBezierPath(roundedRect: drawRect,
                                     xRadius: cornerRadius,
                                     yRadius: cornerRadius)
         clipPath.addClip()
-        NSGraphicsContext.current?.imageInterpolation = .none
-        let drawRect = NSRect(origin: .zero, size: dockSize)
         NSImage(cgImage: cgImage, size: dockSize).draw(in: drawRect,
                                                        from: .zero,
                                                        operation: .sourceOver,
