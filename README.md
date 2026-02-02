@@ -20,6 +20,7 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 - watchOS: experimental SFX sound scaffolding (AVFoundation). Music is disabled for now.
 - macOS includes an optional Face Control mode (menu bar toggle) that uses the camera to drive the Doom Guy’s face.
   Supported expressions: forward, look left, look right, grin, mouth open, eyebrow raise (left), eyebrow raise (right).
+- macOS can render DOOM in the Dock when the window is minimized (menu bar toggle: "Render in Dock").
 
 ## Setup (macOS)
 
