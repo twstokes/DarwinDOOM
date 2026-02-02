@@ -290,6 +290,7 @@
 		F0A1B2C3D4E5F60789ABCD14 /* DoomGenericSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D8E5F2A5B0DB30062F401 /* DoomGenericSwift.swift */; };
 		F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */; };
 		F0A1B2C3D4E5F60789ABCD23 /* FaceControlCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD22 /* FaceControlCapture.swift */; };
+		F0A1B2C3D4E5F60789ABCD31 /* DoomDockRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60789ABCD30 /* DoomDockRenderer.swift */; };
 		F38A9EB62CA5E7720017B02F /* SpriteViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */; };
 		F3AFA0A02D00000100000001 /* i_avfsound.mm in Sources */ = {isa = PBXBuildFile; fileRef = F3AFA09E2D00000100000001 /* i_avfsound.mm */; };
 		F3CFC72E2CA5938D001DF678 /* TouchToKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CFC72D2CA5938D001DF678 /* TouchToKeyManager.swift */; };
@@ -529,6 +530,7 @@
 		F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomRenderCoordinator.swift; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD20 /* FaceControlCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCamera.swift; sourceTree = "<group>"; };
 		F0A1B2C3D4E5F60789ABCD22 /* FaceControlCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceControlCapture.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60789ABCD30 /* DoomDockRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoomDockRenderer.swift; sourceTree = "<group>"; };
 		F38A9EB52CA5E7720017B02F /* SpriteViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteViewContainer.swift; sourceTree = "<group>"; };
 		F3AFA09E2D00000100000001 /* i_avfsound.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = i_avfsound.mm; sourceTree = "<group>"; };
 		F3AFA09F2D00000100000001 /* i_nomusic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = i_nomusic.c; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 			isa = PBXGroup;
 			children = (
 				F0A1B2C3D4E5F60789ABCD10 /* DoomRenderCoordinator.swift */,
+				F0A1B2C3D4E5F60789ABCD30 /* DoomDockRenderer.swift */,
 				C3493FE32A5A547300E5855C /* AppDelegate.swift */,
 				C38BFFD02F3021FD00B41808 /* FaceControl */,
 				C3493FE52A5A547300E5855C /* ViewController.swift */,
@@ -1179,6 +1182,7 @@
 				B961B2A906474FF0B37693AC /* FaceControlSettings.swift in Sources */,
 				F0A1B2C3D4E5F60789ABCD21 /* FaceControlCamera.swift in Sources */,
 				F0A1B2C3D4E5F60789ABCD23 /* FaceControlCapture.swift in Sources */,
+				F0A1B2C3D4E5F60789ABCD31 /* DoomDockRenderer.swift in Sources */,
 				C34940E12A5A555400E5855C /* d_loop.c in Sources */,
 				C34940DD2A5A555400E5855C /* r_main.c in Sources */,
 				C34940B12A5A555400E5855C /* p_tick.c in Sources */,

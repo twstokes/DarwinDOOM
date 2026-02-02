@@ -11,6 +11,7 @@ import SpriteKit
 final class DoomRenderCoordinator {
     let scene: DoomScene
     let viewSize: CGSize
+    private let dockRenderer = DoomDockRenderer()
 
     init(viewSize: CGSize = CGSize(width: Int(DOOMGENERIC_RESX), height: Int(DOOMGENERIC_RESY))) {
         self.viewSize = viewSize
@@ -20,6 +21,7 @@ final class DoomRenderCoordinator {
             guard let self else { return }
             let newTexture = SKTexture(data: data, size: self.viewSize, flipped: true)
             self.scene.doomNode.texture = newTexture
+            self.dockRenderer?.update(with: data, size: self.viewSize)
         }
     }
 
