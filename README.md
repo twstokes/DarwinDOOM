@@ -12,6 +12,8 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 | <img alt="DOOM on macOS" src="media/macos_screenshot.png"> | <img alt="DOOM on iOS" src="media/ios_screenshot.png"> | <img alt="DOOM on watchOS" src="media/watch_screenshot.png"> |
 
 
+<video src="media/doom_dock.mov"  autoplay controls muted loop></video>
+
 
 ## Features
 
