@@ -5,6 +5,10 @@
 
 The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomgeneric) and port it over to Apple devices. This started as a weekend hack and then got a boost from LLMs.
 
+## License
+
+This project is licensed under GPLv3. See the `LICENSE` file for details.
+
 [YouTube video of it running on an Apple Watch.](https://youtube.com/shorts/Z2bWLXOEflI)
 
 | macOS | iOS | watchOS |
