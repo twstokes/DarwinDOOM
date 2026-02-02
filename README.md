@@ -24,6 +24,8 @@ The goal of this project is to take [doomgeneric](https://github.com/ozkl/doomge
 
 ## Setup (macOS)
 
+If you just want to run the macOS version, grab the latest build from the GitHub Releases page.
+
 1) (Optional) Replace the bundled shareware WAD by dropping another WAD into `DarwinDOOM/WADs`.
 
 2) Build and run in Xcode.
