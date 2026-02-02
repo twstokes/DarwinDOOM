@@ -46,3 +46,6 @@ release-macos:
 
 release:
 	@$(MAKE) release-macos
+
+format:
+	@swiftformat .
